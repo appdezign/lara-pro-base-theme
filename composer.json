@@ -1,7 +1,7 @@
 {
-    "name": "appdezign/lara-base-theme",
-    "description": "Lara CMS Base Theme",
-	"version": "8.5.17",
+    "name": "appdezign/lara-pro-base-theme",
+    "description": "Lara Pro CMS Base Theme",
+	"version": "10.0.1",
     "keywords": ["Lara", "CMS"],
     "license": "proprietary",
     "homepage": "https://firmaq.nl",
@@ -14,8 +14,8 @@
     ],
     "require": {
 		"php": "^8.0",
-		"appdezign/lara-cms": "^8.5",
-		"appdezign/lara-demo-theme": "^8.5",
+		"appdezign/lara-pro-cms": "^10.0",
+		"appdezign/lara-pro-demo-theme": "^10.0",
 		"laravel/framework": "^11.0"
 	},
 	"autoload": {
@@ -29,13 +29,13 @@
 				"LaraBaseServiceProvider"
 			],
 			"dont-discover": [
-				"appdezign/lara-base-theme"
+				"appdezign/lara-pro-base-theme"
 
 			]
 		},
 		"installer-paths": {
 			"laracms/themes/{$name}": [
-				"appdezign/lara-base-theme"
+				"appdezign/lara-pro-base-theme"
 			]
 		}
 	}
