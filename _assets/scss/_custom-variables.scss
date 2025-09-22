@@ -1,0 +1,79 @@
+//
+// user-variables.scss
+// Use this to override Bootstrap and Silicon variables
+//
+
+$lara-primary-dark:        rgb(50, 52, 121);
+$lara-pink:                rgb(225, 125, 255);
+
+$link-decoration:          none !default;
+$link-hover-decoration:    underline !default;
+
+$dropdown-spacer:          .5rem !default;
+
+$icons-font-family:        'Font Awesome 5 Pro' !default;
+
+
+$font-sizes: (
+		8: 0.5rem,
+		9: 0.5625rem,
+		10: 0.625rem,
+		11: 0.6875rem,
+		12: 0.75rem,
+		13: 0.8125rem,
+		14: 0.875rem,
+		15: 0.9375rem,
+		16: 1rem,
+		17: 1.0625rem,
+		18: 1.125rem,
+		19: 1.1875rem,
+		20: 1.25rem,
+		22: 1.375rem,
+		24: 1.5rem,
+		36: 2.25rem,
+		48: 3rem,
+		60: 3.75rem,
+		72: 4.5rem,
+);
+
+// Spacers
+$spacer: 1rem;
+$spacers: (
+		0: 0,
+		1: $spacer * 0.0625,
+		2: $spacer * 0.125,
+		3: $spacer * 0.1875,
+		4: $spacer * 0.25,
+		5: $spacer * 0.3125,
+		6: $spacer * 0.375,
+		7: $spacer * 0.4375,
+		8: $spacer * 0.5,
+		9: $spacer * 0.5625,
+		10: $spacer * 0.625,
+		12: $spacer * 0.75,
+		14: $spacer * 0.875,
+		16: $spacer * 1,
+		18: $spacer * 1.125,
+		20: $spacer * 1.25,
+		24: $spacer * 1.5,
+		28: $spacer * 1.75,
+		32: $spacer * 2,
+		36: $spacer * 2.25,
+		48: $spacer * 3,
+		60: $spacer * 3.75,
+		72: $spacer * 4.5,
+);
+
+// Aspect Ratio
+$aspect-ratios: (
+		"1x1": 100%,
+		"2x1": calc(1 / 2 * 100%),
+		"3x1": calc(1 / 3 * 100%),
+		"3x2": calc(2 / 3 * 100%),
+		"4x1": calc(1 / 4 * 100%),
+		"4x3": calc(3 / 4 * 100%),
+		"16x9": calc(9 / 16 * 100%),
+		"2x3": calc(3 / 2 * 100%),
+		"3x4": calc(4 / 3 * 100%),
+		"5x2": calc(2 / 5 * 100%)
+);

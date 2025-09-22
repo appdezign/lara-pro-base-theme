@@ -1,0 +1,33 @@
+.module {
+	background-color: $white;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	position: relative;
+	padding: 8rem 0;
+	&.parallax {
+		background-color: transparent;
+	}
+}
+.module-sm {
+	background-color: $white;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	position: relative;
+	padding: 4rem 0;
+	&.parallax {
+		background-color: transparent;
+	}
+}
+.module-xs {
+	background-color: $white;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	position: relative;
+	padding: 2rem 0;
+	&.parallax {
+		background-color: transparent;
+	}
+}

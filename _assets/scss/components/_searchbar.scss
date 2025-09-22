@@ -1,0 +1,59 @@
+.searchbar {
+	position: absolute;
+	top: 75px;
+	left: 0;
+	right: 0;
+	z-index: 99999;
+
+	height: 0;
+	overflow: hidden;
+	width: 100%;
+	background-color: $white;
+	transition: all 0.1s ease-out;
+
+	.row {
+		padding: 3rem 0;
+	}
+
+	&__form {
+		position: relative;
+		opacity: 0;
+		transition: all 0.2s ease-out;
+
+		input[type=search] {
+			padding-left: 3rem;
+			background-color: $white;
+			border-radius: 100px;
+		}
+		.btn {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			padding: 0 0.5rem 0 1rem;
+			background-color: transparent;
+			transform: translateY(-50%)
+		}
+	}
+
+	&.searchbar--open {
+		opacity: 1;
+		height: 8.75rem;
+
+		.searchbar__form {
+			opacity: 1;
+		}
+	}
+
+}
+
+.lara-navbar-classic {
+	.searchbar {
+		top: 60px;
+	}
+}
+
+.navbar.navbar-scrolled {
+	.searchbar {
+		top: 58px;
+	}
+}

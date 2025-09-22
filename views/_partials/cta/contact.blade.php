@@ -1,0 +1,1 @@
+@widget('ctaWidget', ['hook' => 'contact', 'template' => 'contact', 'grid' => $data->grid])

@@ -1,0 +1,45 @@
+.cc_theme_lara {
+	--cc-bg: #fff;
+	--cc-text: #1e2837;
+	--cc-btn-primary-bg: #6366f1;
+	--cc-btn-primary-text: var(--cc-bg);
+	--cc-btn-primary-hover-bg: #1d2e38;
+	--cc-btn-secondary-bg: #dfe7f9;
+	--cc-btn-secondary-text: var(--cc-text);
+	--cc-btn-secondary-hover-bg: #c6d1ea;
+	--cc-toggle-bg-off: #8fa8d6;
+	--cc-toggle-bg-on: #47d747;
+	--cc-toggle-bg-readonly: #cbd8f1;
+	--cc-toggle-knob-bg: #fff;
+	--cc-toggle-knob-icon-color: #ecf2fa;
+	--cc-block-text: var(--cc-text);
+	--cc-cookie-category-block-bg: #ebeff9;
+	--cc-cookie-category-block-bg-hover: #dbe5f9;
+	--cc-section-border: #f1f3f5;
+	--cc-cookie-table-border: #e1e7f3;
+	--cc-overlay-bg: rgba(30, 40, 55, .75);
+	--cc-webkit-scrollbar-bg: #ebeff9;
+	--cc-webkit-scrollbar-bg-hover: #6366f1;
+}
+
+.cc_theme_lara #c-ttl {
+	color: var(--cc-btn-primary-bg);
+}
+
+.cc_theme_lara #s-cnt .b-bn .b-tl {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+@media (min-width: 689px) {
+	.cc_theme_lara #s-bns {
+		display: flex;
+		flex-direction: row;
+	}
+	.cc_theme_lara #s-all-bn {
+		flex-grow: 2;
+	}
+	.cc_theme_lara #s-sv-bn {
+		flex-grow: 1;
+	}
+}

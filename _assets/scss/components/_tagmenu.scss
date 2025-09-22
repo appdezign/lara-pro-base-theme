@@ -1,0 +1,40 @@
+ul.tagmenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		a {
+			display: block;
+			padding: 2px 0;
+			color: $gray-700;
+			border-bottom: solid 1px $gray-200;
+
+			&:hover {
+				color: $primary;
+				text-decoration: none;
+			}
+
+			&.active {
+				color: $primary;
+			}
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 20px;
+	}
+}
+
+@media (min-width: 992px) {
+	.tag-menu-container {
+		.collapse-button {
+			display: none;
+		}
+		.collapse {
+			display: block !important;
+		}
+	}
+}

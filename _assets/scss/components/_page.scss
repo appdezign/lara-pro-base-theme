@@ -1,0 +1,53 @@
+.object-related-pages {
+	list-style: disc;
+	margin: 0.5rem 0 1.5rem 0;
+	padding: 0 0 0 1.5rem;
+	li {
+		margin: 0;
+		padding: 0;
+		a {
+			font-size: 15px;
+			text-decoration: underline;
+		}
+	}
+}
+
+.object-related-files {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		margin: 0 0 15px 0;
+		padding: 0;
+
+		a {
+			display: block;
+			font-size: 14px;
+			color: #444;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: none;
+				color: $primary;
+			}
+
+			.col1 {
+				padding: 10px 6px;
+				background-color: $primary;
+				color: #fff;
+			}
+
+			.col2 {
+				padding: 10px;
+			}
+
+			.col3 {
+				padding: 10px 6px;
+				i {
+					font-size: 24px;
+				}
+			}
+		}
+	}
+}

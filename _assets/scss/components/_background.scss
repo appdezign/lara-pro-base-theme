@@ -1,0 +1,381 @@
+/*------------------------------------------------------------------
+[Backgrounds]
+*/
+
+/* --- [ Backgrounds ] --- */
+
+.bg-white {
+	background-color: $white !important;
+}
+
+.bg-black {
+	background-color: $black !important;
+}
+
+/* --- [ Alfa backgrounds ] --- */
+
+.bg-black-alfa-5:before,
+.bg-black-alfa-10:before,
+.bg-black-alfa-15:before,
+.bg-black-alfa-20:before,
+.bg-black-alfa-25:before,
+.bg-black-alfa-30:before,
+.bg-black-alfa-35:before,
+.bg-black-alfa-40:before,
+.bg-black-alfa-45:before,
+.bg-black-alfa-50:before,
+.bg-black-alfa-55:before,
+.bg-black-alfa-60:before,
+.bg-black-alfa-65:before,
+.bg-black-alfa-70:before,
+.bg-black-alfa-75:before,
+.bg-black-alfa-80:before,
+.bg-black-alfa-85:before,
+.bg-black-alfa-90:before,
+.bg-black-alfa-95:before {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	content: "";
+	left: 0;
+	top: 0;
+}
+
+.bg-black-alfa-5:before,
+.bg-black-alfa-10:before,
+.bg-black-alfa-15:before,
+.bg-black-alfa-20:before,
+.bg-black-alfa-25:before,
+.bg-black-alfa-30:before,
+.bg-black-alfa-35:before,
+.bg-black-alfa-40:before,
+.bg-black-alfa-45:before,
+.bg-black-alfa-50:before,
+.bg-black-alfa-55:before,
+.bg-black-alfa-60:before,
+.bg-black-alfa-65:before,
+.bg-black-alfa-70:before,
+.bg-black-alfa-75:before,
+.bg-black-alfa-80:before,
+.bg-black-alfa-85:before,
+.bg-black-alfa-90:before,
+.bg-black-alfa-95:before {
+	background: rgba($black, 0.05);
+}
+
+.bg-black-alfa-10:before {
+	background: rgba($black, 0.1);
+}
+
+.bg-black-alfa-15:before {
+	background: rgba($black, 0.15);
+}
+
+.bg-black-alfa-20:before {
+	background: rgba($black, 0.2);
+}
+
+.bg-black-alfa-25:before {
+	background: rgba($black, 0.25);
+}
+
+.bg-black-alfa-30:before {
+	background: rgba($black, 0.3);
+}
+
+.bg-black-alfa-35:before {
+	background: rgba($black, 0.35);
+}
+
+.bg-black-alfa-40:before {
+	background: rgba($black, 0.4);
+}
+
+.bg-black-alfa-45:before {
+	background: rgba($black, 0.45);
+}
+
+.bg-black-alfa-50:before {
+	background: rgba($black, 0.5);
+}
+
+.bg-black-alfa-55:before {
+	background: rgba($black, 0.55);
+}
+
+.bg-black-alfa-60:before {
+	background: rgba($black, 0.6);
+}
+
+.bg-black-alfa-65:before {
+	background: rgba($black, 0.65);
+}
+
+.bg-black-alfa-70:before {
+	background: rgba($black, 0.7);
+}
+
+.bg-black-alfa-75:before {
+	background: rgba($black, 0.75);
+}
+
+.bg-black-alfa-80:before {
+	background: rgba($black, 0.8);
+}
+
+.bg-black-alfa-85:before {
+	background: rgba($black, 0.85);
+}
+
+.bg-black-alfa-90:before {
+	background: rgba($black, 0.9);
+}
+
+.bg-black-alfa-95:before {
+	background: rgba($black, 0.95);
+}
+
+.bg-white-alfa-5:before,
+.bg-white-alfa-10:before,
+.bg-white-alfa-15:before,
+.bg-white-alfa-20:before,
+.bg-white-alfa-25:before,
+.bg-white-alfa-30:before,
+.bg-white-alfa-35:before,
+.bg-white-alfa-40:before,
+.bg-white-alfa-45:before,
+.bg-white-alfa-50:before,
+.bg-white-alfa-55:before,
+.bg-white-alfa-60:before,
+.bg-white-alfa-65:before,
+.bg-white-alfa-70:before,
+.bg-white-alfa-75:before,
+.bg-white-alfa-80:before,
+.bg-white-alfa-85:before,
+.bg-white-alfa-90:before,
+.bg-white-alfa-95:before {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	content: "";
+	left: 0;
+	top: 0;
+}
+
+.bg-white-alfa-5:before,
+.bg-white-alfa-10:before,
+.bg-white-alfa-15:before,
+.bg-white-alfa-20:before,
+.bg-white-alfa-25:before,
+.bg-white-alfa-30:before,
+.bg-white-alfa-35:before,
+.bg-white-alfa-40:before,
+.bg-white-alfa-45:before,
+.bg-white-alfa-50:before,
+.bg-white-alfa-55:before,
+.bg-white-alfa-60:before,
+.bg-white-alfa-65:before,
+.bg-white-alfa-70:before,
+.bg-white-alfa-75:before,
+.bg-white-alfa-80:before,
+.bg-white-alfa-85:before,
+.bg-white-alfa-90:before,
+.bg-white-alfa-95:before {
+	background: rgba($white, 0.05);
+}
+
+.bg-white-alfa-10:before {
+	background: rgba($white, 0.1);
+}
+
+.bg-white-alfa-15:before {
+	background: rgba($white, 0.15);
+}
+
+.bg-white-alfa-20:before {
+	background: rgba($white, 0.2);
+}
+
+.bg-white-alfa-25:before {
+	background: rgba($white, 0.25);
+}
+
+.bg-white-alfa-30:before {
+	background: rgba($white, 0.3);
+}
+
+.bg-white-alfa-35:before {
+	background: rgba($white, 0.35);
+}
+
+.bg-white-alfa-40:before {
+	background: rgba($white, 0.4);
+}
+
+.bg-white-alfa-45:before {
+	background: rgba($white, 0.45);
+}
+
+.bg-white-alfa-50:before {
+	background: rgba($white, 0.5);
+}
+
+.bg-white-alfa-55:before {
+	background: rgba($white, 0.55);
+}
+
+.bg-white-alfa-60:before {
+	background: rgba($white, 0.6);
+}
+
+.bg-white-alfa-65:before {
+	background: rgba($white, 0.65);
+}
+
+.bg-white-alfa-70:before {
+	background: rgba($white, 0.7);
+}
+
+.bg-white-alfa-75:before {
+	background: rgba($white, 0.75);
+}
+
+.bg-white-alfa-80:before {
+	background: rgba($white, 0.8);
+}
+
+.bg-white-alfa-85:before {
+	background: rgba($white, 0.85);
+}
+
+.bg-white-alfa-90:before {
+	background: rgba($white, 0.9);
+}
+
+.bg-white-alfa-95:before {
+	background: rgba($white, 0.95);
+}
+
+.bg-primary-alfa-5:before,
+.bg-primary-alfa-10:before,
+.bg-primary-alfa-15:before,
+.bg-primary-alfa-20:before,
+.bg-primary-alfa-25:before,
+.bg-primary-alfa-30:before,
+.bg-primary-alfa-35:before,
+.bg-primary-alfa-40:before,
+.bg-primary-alfa-45:before,
+.bg-primary-alfa-50:before,
+.bg-primary-alfa-55:before,
+.bg-primary-alfa-60:before,
+.bg-primary-alfa-65:before,
+.bg-primary-alfa-70:before,
+.bg-primary-alfa-75:before,
+.bg-primary-alfa-80:before,
+.bg-primary-alfa-85:before,
+.bg-primary-alfa-90:before,
+.bg-primary-alfa-95:before {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	content: "";
+	left: 0;
+	top: 0;
+}
+
+.bg-primary-alfa-5:before,
+.bg-primary-alfa-10:before,
+.bg-primary-alfa-15:before,
+.bg-primary-alfa-20:before,
+.bg-primary-alfa-25:before,
+.bg-primary-alfa-30:before,
+.bg-primary-alfa-35:before,
+.bg-primary-alfa-40:before,
+.bg-primary-alfa-45:before,
+.bg-primary-alfa-50:before,
+.bg-primary-alfa-55:before,
+.bg-primary-alfa-60:before,
+.bg-primary-alfa-65:before,
+.bg-primary-alfa-70:before,
+.bg-primary-alfa-75:before,
+.bg-primary-alfa-80:before,
+.bg-primary-alfa-85:before,
+.bg-primary-alfa-90:before,
+.bg-primary-alfa-95:before {
+	background: rgba($primary, 0.05);
+}
+
+.bg-primary-alfa-10:before {
+	background: rgba($primary, 0.1);
+}
+
+.bg-primary-alfa-15:before {
+	background: rgba($primary, 0.15);
+}
+
+.bg-primary-alfa-20:before {
+	background: rgba($primary, 0.2);
+}
+
+.bg-primary-alfa-25:before {
+	background: rgba($primary, 0.25);
+}
+
+.bg-primary-alfa-30:before {
+	background: rgba($primary, 0.3);
+}
+
+.bg-primary-alfa-35:before {
+	background: rgba($primary, 0.35);
+}
+
+.bg-primary-alfa-40:before {
+	background: rgba($primary, 0.4);
+}
+
+.bg-primary-alfa-45:before {
+	background: rgba($primary, 0.45);
+}
+
+.bg-primary-alfa-50:before {
+	background: rgba($primary, 0.5);
+}
+
+.bg-primary-alfa-55:before {
+	background: rgba($primary, 0.55);
+}
+
+.bg-primary-alfa-60:before {
+	background: rgba($primary, 0.6);
+}
+
+.bg-primary-alfa-65:before {
+	background: rgba($primary, 0.65);
+}
+
+.bg-primary-alfa-70:before {
+	background: rgba($primary, 0.7);
+}
+
+.bg-primary-alfa-75:before {
+	background: rgba($primary, 0.75);
+}
+
+.bg-primary-alfa-80:before {
+	background: rgba($primary, 0.8);
+}
+
+.bg-primary-alfa-85:before {
+	background: rgba($primary, 0.85);
+}
+
+.bg-primary-alfa-90:before {
+	background: rgba($primary, 0.9);
+}
+
+.bg-primary-alfa-95:before {
+	background: rgba($primary, 0.95);
+}

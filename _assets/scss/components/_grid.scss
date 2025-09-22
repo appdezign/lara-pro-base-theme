@@ -1,0 +1,71 @@
+
+.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *)) {
+	gap: calc(var(--spacing) * 4);
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	display: grid
+}
+
+.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=default] {
+	grid-template-columns: var(--cols)
+}
+
+.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=default] > .grid-layout-col {
+	grid-column: span var(--col-span)/span var(--col-span)
+}
+
+@media (min-width: 40rem) {
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=sm] {
+		grid-template-columns:var(--cols)
+	}
+
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=sm] > .grid-layout-col {
+		grid-column: span var(--col-span)/span var(--col-span)
+	}
+}
+
+@media (min-width: 48rem) {
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=md] {
+		grid-template-columns:var(--cols)
+	}
+
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=md] > .grid-layout-col {
+		grid-column: span var(--col-span)/span var(--col-span)
+	}
+}
+
+@media (min-width: 64rem) {
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=lg] {
+		grid-template-columns:var(--cols)
+	}
+
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=lg] > .grid-layout-col {
+		grid-column: span var(--col-span)/span var(--col-span)
+	}
+}
+
+@media (min-width: 80rem) {
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=xl] {
+		grid-template-columns:var(--cols)
+	}
+
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint=xl] > .grid-layout-col {
+		grid-column: span var(--col-span)/span var(--col-span)
+	}
+}
+
+@media (min-width: 96rem) {
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint="2xl"] {
+		grid-template-columns:var(--cols)
+	}
+
+	.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *))[data-from-breakpoint="2xl"] > .grid-layout-col {
+		grid-column: span var(--col-span)/span var(--col-span)
+	}
+}
+
+.grid-layout:where(:not(.fi-not-prose,.fi-not-prose *)) > .grid-layout-col {
+	min-width: 0;
+	margin-top: 0
+}
+
+

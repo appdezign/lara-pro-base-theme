@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<partials>
+	<partial>
+		<key>header</key>
+		<name>Header &amp; Menu</name>
+		<required>true</required>
+		<items>
+			<item>
+				<!-- DEFAULT  -->
+				<itemKey>header_js_sticky</itemKey>
+				<friendlyName>JS Sticky Header</friendlyName>
+				<partialFile>header_js_sticky</partialFile>
+				<isDefault>true</isDefault>
+			</item>
+			<item>
+				<itemKey>header_fixed</itemKey>
+				<friendlyName>Fixed Header</friendlyName>
+				<partialFile>header_fixed</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>header_basic</itemKey>
+				<friendlyName>Basic Header</friendlyName>
+				<partialFile>header_basic</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>header_classic</itemKey>
+				<friendlyName>Classic Header</friendlyName>
+				<partialFile>header_classic</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+		</items>
+	</partial>
+	<partial>
+		<key>hero</key>
+		<name>Hero</name>
+		<required>false</required>
+		<items>
+			<item>
+				<!-- DEFAULT  -->
+				<itemKey>hidden</itemKey>
+				<friendlyName>- Hidden -</friendlyName>
+				<partialFile>hidden</partialFile>
+				<isDefault>true</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_50</itemKey>
+				<friendlyName>Hero Slider 50</friendlyName>
+				<partialFile>hero_slider_50</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_60</itemKey>
+				<friendlyName>Hero Slider 60</friendlyName>
+				<partialFile>hero_slider_60</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_70</itemKey>
+				<friendlyName>Hero Slider 70</friendlyName>
+				<partialFile>hero_slider_70</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_80</itemKey>
+				<friendlyName>Hero Slider 80</friendlyName>
+				<partialFile>hero_slider_80</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_90</itemKey>
+				<friendlyName>Hero Slider 90</friendlyName>
+				<partialFile>hero_slider_90</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_100</itemKey>
+				<friendlyName>Hero Slider 100</friendlyName>
+				<partialFile>hero_slider_100</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_parallax</itemKey>
+				<friendlyName>Parallax</friendlyName>
+				<partialFile>hero_parallax</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+		</items>
+	</partial>
+	<partial>
+		<key>pagetitle</key>
+		<name>Full Page Title</name>
+		<required>false</required>
+		<items>
+			<item>
+				<itemKey>page_title_parallax</itemKey>
+				<friendlyName>Parallax</friendlyName>
+				<partialFile>page_title_parallax</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>page_title_video</itemKey>
+				<friendlyName>Video</friendlyName>
+				<partialFile>page_title_video</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>page_title_image</itemKey>
+				<friendlyName>Image</friendlyName>
+				<partialFile>page_title_image</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>page_title_color</itemKey>
+				<friendlyName>Color</friendlyName>
+				<partialFile>page_title_color</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<!-- DEFAULT  -->
+				<itemKey>hidden</itemKey>
+				<friendlyName>- Hidden -</friendlyName>
+				<partialFile>hidden</partialFile>
+				<isDefault>true</isDefault>
+			</item>
+		</items>
+	</partial>
+	<partial>
+		<key>content</key>
+		<name>Content</name>
+		<required>true</required>
+		<items>
+			<item>
+				<itemKey>boxed_sidebar_left_3</itemKey>
+				<friendlyName>Sidebar Left</friendlyName>
+				<partialFile>boxed_sidebar_left_3</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>boxed_sidebar_right_3</itemKey>
+				<friendlyName>Sidebar Right</friendlyName>
+				<partialFile>boxed_sidebar_right_3</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>boxed_sidebar_leftright_3</itemKey>
+				<friendlyName>Sidebar Left Right</friendlyName>
+				<partialFile>boxed_sidebar_leftright_3</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>boxed_default_col_12</itemKey>
+				<friendlyName>Boxed 12 columns</friendlyName>
+				<partialFile>boxed_default_col_12</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>boxed_default_col_10</itemKey>
+				<friendlyName>Boxed 10 columns</friendlyName>
+				<partialFile>boxed_default_col_10</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<!-- DEFAULT  -->
+				<itemKey>boxed_default_col_8</itemKey>
+				<friendlyName>Boxed 8 columns</friendlyName>
+				<partialFile>boxed_default_col_8</partialFile>
+				<isDefault>true</isDefault>
+			</item>
+			<item>
+				<itemKey>boxed_default_col_6</itemKey>
+				<friendlyName>Boxed 6 columns</friendlyName>
+				<partialFile>boxed_default_col_6</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>full_width</itemKey>
+				<friendlyName>Full width</friendlyName>
+				<partialFile>full_width</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+		</items>
+	</partial>
+	<partial>
+		<key>share</key>
+		<name>Share Icons</name>
+		<required>false</required>
+		<items>
+			<item>
+				<itemKey>share</itemKey>
+				<friendlyName>Share</friendlyName>
+				<partialFile>share</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<!-- DEFAULT  -->
+				<itemKey>hidden</itemKey>
+				<friendlyName>- Hidden -</friendlyName>
+				<partialFile>hidden</partialFile>
+				<isDefault>true</isDefault>
+			</item>
+		</items>
+	</partial>
+	<partial>
+		<key>cta</key>
+		<name>Call-to-action</name>
+		<required>false</required>
+		<items>
+			<item>
+				<itemKey>contact</itemKey>
+				<friendlyName>Contact</friendlyName>
+				<partialFile>contact</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<!-- DEFAULT  -->
+				<itemKey>newsletter</itemKey>
+				<friendlyName>Newsletter</friendlyName>
+				<partialFile>newsletter</partialFile>
+				<isDefault>true</isDefault>
+			</item>
+			<item>
+				<itemKey>hidden</itemKey>
+				<friendlyName>- Hidden -</friendlyName>
+				<partialFile>hidden</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+		</items>
+	</partial>
+	<partial>
+		<key>footer</key>
+		<name>Footer</name>
+		<required>true</required>
+		<items>
+			<item>
+				<!-- DEFAULT  -->
+				<itemKey>footer</itemKey>
+				<friendlyName>Simple footer</friendlyName>
+				<partialFile>footer</partialFile>
+				<isDefault>true</isDefault>
+			</item>
+		</items>
+	</partial>
+</partials>
