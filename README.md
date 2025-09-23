@@ -1,5 +1,5 @@
 
-# Base Theme Lara CMS 8
+# Base Theme Lara Pro CMS 10
 
 ## Built on Laravel, the best framework in the world
 
