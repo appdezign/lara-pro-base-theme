@@ -17,7 +17,7 @@
 		"appdezign/lara-pro-cms": "^10.0",
 		"appdezign/lara-pro-demo-theme": "^10.0",
 		"composer/installers": "~1.0",
-		"laravel/framework": "^11.0"
+		"laravel/framework": "^11.0|^12.0"
 	},
 	"autoload": {
 		"psr-4": {
