@@ -27,6 +27,7 @@
 
 <main class="page-wrapper">
 
+	@include('_partials.header.preview_bar')
 	@include('_partials.header.'.$data->layout->header)
 
 	@includeWhen($data->layout->hero, '_partials.hero.'.$data->layout->hero)
