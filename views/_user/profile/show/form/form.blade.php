@@ -38,10 +38,10 @@
 	<div class="col-12 mt-24">
 		<div class="row">
 			<div class="col-6 col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.username').':', 'username') }}
+				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.name').':', 'name') }}
 			</div>
 			<div class="col-6 col-md-8">
-				{{ $data->object->username }}
+				{{ $data->object->name }}
 			</div>
 		</div>
 	</div>
@@ -90,16 +90,6 @@
 	<div class="col-12 mt-24">
 		<div class="row">
 			<div class="col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.name').':', 'name') }}
-			</div>
-			<div class="col-md-8">
-				{{ html()->text('name', null)->class('form-control') }}
-			</div>
-		</div>
-	</div>
-	<div class="col-12 mt-24">
-		<div class="row">
-			<div class="col-md-4">
 				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.new_password').':', '_password') }}
 			</div>
 			<div class="col-md-8">
@@ -108,8 +98,6 @@
 		</div>
 	</div>
 </div>
-
-@include('_user.profile.show.form.fields.fields')
 
 {{ html()->hidden('_ipaddress', Request::ip()) }}
 
