@@ -1,8 +1,10 @@
 <div class="mb-36 text-end">
-	<a href="{{ $data->entityListUrl }}"
-	   class="btn btn-outline-primary py-12">
-		<i class="far fa-lg fa-angle-left"></i>
-	</a>
+	@if($data->entityListUrl)
+		<a href="{{ $data->entityListUrl }}"
+		   class="btn btn-outline-primary ms-16 px-14 py-10 float-end">
+			<i class="far fa-lg fa-angle-left"></i>
+		</a>
+	@endif
 </div>
 
 <div class="card border-0 shadow-sm overflow-hidden mb-48">
