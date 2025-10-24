@@ -6,7 +6,7 @@
 		<div class="card shadow-sm" style="width: 360px; max-width: 100%;">
 			<div class="card-header d-flex justify-content-start ">
 
-				{!! Theme::img('images/lara8-logo.svg', 'Lara CMS', 'me-16', ['width' => '48']) !!}
+				{!! Theme::img('images/lara10-logo.svg', 'Lara CMS', 'me-16', ['width' => '48']) !!}
 
 				<h1 class="h2 mb-0">{{ ucfirst(_q('lara-front::user.headers.login')) }}</h1>
 
