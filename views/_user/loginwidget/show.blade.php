@@ -23,9 +23,9 @@
 					</a>
 				</li>
 
-				@if(Auth::user()->hasLevel(90))
+				@if(Auth::user()->hasPanelAccess())
 					<li>
-						<a class="dropdown-item" href="{{ route('admin.dashboard.index') }}" target="_blank">
+						<a class="dropdown-item" href="/admin" target="_blank">
 							{{ _q('lara-front::user.menu.dashboard') }}
 						</a>
 					</li>
