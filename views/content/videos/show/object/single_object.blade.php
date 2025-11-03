@@ -1,10 +1,10 @@
 <div class="mt-24 pt-lg-8 pb-16">
-
-	<a href="{{ $data->entityListUrl }}"
-	   class="btn btn-outline-primary ms-16 px-14 py-10 float-end">
-		<i class="far fa-lg fa-angle-left"></i>
-	</a>
-
+	@if($data->entityListUrl)
+		<a href="{{ $data->entityListUrl }}"
+		   class="btn btn-outline-primary ms-16 px-14 py-10 float-end">
+			<i class="far fa-lg fa-angle-left"></i>
+		</a>
+	@endif
 	<h1 class="pb-16">{{ $data->object->title }}</h1>
 
 	{{-- YOUTUBE VIDEO --}}

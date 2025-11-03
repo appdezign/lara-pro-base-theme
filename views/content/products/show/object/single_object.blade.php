@@ -25,7 +25,6 @@
 	</div>
 </div>
 
-
 {{-- RELATED --}}
 @if($entity->hasRelated())
 	@include('content._partials.object_related')

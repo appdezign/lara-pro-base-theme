@@ -2,11 +2,13 @@
 
 	<div class="sticky-top ms-xl-48 ms-lg-24 ps-xxl-24" style="top: 105px !important;">
 
-		<a href="{{ $data->entityListUrl }}"
-		   class="btn btn-outline-primary mb-72">
-			<i class="fal fa-angle-double-left fs-16 pt-3 me-6"></i>
-			{{ _q('lara-front::default.button.go_back') }}
-		</a>
+		@if($data->entityListUrl)
+			<a href="{{ $data->entityListUrl }}"
+			   class="btn btn-outline-primary mb-72">
+				<i class="fal fa-angle-double-left fs-16 pt-3 me-6"></i>
+				{{ _q('lara-front::default.button.go_back') }}
+			</a>
+		@endif
 
 		<span class="d-block mt-12 mb-16">5 min read</span>
 		<h6>Share this post:</h6>
