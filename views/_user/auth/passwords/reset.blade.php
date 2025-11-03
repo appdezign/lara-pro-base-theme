@@ -6,7 +6,7 @@
 		<div class="card shadow-sm" style="width: 360px; max-width: 100%;">
 
 			<div class="card-header d-flex justify-content-start ">
-				{!! Theme::img('images/lara10-logo.svg', 'Lara CMS', 'me-16', ['width' => '48']) !!}
+				{!! Theme::img('images/lara10-logo.png', 'Lara CMS', 'me-16', ['width' => '48']) !!}
 				<h1 class="fs-18 mt-12">
 					{{ ucfirst(_q('lara-common::auth.passwordforgot.password_reset_title')) }}
 				</h1>

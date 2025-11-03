@@ -76,7 +76,7 @@
 												     width="180" height="180" class="lazyload"/>
 											@else
 												<div class="d-flex h-100 justify-content-center align-items-center bg-secondary">
-													{!! Theme::img('images/lara10-logo.svg', 'Lara CMS', 'brand', ['width' => '60', 'style' => 'opacity: .5;']) !!}
+													{!! Theme::img('images/lara10-logo.png', 'Lara CMS', 'brand', ['width' => '60', 'style' => 'opacity: .5;']) !!}
 												</div>
 											@endif
 										</div>

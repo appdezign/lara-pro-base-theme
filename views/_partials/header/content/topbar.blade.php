@@ -2,7 +2,7 @@
 
 	<!-- Logo -->
 	<a href="/{{ $language }}/" class="navbar-brand py-24">
-		{!! Theme::img('images/lara10-logo.svg', 'Lara CMS', '', ['width' => '47']) !!}
+		{!! Theme::img('images/lara10-logo.png', 'Lara CMS', '', ['width' => '47']) !!}
 		Lara 8
 	</a>
 

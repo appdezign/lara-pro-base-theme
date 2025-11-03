@@ -1,6 +1,6 @@
 <!-- Logo -->
 <a href="/{{ $language }}/" class="navbar-brand pe-16">
-	{!! Theme::img('images/lara10-logo.svg', 'Lara CMS', '', ['width' => '47']) !!}
+	{!! Theme::img('images/lara10-logo.png', 'Lara CMS', '', ['width' => '47']) !!}
 	Lara 10
 </a>
 
