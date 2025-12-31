@@ -9,8 +9,7 @@
 				<i class="fas fa-play fs-14"></i>
 			</a>
 		</div>
-		<span class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-35"></span>
-		@include('_img.lazy', ['lzobj' => $data->object->getFeatured(), 'lzw' => 1280, 'lzh' => 512, 'ar' => '5x2', 'cl' => 'd-block w-100'])
+		@include('_img.glide', ['obj' => $data->object, 'media' => $data->object->featured(), 'width' => 1280, 'height' => 512, 'ratio' => '5x2', 'class' => 'd-block w-100' ])
 	</div>
 
 @else
@@ -32,20 +31,14 @@
 
 		<div class="ratio ratio-16x9 mt-48 mb-48">
 			<video controls>
-				@if($data->object->publish == 1)
-					<source src="{{ $entity->getUrlForVideos().'/' . $data->object->videofile->filename }}"
-					        type="video/mp4">
-				@else
-					<source src="{{ $entity->getUrlForVideos().'/_archive/' . $data->object->videofile->filename }}"
-					        type="video/mp4">
-				@endif
+				<source src="{{ $entity->getVideoUrl($data->object->videofile->filename) }}" type="video/mp4">
 			</video>
 		</div>
 	@endif
 
 	@if($data->object->hasFeatured())
 		<figure class="mb-48">
-			@include('_img.lazy', ['lzobj' => $data->object->getFeatured(), 'lzw' => 1280, 'lzh' => 640, 'ar' => '2x1', 'fc' => false])
+			@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 640, 'ratio' => '2x1', 'class' => 'object-cover' ])
 		</figure>
 	@endif
 

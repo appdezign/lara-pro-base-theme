@@ -12,7 +12,7 @@
 
 		<div class="mb-20" style="min-height:25px;">
 			@if($data->params->getFilterByTaxonomy())
-				<a href="{{ route('entitytag.'.$entity->getResourceSlug().'.index') }}" style="display:block;">
+				<a href="{{ route($activeroute->getActiveRoute()) }}" style="display:block;">
 					{{ _q('lara-app::default.tag.show_all') }}
 					{{ _q('lara-app::'.$entity->getResourceSlug().'.entity.entity_plural') }}
 				</a>

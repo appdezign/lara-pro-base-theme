@@ -17,7 +17,9 @@
 					     data-aos="fade-up">
 						<div class="position-relative">
 
-							@include('_img.lazy', ['lzobj' => $widgetObject->getThumbOrFeatured(), 'lzw' => 960, 'lzh' => 960, 'ar' => '1x1', 'cl' => 'rounded-3'])
+							@if($widgetObject->hasThumb())
+								@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 960, 'ratio' => '1x1', 'class' => 'rounded-3'])
+							@endif
 
 							<div class="card-img-overlay d-flex flex-column align-items-center justify-content-center rounded-3">
 								<span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25 rounded-3"></span>

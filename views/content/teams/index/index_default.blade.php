@@ -29,7 +29,7 @@ $teamHeight = 960 * $ratioY / $ratioX;
 
 						@if($data->page->hasFeatured())
 							<figure class="mb-48">
-								@include('_img.lazy', ['lzobj' => $data->page->getFeatured(), 'lzw' => 1280, 'lzh' => 640, 'ar' => '2x1', 'fc' => false])
+								@include('_img.glide', ['media' => $data->page->featured(), 'width' => 1280, 'height' => 640, 'ratio' => '2x1', 'class' => 'object-cover' ])
 							</figure>
 						@endif
 

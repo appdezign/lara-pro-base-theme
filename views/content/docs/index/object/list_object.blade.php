@@ -3,7 +3,7 @@
 		<i class="fad fa-file-alt"></i>
 	</div>
 	<div class="col-11">
-		<a href="{{ route($activeroute->getActiveRoute() . '.show', $obj->routeVars) }}">
+		<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}">
 			{{ $obj->title }}
 		</a>
 	</div>

@@ -8,7 +8,7 @@
 				<div id="image-{{ $widgetslider->id }}" class="jarallax position-absolute top-0 start-0 w-100 h-100 swiper-tab active" data-jarallax data-speed="0.4">
 					<span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-35"></span>
 					<div class="jarallax-img"
-					     style="background-image: url({{ _cimg($widgetslider->getFeatured()->filename, 1920, 960) }});"></div>
+					     style="background-image: url({!! glideUrl($widgetslider->featured()->path, 1920, 960) !!});"></div>
 				</div>
 			@endforeach
 		</div>

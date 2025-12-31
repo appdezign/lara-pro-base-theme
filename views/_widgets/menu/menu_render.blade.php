@@ -1,6 +1,6 @@
 <?php
 $lang = LaravelLocalization::getCurrentLocale();
-$navlink = ($node->type == 'url') ? $node->url : url($lang . '/' . $node->route);
+$navlink = ($node->type->value == 'url') ? $node->url : url($lang . '/' . $node->route);
 ?>
 
 @if(!$node->isLeaf() && sizeof($node->children) > 0)

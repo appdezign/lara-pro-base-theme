@@ -27,7 +27,7 @@
 					@if($widgetslider->type == 'payoff')
 
 						<div class="swiper-slide swiper-slide-hero h-100"
-						     style="background-image:url({{ _cimg($widgetslider->getFeatured()->filename, 1920, 960) }})">
+						     style="background-image:url({!! glideUrl($widgetslider->featured()->path, 1920, 960) !!})">
 							<div class="position-absolute top-0 start-0 w-100 h-100">
 								<div class="w-100 h-100 px-0 js-slider-content" style="display:none;">
 
@@ -62,7 +62,7 @@
 					@elseif($widgetslider->type == 'caption')
 
 						<div class="swiper-slide swiper-slide-hero h-100"
-						     style="background-image:url({{ _cimg($widgetslider->getFeatured()->filename, 1920, 960) }})">
+						     style="background-image:url({!! glideUrl($widgetslider->featured()->path, 1920, 960) !!})">
 
 							<div class="hero-caption-bg hero-caption-bg-{{ $widgetslider->captiontype }}">
 								<div class="hero-caption-bottom color-white">
@@ -81,7 +81,7 @@
 					@else
 
 						<div class="swiper-slide swiper-slide-hero h-100"
-						     style="background-image:url({{ _cimg($widgetslider->getFeatured()->filename, 1920, 960) }})">
+						     style="background-image:url({!! glideUrl($widgetslider->featured()->path, 1920, 960) !!})">
 						</div>
 
 					@endif
