@@ -70,9 +70,9 @@
 									<div class="row pt-20 pb-20" style="border-bottom:solid 1px #eee;">
 										<div class="col-sm-3">
 											@if($result->hasFeatured())
-												<img data-src="{{ _cimg($result->getFeatured()->filename, 180, 180) }}"
-												     alt="{{ $result->getFeatured()->seo_alt }}"
-												     title="{{ $result->getFeatured()->seo_title }}"
+												<img data-src="{!! glideUrl($result->featured()->path, 180, 180) !!}"
+												     alt="{{ $result->featured()->alt }}"
+												     title="{{ $result->featured()->title }}"
 												     width="180" height="180" class="lazyload"/>
 											@else
 												<div class="d-flex h-100 justify-content-center align-items-center bg-secondary">

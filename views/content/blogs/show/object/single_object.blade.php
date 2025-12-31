@@ -23,17 +23,13 @@
 
 {{-- FEATURED VIDEO --}}
 @if($data->object->hasVideofiles())
-	<div class="ratio ratio-16x9 mt-48 mb-48">
-		<video controls>
-			@if($data->object->publish == 1)
-				<source src="{{ $entity->getUrlForVideos().'/' . $data->object->videofile->filename }}"
-				        type="video/mp4">
-			@else
-				<source src="{{ $entity->getUrlForVideos().'/_archive/' . $data->object->videofile->filename }}"
-				        type="video/mp4">
-			@endif
-		</video>
-	</div>
+	@foreach($data->object->getVideofiles() as $videofile)
+		<div class="ratio ratio-16x9 mt-48 mb-48">
+			<video controls>
+				<source src="{{ $entity->getVideoUrl($videofile->vidfile_filename) }}" type="video/mp4">
+			</video>
+		</div>
+	@endforeach
 @elseif($data->object->hasVideos())
 	<div class="ratio ratio-16x9 mt-48 mb-48">
 		<iframe width="560" height="315"
@@ -45,7 +41,7 @@
 {{-- FEATURED IMAGE --}}
 @if($data->object->hasFeatured())
 	<figure class="mb-48">
-		@include('_img.lazy', ['lzobj' => $data->object->getFeatured(), 'lzw' => 1280, 'lzh' => 640, 'ar' => '2x1', 'fc' => false])
+		@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 720, 'ratio' => '16x9', 'class' => 'object-cover' ])
 	</figure>
 @endif
 

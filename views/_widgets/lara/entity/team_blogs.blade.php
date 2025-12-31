@@ -75,10 +75,10 @@
 											</a>
 										</h3>
 
-										@if($widgetObject->hasThumbOrFeatured())
+										@if($widgetObject->hasThumb())
 											<div class="blog-featured-image mb-20">
 												<a href="{{ route($widgetEntityRoute . '.show', $widgetObject->slug) }}">
-													@include('_img.lazy', ['lzobj' => $widgetObject->getThumbOrFeatured(), 'lzw' => 960, 'lzh' => 480, 'ar' => '2x1'])
+													@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 480, 'ratio' => '2x1'])
 												</a>
 											</div>
 										@endif

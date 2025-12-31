@@ -1,6 +1,6 @@
 <li @if($node->isLeaf() && $node->object_count== 0) class="hidden" @endif>
 
-	<a href="{{ route($activeroute->getPrefix() .'.' . $entity->getResourceSlug() . '.'. $node->route . '.index') }}"
+	<a href="{{ route($activeroute->getPrefix() .'.' . $entity->getResourceSlug() . '.'. $activeroute->getMenuId() .'.' . $node->route . '.index') }}"
 	   class="@if($node->slug == $data->params->getFilterByTaxonomy()) active @endif">
 		{{ $node->title }}
 	</a>

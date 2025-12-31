@@ -36,8 +36,8 @@
 			</div>
 			<div class="col-md-6 offset-lg-1 order-md-2 order-1">
 				<div class="bg-secondary rounded-3" data-aos="fade-left">
-					@if($widgetObject->hasThumbOrFeatured())
-						@include('_img.lazy', ['lzobj' => $widgetObject->getThumbOrFeatured(), 'lzw' => 960, 'lzh' => 720, 'ar' => '4x3'])
+					@if($widgetObject->hasThumb())
+						@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 720, 'ratio' => '4x3', 'class' => 'object-cover' ])
 					@endif
 				</div>
 			</div>

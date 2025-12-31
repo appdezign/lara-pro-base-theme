@@ -33,7 +33,7 @@
 
 <div class="row mt-48">
 	<div class="col-sm-12 text-center">
-			<a href="{{ asset('storage/'.$entity->resource_slug.'/' . $data->object->getFile()->filename) }}"
+			<a href="{{ $entity->getFileUrl( $data->object->getFile()->filename) }}"
 			   target="_blank" class="btn btn-primary">
 				DOWNLOAD
 			</a>

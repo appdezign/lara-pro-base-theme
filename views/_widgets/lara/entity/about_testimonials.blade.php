@@ -59,12 +59,14 @@
 											</p>
 										</blockquote>
 										<figcaption class="card-footer border-0 d-flex align-items-center w-100 pb-8">
-											<img data-src="{{ _cimg($widgetObject->getThumbOrFeatured()->filename, 60, 60) }}"
+											@if($widgetObject->HasThumb())
+											<img data-src="{{ glide()->getUrl($widgetObject->thumb()->path, ['w' => 60, 'h' => 60, 'fit' => 'crop']) }}"
 											     width="60"
 											     height="60"
-											     title="{{ $widgetObject->getThumbOrFeatured()->seo_title }}"
-											     alt="{{ $widgetObject->getThumbOrFeatured()->seo_alt }}"
+											     title="{{ $widgetObject->thumb()->title }}"
+											     alt="{{$widgetObject->thumb()->alt }}"
 											     class="lazyload rounded-circle"/>
+											@endif
 											<div class="ps-16">
 												<h3 class="h6 fw-semibold lh-base mb-0">
 													{{ $widgetObject->title }}

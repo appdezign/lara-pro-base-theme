@@ -16,8 +16,8 @@
 						<a href="#testimonial-{{ $widgetObject->id }}"
 						   class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-24 p-16 rounded-3 fw-normal @if($loop->index == 0) active @endif"
 						   data-bs-toggle="tab" role="tab">
-							@if($widgetObject->hasThumbOrFeatured())
-								@include('_img.lazy', ['lzobj' => $widgetObject->getThumbOrFeatured(), 'lzw' => 96, 'lzh' => 96, 'dw' => 56, 'dh' => 56,'ar' => '1x1', 'cl' => 'rounded-circle', 'cnt' => true, 'cntclass' => 'me-md-16 me-sm-0 me-16 mb-md-0 mb-sm-8'])
+							@if($widgetObject->hasThumb())
+								@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 96, 'height' => 96, 'dwidth' => 56, 'dheight' => 56, 'ratio' => '1x1', 'class' => 'rounded-circle', 'cntclass' => 'me-md-16 me-sm-0 me-16 mb-md-0 mb-sm-8' ])
 							@endif
 							<div>
 								<span class="d-block mb-0 fs-lg fw-semibold">{{ $widgetObject->title }}</span>

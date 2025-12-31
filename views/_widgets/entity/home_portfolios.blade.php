@@ -34,9 +34,9 @@
 			@foreach($widgetObjects as $widgetObject)
 
 				<div class="swiper-slide py-16">
-					@if($widgetObject->hasThumbOrFeatured())
+					@if($widgetObject->hasThumb())
 						<a href="{{ $widgetObject->url }}" class="card card-body card-hover px-8 mx-8">
-							@include('_img.lazy', ['lzobj' => $widgetObject->getThumbOrFeatured(), 'lzw' => 960, 'lzh' => 480, 'ar' => '2x1', 'cl' => 'd-block mx-auto my-8'])
+							@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 480, 'ratio' => '2x1', 'class' => 'd-block mx-auto my-8' ])
 						</a>
 					@endif
 				</div>

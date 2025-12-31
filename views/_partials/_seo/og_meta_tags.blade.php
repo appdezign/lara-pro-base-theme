@@ -7,7 +7,7 @@
 @endif
 <meta property="og:url" content="{{ url()->current() }}">
 @if($data->opengraph->og_image)
-<meta property="og:image" content="{{ _cimg($data->opengraph->og_image, $data->opengraph->og_image_width, $data->opengraph->og_image_height) }}">
+<meta property="og:image" content="{!! $data->opengraph->og_image  !!}">
 @endif
 @if($data->opengraph->og_description)
 <meta property="og:description" content="{{ str_limit(strip_tags($data->opengraph->og_description), $settngz->og_descr_max, '') }}">

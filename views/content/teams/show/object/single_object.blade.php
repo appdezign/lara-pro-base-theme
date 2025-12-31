@@ -11,7 +11,7 @@
 	<div class="row g-0">
 		@if($data->object->hasFeatured())
 			<div class="col-md-5 bg-position-center bg-repeat-0 bg-size-cover"
-			     style="background-image: url({{ _cimg($data->object->getFeatured()->filename, 1280, 960) }}); min-height: 20rem;">
+			     style="background-image: url({!! glideUrl($data->object->featured()->path, 960, 960) !!}); min-height: 20rem;">
 			</div>
 		@else
 			<div class="col-md-5 bg-position-center bg-repeat-0 bg-size-cover"

@@ -3,16 +3,16 @@
 
 		@if($entity->hasImages() || $entity->hasVideos())
 
-			@if($obj->hasThumbOrFeatured())
+			@if($obj->hasThumb())
 				<div class="col-md-4 position-relative bg-position-center bg-repeat-0 bg-size-cover"
-				     style="background-image: url({{ _cimg($obj->getThumbOrFeatured()->filename, 1280, 960) }}); min-height: 15rem;">
-					<a href="{{ route($activeroute->getActiveRoute() . '.show', $obj->routeVars) }}"
+				     style="background-image: url({!! glideUrl($obj->thumb()->path, 640, 640) !!}); min-height: 15rem;">
+					<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
 					   class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
 				</div>
 			@else
 				<div class="col-md-4 position-relative bg-position-center bg-repeat-0 bg-size-cover"
 				     style="background-image: url('https://dummyimage.com/960x960/e8ecf0/d4d8dc?text=Lara+CMS'); min-height: 15rem;">
-					<a href="{{ route($activeroute->getActiveRoute() . '.show', $obj->routeVars) }}"
+					<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
 					   class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
 				</div>
 			@endif
@@ -21,7 +21,7 @@
 				<div class="card-body">
 
 					<h3 class="h4">
-						<a href="{{ route($activeroute->getActiveRoute() . '.show', $obj->routeVars) }}">
+						<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}">
 							{{ $obj->title }}
 						</a>
 					</h3>
@@ -46,7 +46,7 @@
 					</div>
 
 					<h3 class="h4">
-						<a href="{{ route($activeroute->getActiveRoute() . '.show', $obj->routeVars) }}">
+						<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}">
 							{{ $obj->title }}
 						</a>
 					</h3>

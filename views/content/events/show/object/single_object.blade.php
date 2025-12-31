@@ -20,13 +20,7 @@
 @if($data->object->hasVideofiles())
 	<div class="ratio ratio-16x9 mt-48 mb-48">
 		<video controls>
-			@if($data->object->publish == 1)
-				<source src="{{ $entity->getUrlForVideos().'/' . $data->object->videofile->filename }}"
-				        type="video/mp4">
-			@else
-				<source src="{{ $entity->getUrlForVideos().'/_archive/' . $data->object->videofile->filename }}"
-				        type="video/mp4">
-			@endif
+			<source src="{{ $entity->getVideoUrl( $data->object->videofile->filename) }}" type="video/mp4">
 		</video>
 	</div>
 @elseif($data->object->hasVideos())
@@ -40,7 +34,7 @@
 {{-- FEATURED IMAGE --}}
 @if($data->object->hasFeatured())
 	<figure class="mb-48">
-		@include('_img.lazy', ['lzobj' => $data->object->getFeatured(), 'lzw' => 1280, 'lzh' => 640, 'ar' => '2x1', 'fc' => false])
+		@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 640, 'ratio' => '2x1', 'class' => 'object-cover' ])
 	</figure>
 @endif
 

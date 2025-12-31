@@ -19,7 +19,7 @@
 	<div class="col-md-6">
 		@if($data->object->hasFeatured())
 			<div class="bg-secondary rounded-3">
-				@include('_img.lazy', ['lzobj' => $data->object->getFeatured(), 'lzw' => 1280, 'lzh' => 960, 'ar' => '4x3'])
+				@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 960, 'ratio' => '4x3', 'class' => 'object-cover' ])
 			</div>
 		@endif
 	</div>
