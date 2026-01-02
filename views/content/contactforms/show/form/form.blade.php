@@ -31,7 +31,9 @@
 		@if($cvar->rule_state == 'enabled')
 
 			<div class="col-12 mt-24">
+
 				{{ html()->label(_q('lara-app::'.$entity->getResourceSlug().'.column.' .$cvar->field_name) .':', $cvar->field_name)->class('form-label fs-base') }}
+
 				@if($cvar->is_required)
 					<span class="field-required color-dark">*</span>
 				@endif
@@ -89,7 +91,7 @@
 					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
 				@endif
 
-				@if($cvar->field_type == 'boolean')
+				@if($cvar->field_type == 'toggle')
 					{{ html()->hidden($cvar->field_name, 0) }}
 					<div class="form-check">
 						{{ html()->checkbox($cvar->field_name, null, 1)
@@ -102,8 +104,8 @@
 
 				@endif
 
-				@if($cvar->field_type == 'selectone')
-					{{ html()->select($cvar->field_name, $cvar->fieldvalues, null)
+				@if($cvar->field_type == 'select')
+					{{ html()->select($cvar->field_name, $cvar->field_options, null)
 							->class('form-select form-select-sm')
 							->data('control', 'select2')->data('hide-search', 'true')
 							->if($cvar->is_required, function ($el) {
@@ -114,7 +116,7 @@
 
 				@if($cvar->field_type == 'radio')
 					<div class="d-flex">
-						@foreach($cvar->fieldvalues as $fldkey => $fldval)
+						@foreach($cvar->field_options as $fldkey => $fldval)
 							<label class="radio-inline">
 								{{ html()->radio($cvar->field_name, null, $fldkey)
 									->id($cvar->field_name.'_' . $loop->index)

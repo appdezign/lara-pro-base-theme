@@ -14,7 +14,7 @@
 @endif
 
 
-{{ html()->form('POST', route('form.'.$entity->getResourceSlug().'.process'))
+{{ html()->form('POST', route('form.'.$entity->getResourceSlug() . '.' . $activeroute->getMenuId() . '.process'))
 		->id($entity->getResourceSlug() . '-form')
 		->attributes(['accept-charset' => 'UTF-8'])
 		->class('lara-system-form needs-validation')
@@ -27,60 +27,71 @@
 	@csrf
 @endif
 
+<div class="row">
+	<div class="col-12 text-end">
+		* = {{ _q('lara-front::default.form.required') }}
+	</div>
+</div>
+
 <x-honeypot/>
 
 <div class="row">
 
 	@foreach($entity->getCustomColumns() as $cvar)
-		@if($cvar->fieldstate == 'enabled')
+
+		@if($cvar->rule_state == 'enabled')
 
 			<div class="col-12 mt-24">
-				{{ html()->label(_q('lara-app::'.$entity->getResourceSlug().'.column.' .$cvar->fieldname) .':', $cvar->fieldname)->class('form-label fs-base') }}
+				{{ html()->label(_q('lara-app::'.$entity->getResourceSlug().'.column.' .$cvar->field_name) .':', $cvar->field_name)->class('form-label fs-base') }}
 
-				@if($cvar->fieldtype == 'string')
-					{{ html()->text($cvar->fieldname, null)
+				@if($cvar->is_required)
+					<span class="field-required color-dark">*</span>
+				@endif
+
+				@if($cvar->field_type == 'string')
+					{{ html()->text($cvar->field_name, null)
 						->class('form-control')
-						->if($cvar->required, function ($el) {
+						->if($cvar->is_required, function ($el) {
 							return $el->required();
 						}) }}
 					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
 				@endif
 
-				@if($cvar->fieldtype == 'email')
-					{{ html()->email($cvar->fieldname, null)
+				@if($cvar->field_type == 'email')
+					{{ html()->email($cvar->field_name, null)
 						->class('form-control')
-						->if($cvar->required, function ($el) {
+						->if($cvar->is_required, function ($el) {
 							return $el->required();
 						}) }}
 					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_email_is_invalid') }}</div>
 				@endif
 
-				@if($cvar->fieldtype == 'text')
-					{{ html()->textarea($cvar->fieldname, null)
+				@if($cvar->field_type == 'textarea')
+					{{ html()->textarea($cvar->field_name, null)
 							->class('form-control')
 							->rows(4)
-							->if($cvar->required, function ($el) {
+							->if($cvar->is_required, function ($el) {
 								return $el->required();
 							}) }}
 					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
 				@endif
 
-				@if($cvar->fieldtype == 'integer')
-					{{ html()->input('number', $cvar->fieldname, null)
+				@if($cvar->field_type == 'integer')
+					{{ html()->input('number', $cvar->field_name, null)
 						->class('form-control')
 						->attributes(['step' => '1'])
-						->if($cvar->required, function ($el) {
+						->if($cvar->is_required, function ($el) {
 							return $el->required();
 						}) }}
 					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
 				@endif
 
-				@if($cvar->fieldtype == 'date')
-					<div id="dtp-{{ $cvar->fieldname }}" class="date-flat-pickr">
-						{{ html()->text($cvar->fieldname, null)
+				@if($cvar->field_type == 'date')
+					<div id="dtp-{{ $cvar->field_name }}" class="date-flat-pickr">
+						{{ html()->text($cvar->field_name, null)
 							->class('form-control')
 							->data('input')
-							->if($cvar->required, function ($el) {
+							->if($cvar->is_required, function ($el) {
 								return $el->required();
 							}) }}
 						<a class="flat-pickr-button" title="toggle" data-toggle>
@@ -90,12 +101,12 @@
 					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
 				@endif
 
-				@if($cvar->fieldtype == 'boolean')
-					{{ html()->hidden($cvar->fieldname, 0) }}
+				@if($cvar->field_type == 'toggle')
+					{{ html()->hidden($cvar->field_name, 0) }}
 					<div class="form-check">
-						{{ html()->checkbox($cvar->fieldname, null, 1)
+						{{ html()->checkbox($cvar->field_name, null, 1)
 							->class('form-check-input')
-							->if($cvar->required, function ($el) {
+							->if($cvar->is_required, function ($el) {
 								return $el->required();
 							}) }}
 						<div class="invalid-feedback ms-8 pt-6">{{ _q('lara-front::default.form.error_required') }}</div>
@@ -103,24 +114,24 @@
 
 				@endif
 
-				@if($cvar->fieldtype == 'selectone')
-					{{ html()->select($cvar->fieldname, $cvar->fieldvalues, null)
+				@if($cvar->field_type == 'select')
+					{{ html()->select($cvar->field_name, array_combine($cvar->field_options, $cvar->field_options), null)
 							->class('form-select form-select-sm')
 							->data('control', 'select2')->data('hide-search', 'true')
-							->if($cvar->required, function ($el) {
+							->if($cvar->is_required, function ($el) {
 								return $el->required();
 							}) }}
 					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
 				@endif
 
-				@if($cvar->fieldtype == 'radio')
+				@if($cvar->field_type == 'radio')
 					<div class="d-flex">
-						@foreach($cvar->fieldvalues as $fldkey => $fldval)
+						@foreach($cvar->field_options as $fldkey => $fldval)
 							<label class="radio-inline">
-								{{ html()->radio($cvar->fieldname, null, $fldkey)
-									->id($cvar->fieldname.'_' . $loop->index)
+								{{ html()->radio($cvar->field_name, null, $fldval)
+									->id($cvar->field_name.'_' . $loop->index)
 									->class('form-check-input')
-									->if($cvar->required, function ($el) {
+									->if($cvar->is_required, function ($el) {
 										return $el->required();
 									}) }}
 								{{ $fldval }}
@@ -129,37 +140,15 @@
 					</div>
 				@endif
 
-				@if($cvar->fieldtype == 'yesno')
-					<div class="d-flex">
-						<label class="radio-inline">
-							{{ html()->radio($cvar->fieldname, null, 1)
-								->id($cvar->fieldname.'_1')
-								->class('form-check-input')
-								->if($cvar->required, function ($el) {
-									return $el->required();
-								}) }}
-							{{ _q('lara-admin::default.value.yes') }}
-						</label>
-						<label class="radio-inline">
-							{{ html()->radio($cvar->fieldname, null, 0)
-								->id($cvar->fieldname.'_0')
-								->class('form-check-input')
-								->if($cvar->required, function ($el) {
-									return $el->required();
-								}) }}
-							{{ _q('lara-admin::default.value.no') }}
-						</label>
-					</div>
-				@endif
 
 			</div>
 
 		@else
 
-			@if($cvar->fieldtype == 'boolean' || $cvar->fieldtype == 'yesno')
-				{{ html()->hidden($cvar->fieldname, 0) }}
+			@if($cvar->field_type == 'boolean')
+				{{ html()->hidden($cvar->field_name, 0) }}
 			@else
-				{{ html()->hidden($cvar->fieldname, null) }}
+				{{ html()->hidden($cvar->field_name, null) }}
 			@endif
 
 		@endif
@@ -206,8 +195,8 @@
 		document.addEventListener("DOMContentLoaded", function () {
 			// datetimepickers for fields
 			@foreach ($entity->getCustomColumns() as $cvar)
-			@if ($cvar->fieldtype == 'date')
-			flatpickr("#dtp-{{  $cvar->fieldname }}", {
+			@if ($cvar->field_type == 'date')
+			flatpickr("#dtp-{{  $cvar->field_name }}", {
 				dateFormat: "Y-m-d",
 				enableTime: false,
 				wrap: true,
