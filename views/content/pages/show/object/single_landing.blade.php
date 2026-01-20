@@ -49,6 +49,10 @@
 {{-- BODY TEXT --}}
 {!! $data->object->body !!}
 
+
+{!! mason(content: $data->object->bricks, bricks: \App\Mason\BrickCollection::make())->toHtml() !!}
+
+
 @include('larawidget', ['hook' => 'bodytext_bottom'])
 
 {{-- RELATED --}}
