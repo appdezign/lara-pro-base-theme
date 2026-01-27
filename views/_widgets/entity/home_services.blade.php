@@ -31,7 +31,7 @@
 
 					{!! $widgetObject->body !!}
 
-					<a href="{{ route($widgetEntityRoute . '.show', $widgetObject->slug) }}" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-24">Learn more</a>
+					<a href="{{ route($widgetEntitySingleRoute, $widgetObject->slug) }}" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-24">Learn more</a>
 				</div>
 			</div>
 			<div class="col-md-6 offset-lg-1 order-md-2 order-1">

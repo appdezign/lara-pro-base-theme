@@ -69,7 +69,7 @@
 										</div>
 
 										<h3 class="h4">
-											<a href="{{ route($widgetEntityRoute . '.show', $widgetObject->slug) }}"
+											<a href="{{ route($widgetEntitySingleRoute, $widgetObject->slug) }}"
 											   class="stretched-link">
 												{{ $widgetObject->title }}
 											</a>
@@ -77,7 +77,7 @@
 
 										@if($widgetObject->hasThumb())
 											<div class="blog-featured-image mb-20">
-												<a href="{{ route($widgetEntityRoute . '.show', $widgetObject->slug) }}">
+												<a href="{{ route($widgetEntitySingleRoute, $widgetObject->slug) }}">
 													@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 480, 'ratio' => '2x1'])
 												</a>
 											</div>

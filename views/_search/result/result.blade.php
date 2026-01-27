@@ -83,7 +83,7 @@
 										<div class="col-sm-9">
 
 											<h3 class="h4">
-												<a href="{{ $result->url }}">
+												<a href="{{ route($result->routename, ['slug' => $result->slug]) }}">
 													{{ $result->title }}
 												</a>
 											</h3>
@@ -93,7 +93,7 @@
 											@elseif(!empty($result->lead))
 												<p>{!! substr(strip_tags($result->lead),0,150) !!} ...</p>
 											@endif
-											<a href="{{ $result->url  }}">lees meer</a>
+											<a href="{{ route($result->routename, ['slug' => $result->slug]) }}">lees meer</a>
 
 										</div>
 									</div>
