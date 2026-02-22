@@ -22,11 +22,11 @@
 								<h1 class="mb-2 mb-md-0">{{ $data->page->title }}</h1>
 							</div>
 							<div class="d-none d-lg-flex align-items-center">
-								<a href="{{ route($activeroute->getPrefix() . '.' . $entity->getResourceSlug().'.index', ['view' => 'list']) }}"
+								<a href="{{ route($activeroute->getActiveRoute(), ['view' => 'list']) }}"
 								   class="nav-link me-16 p-0 @if(!$isGrid) active @endif">
 									<i class="fas fa-list @if(!$isGrid) color-primary @else text-muted @endif"></i>
 								</a>
-								<a href="{{ route($activeroute->getPrefix() . '.' . $entity->getResourceSlug().'.index', ['view' => 'grid']) }}"
+								<a href="{{ route($activeroute->getActiveRoute(), ['view' => 'grid']) }}"
 								   class="nav-link p-0 @if($isGrid) active @endif">
 									<i class="fas fa-th @if($isGrid) color-primary @else text-muted @endif"></i>
 								</a>

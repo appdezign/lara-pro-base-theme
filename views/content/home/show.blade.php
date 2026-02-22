@@ -13,8 +13,8 @@
 
 						<p class="mb-24 pb-lg-16 fs-lg">{!! $data->object->body !!}</p>
 
-						@if(array_key_exists('about', $data->eroutes['page']))
-							<a href="{{ route($data->eroutes['page']['about']) }}"
+						@if(array_key_exists('about', $data->eroutes->page))
+							<a href="{{ route($data->eroutes->page['about']) }}"
 							   class="btn btn-lg btn-outline-primary">More about us</a>
 						@endif
 
