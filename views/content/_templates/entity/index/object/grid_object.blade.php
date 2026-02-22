@@ -1,7 +1,7 @@
 <article class="card border-0 shadow-sm h-100">
 	<div class="position-relative">
 		@if($obj->hasThumb())
-			@include('_img.glide', ['media' => $data->object->thumb(), 'width' => 1280, 'height' => 960, 'ratio' => '4x3', 'class' => 'card-img-top' ])
+			@include('_img.glide', ['media' => $obj->thumb(), 'width' => 1280, 'height' => 960, 'ratio' => '4x3', 'class' => 'card-img-top' ])
 		@else
 			@include('_img.placeholder', ['phw' => 800, 'phh' => 600, 'phar' => '4x3', 'phbg' => 'e8ecf0', 'phcol' => 'd4d8dc'])
 		@endif
