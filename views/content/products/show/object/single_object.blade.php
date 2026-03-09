@@ -13,7 +13,9 @@
 
 		{!! $data->object->lead !!}
 
-		{!! $data->object->body !!}
+		<div class="rich-content-body">
+			{!! $data->object->body !!}
+		</div>
 
 	</div>
 	<div class="col-md-6">

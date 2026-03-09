@@ -28,7 +28,9 @@
 					<strong>{!! $data->object->role !!}</strong>
 				</div>
 				<div class="py-12">
-					{!! $data->object->body !!}
+					<div class="rich-content-body">
+						{!! $data->object->body !!}
+					</div>
 				</div>
 
 				<div class="py-12">

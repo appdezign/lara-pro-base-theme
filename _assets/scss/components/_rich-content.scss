@@ -1,0 +1,9 @@
+.rich-content-body {
+	ul {
+		li {
+			> p {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
