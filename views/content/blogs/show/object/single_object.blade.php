@@ -46,7 +46,9 @@
 @endif
 
 {{-- BODY TEXT --}}
-{!! $data->object->renderRichContent('body') !!}
+<div class="rich-content-body">
+	{!! $data->object->body !!}
+</div>
 
 {{-- RELATED --}}
 @if($entity->hasRelated())

@@ -154,7 +154,9 @@
 			<tr>
 				<td class="d-none d-md-table-cell event-table-white">&nbsp;</td>
 				<td colspan="2" class="event-table-white">
-					{!! $data->object->body !!}
+					<div class="rich-content-body">
+						{!! $data->object->body !!}
+					</div>
 				</td>
 			</tr>
 		@endif

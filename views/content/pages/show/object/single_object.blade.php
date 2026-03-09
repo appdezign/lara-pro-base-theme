@@ -47,7 +47,9 @@
 @include('larawidget', ['hook' => 'bodytext_top'])
 
 {{-- BODY TEXT --}}
-{!! $data->object->body !!}
+<div class="rich-content-body">
+	{!! $data->object->body !!}
+</div>
 
 @include('larawidget', ['hook' => 'bodytext_bottom'])
 
