@@ -1,25 +1,27 @@
 <?php if($data->gridvars) require($data->gridvars); ?>
 <?php if($data->override) require($data->override); ?>
 
-<section class="{{ $grd->module }} pt-0">
+<section class="{{ $grd->module }}">
 	<div class="{{ $grd->container }}">
 
-		<div class="row">
+		<div class="grid grid-cols-12">
 
 			{{-- Sidebar Left --}}
 			@includeWhen($grd->hasSidebarLeft, $grd->leftSidebar)
 
 			<div class="{{ $grd->contentCols }} main-content">
 
-				<div class="row">
-					<div class="{{ $grd->gridColumns }}">
+				<div class="grid grid-cols-12">
+					<div class="responsive-col-span-8">
+
 						@include('content.' . $entity->getResourceSlug() . '.show.object.single_object')
+
 					</div>
 				</div>
 
 				@if($data->params->getPrevNext())
-					<div class="row">
-						<div class="{{ $grd->gridColumns }}">
+					<div class="grid grid-cols-12">
+						<div class="responsive-col-span-8">
 							@include('content._partials.single_prevnext')
 						</div>
 					</div>

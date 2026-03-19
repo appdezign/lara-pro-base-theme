@@ -1,0 +1,39 @@
+@layer base {
+
+	body,html {
+		height: 100%
+	}
+
+	html {
+		line-height: 1.6;
+		* {
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale
+		}
+	}
+
+	body {
+		display: flex;
+		flex-direction: column
+	}
+
+	.main-content {
+		p {
+			@apply mb-5;
+		}
+		a {
+			@apply text-blue-600;
+			&:hover {
+				@apply text-pink-600;
+			}
+		}
+	}
+
+	.aspect-video iframe {
+		width: 100% !important;
+		height: 100% !important;
+	}
+}
+
+
+

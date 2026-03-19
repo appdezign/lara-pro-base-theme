@@ -1,4 +1,4 @@
-<div class="{{ $data->grid->leftCols }}">
+<div class="col-span-12 {{ $data->grid->leftCols }}">
 
 	<aside>
 

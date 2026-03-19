@@ -4,41 +4,33 @@ $navlink = ($node->type->value == 'url') ? $node->url : url($lang . '/' . $node-
 ?>
 
 @if(!$node->isLeaf() && sizeof($node->children) > 0)
-	<li class="nav-item dropdown" id="menu-item-{{ $node->id }}">
-		@if(empty($node->route))
-			{{-- folder --}}
-			<a href="#"
-			   class="nav-link dropdown-toggle @if(in_array($node->id, $activemenu)) active @endif"
-			   data-bs-toggle="dropdown">
+	<!-- dropdown -->
+	<li>
+		<div class="dropdown dropdown-hover">
+			<a tabindex="0" class="menu-dropdown-toggle">
 				{{ $node->title }}
+				<x-heroicon-m-chevron-down class="h-4 w-4"/>
 			</a>
-		@else
-			{{-- clickable folder --}}
-			<a href="{{ $navlink }}"
-			   class="nav-link dropdown-toggle @if(in_array($node->id, $activemenu)) active @endif"
-			   data-bs-toggle="dropdown">
-				{{ $node->title }}
-			</a>
-		@endif
 
-		<ul class="dropdown-menu" id="menu-item-{{ $node->id }}-submenu">
-			@foreach ($node->children as $node)
-				@include('_widgets.menu.menu_render', $node)
-			@endforeach
-		</ul>
+			<ul tabindex="-1" class="menu dropdown-content ">
+				@foreach ($node->children as $node)
+					@include('_widgets.menu.menu_render', $node)
+				@endforeach
+			</ul>
+		</div>
 	</li>
 @else
-	@if($node->depth > 1)
-		<li id="menu-item-{{ $node->id }}">
-			<a href="{{ $navlink }}"
-			   class="dropdown-item @if(in_array($node->id, $activemenu)) active @endif">
+	@if($node->depth > 0)
+		<!-- single sub -->
+		<li>
+			<a href="{{ $navlink }}" class="menu-sub-link">
 				{{ $node->title }}
 			</a>
 		</li>
 	@else
-		<li class="nav-item" id="menu-item-{{ $node->id }}">
-			<a href="{{ $navlink }}"
-			   class="nav-link @if(in_array($node->id, $activemenu)) active @endif">
+		<!-- single root -->
+		<li>
+			<a href="{{ $navlink }}" class="menu-link">
 				{{ $node->title }}
 			</a>
 		</li>

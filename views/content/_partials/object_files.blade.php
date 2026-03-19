@@ -1,28 +1,24 @@
-<p>{{ _q('lara-front::default.headers.related_docs') }}:</p>
+<p class="my-4 font-bold">{{ ucfirst(_q('lara-front::default.headers.related_files')) }}:</p>
 
-<ul class="object-related-files">
-
+<ul class="mb-8">
 	@if($data->object->files)
-
 		@foreach($data->object->files->entity_files as $objfile)
 			<li>
-				<a href="{{ $entity->getFileUrl( $objfile['doc_filename']) }}"
-				   target="_blank" class="bg-secondary">
-					<div class="row m-0">
-
-						<div class="col-sm-1 d-none d-sm-block text-center col1">
+				<a href="{{ $entity->getFileUrl( $objfile['doc_filename']) }}" target="_blank" class="block bg-secondary">
+					<div class="grid grid-cols-12">
+						<div class="hidden sm:block sm:col-span-1 text-center bg-primary text-white px-2 py-3">
 							{{ strtoupper(pathinfo($objfile['doc_filename'], PATHINFO_EXTENSION)) }}
 						</div>
-						<div class="col-10 col2">
+						<div class="col-span-12 sm:col-span-10 p-3">
 							{{ $objfile['doc_original'] }}
 						</div>
-						<div class="col-2 col-sm-1 text-center col3">
-							<i class="far fa-arrow-to-bottom"></i>
+						<div class="col-span-2 sm:col-span-1 text-center p-3 text-gray-800">
+							<x-heroicon-s-arrow-down-tray class="inline-block w-6 h-6"/>
 						</div>
 					</div>
 				</a>
 			</li>
 		@endforeach
 	@endif
-
 </ul>
+

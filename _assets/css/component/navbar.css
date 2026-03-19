@@ -1,0 +1,77 @@
+.drawer {
+	.navbar {
+		@apply bg-white px-3 py-0 min-h-[3.75rem];
+
+		.container {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+
+		.menu {
+			@apply text-base font-semibold;
+			&.menu.menu-horizontal {
+				@apply p-0;
+				.menu-link {
+					@apply block px-3 py-4 hover:bg-transparent hover:text-primary;
+				}
+				.menu-dropdown-toggle {
+					@apply flex gap-1 px-3 py-4 hover:bg-transparent hover:text-primary items-center cursor-pointer
+				}
+				.dropdown.dropdown-hover {
+					@apply p-0 hover:bg-transparent;
+				}
+				.menu.dropdown-content {
+					@apply bg-white rounded-box z-50 w-52 m-0 px-0 py-2 shadow-sm
+
+				}
+				.menu-sub-link {
+					@apply flex px-4 py-2 text-sm hover:bg-transparent hover:text-primary;
+				}
+
+			}
+		}
+
+
+	}
+
+	.drawer-side {
+		z-index: 200 !important;
+
+		.mobile-menu-link {
+			@apply text-gray-900 hover:text-primary hover:bg-transparent block px-3 py-2 rounded-md text-base font-medium;
+		}
+
+		.mobile-menu-sub-link {
+			@apply flex px-4 py-2 text-sm hover:bg-transparent hover:text-primary;
+		}
+
+		.mobile-menu-dropdown-toggle {
+			@apply flex gap-1 text-gray-900 hover:text-primary hover:bg-transparent  px-3 py-2 rounded-md text-base font-medium;
+		}
+	}
+
+}
+
+.navbar-stuck {
+	animation: navbar-show .25s ease-in-out;
+	box-shadow: 0 .275rem 1.25rem rgba(11, 15, 25, .05), 0 .25rem .5625rem rgba(11, 15, 25, .03);
+	left: 0;
+	position: fixed !important;
+	top: 0;
+	width: 100%;
+	padding-top: 0.5rem !important;
+	padding-bottom: 0.5rem !important;
+	z-index: 100
+}
+
+
+
+@keyframes navbar-show {
+	0% {
+		transform: translateY(-100%)
+	}
+
+	to {
+		transform: translateY(0)
+	}
+}

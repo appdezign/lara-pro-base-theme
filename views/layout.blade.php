@@ -15,15 +15,6 @@
 
 <body class="lara-{{ $entity->getResourceSlug() }} lara-{{ $activeroute->getMethod() }} lara-{{ $data->params->getVType() }}">
 
-@if(isset($firstpageload) && $firstpageload)
-	<!-- Page loading spinner -->
-	<div class="page-loading active">
-		<div class="page-loading-inner">
-			<div class="page-spinner"></div>
-			<span>Loading...</span>
-		</div>
-	</div>
-@endif
 
 <main class="page-wrapper">
 
@@ -45,9 +36,7 @@
 @include('_partials.footer.'.$data->layout->footer)
 
 @yield('scripts-before')
-
 @include('_main.html_footer')
-
 @yield('scripts-after')
 
 @include('_scripts.cookieconsent')

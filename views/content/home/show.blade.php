@@ -1,28 +1,59 @@
 @extends('layout')
 
+@section('head-after')
+	<link media="all" type="text/css" rel="stylesheet" href="https://demo.laracms.nl/assets/themes/demo/vendor/img-comparison-slider/img-comparison-slider.css">
+@endsection
+
 @section('content')
 
-	<!-- About -->
-	@if(!empty($data->object))
-		<section class="container my-48 py-lg-48 py-md-24 py-16">
-			<div class="row gy-4 py-xl-16">
-				<div class="col-12 d-flex">
-					<div class="align-self-center ps-lg-0 ps-md-24">
+	<section class="pt-24 pb-12">
+		<div class="container">
+			@include('content.home._partials.content')
+		</div>
+	</section>
 
-						<h1 class="h1 mb-lg-24 mb-16">{{ $data->object->title }}</h1>
+	<section class="py-12">
+		<div class="container">
+			@include('content.home._partials.solutions')
+		</div>
+	</section>
 
-						<p class="mb-24 pb-lg-16 fs-lg">{!! $data->object->body !!}</p>
+	<section class="py-12">
+		@widget('sliderWidget', ['term' => 'cases', 'grid' => $data->grid, 'sliderclass' => 'home-cases'])
+	</section>
 
-						@if(array_key_exists('about', $data->eroutes->page))
-							<a href="{{ route($data->eroutes->page['about']) }}"
-							   class="btn btn-lg btn-outline-primary">More about us</a>
-						@endif
+	<section class="py-12">
+		<div class="container">
+			@widget('entityWidget', ['resource_slug' => 'services', 'parent' => 'home', 'term' => '', 'needs_image' => true, 'count' => 3, 'grid' => $data->grid])
+		</div>
+	</section>
 
-					</div>
-				</div>
-			</div>
-		</section>
-	@endif
+	<section class="py-12">
+		@include('content.home._partials.comparison')
+	</section>
+
+	<section class="py-12">
+		<div class="container">
+			@widget('entityWidget', ['resource_slug' => 'testimonials', 'parent' => 'home', 'term' => 'home',
+			'needs_image' => true, 'count' => 3, 'grid' => $data->grid])
+		</div>
+	</section>
+
+	<section class="py-12">
+		<div class="container">
+			@widget('entityWidget', ['resource_slug' => 'portfolios', 'parent' => 'home', 'term' => '', 'needs_image' => true, 'count' => 20, 'grid' => $data->grid])
+		</div>
+	</section>
+
+	<section class="bg-secondary py-12">
+		<div class="container">
+			@widget('entityWidget', ['resource_slug' => 'blogs', 'parent' => 'home', 'term' => 'home-blog-widget', 'needs_image' => true, 'count' => 4, 'grid' => $data->grid])
+		</div>
+	</section>
 
 @endsection
 
+@section('scripts-after')
+	@parent
+	<script src="https://demo.laracms.nl/assets/themes/demo/vendor/img-comparison-slider/img-comparison-slider.js"></script>
+@endsection

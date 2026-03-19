@@ -1,18 +1,12 @@
-{{ html()->form('GET', route('special.search.result'))
-		->attributes(['accept-charset' => 'UTF-8'])
-		->open() }}
+{{ html()->form('GET', route('special.search.result'))->attributes(['accept-charset' => 'UTF-8'])->open() }}
 
-<div class="row form-group">
-	<div class="col-12 col-md-2">
-		{{ html()->label('Search :', 'keywords') }}
+<div class="grid grid-cols-12 gap-4">
+	<div class="col-span-12 sm:col-span-10">
+		{{ html()->text('keywords', null)->class('input w-full') }}
 	</div>
-	<div class="col-12 col-md-8">
-		{{ html()->text('keywords', null)->class('form-control') }}
+	<div class="col-span-12 sm:col-span-2">
+		{{ html()->button('Go', 'submit')->class('btn btn-primary w-full') }}
 	</div>
-	<div class="col-12 col-md-2">
-		{{ html()->button('Go', 'submit')->class('btn btn-danger save-button') }}
-	</div>
-
 </div>
 
 {{ html()->form()->close() }}

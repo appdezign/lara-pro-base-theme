@@ -1,0 +1,22 @@
+/* layout */
+
+.page-wrapper {
+	flex: 1 0 auto !important;
+}
+
+.lara-section {
+	@apply py-16;
+}
+
+.container {
+	@apply max-w-[82.5rem] mx-auto px-4 md:px-6 lg:px-8 2xl:px-0;
+}
+
+
+/*
+.row {
+	@apply grid grid-cols-12;
+}
+*/
+
+

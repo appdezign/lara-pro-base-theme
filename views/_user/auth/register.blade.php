@@ -1,77 +1,120 @@
-@extends('layouts.app')
+@extends('layout_auth')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+	<div class="flex h-full justify-center items-center">
+		<div class="card bg-white shadow-sm" style="width: 480px; max-width: 100%;">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+			<div class="card-body">
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+				<h1 class="h2 card-title mb-2">
+					{{ ucfirst(_q('lara-front::auth.headers.register')) }}
+				</h1>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+				<div class="border-b-1 border-slate-200 h-0 my-2"></div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+				@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul class="">
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@else
+					@include('flash::message')
+				@endif
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+				<form method="POST" action="{{ route('register') }}" autocomplete="off">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+					@csrf
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+					<fieldset class="fieldset w-full my-2">
+						<div class="grid grid-cols-12 gap-4">
+							<div class="col-span-12 md:col-span-4">
+								<legend class="fieldset-legend">{{ _q('lara-admin::users.column.email') }}</legend>
+							</div>
+							<div class="col-span-12 md:col-span-8">
+								<input type="email" name="email" id="email" class="input w-full" value="{{ old('email') }}" autocomplete="new-email" required />
+							</div>
+						</div>
+					</fieldset>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+					<fieldset class="fieldset w-full my-2">
+						<div class="grid grid-cols-12 gap-4">
+							<div class="col-span-12 md:col-span-4">
+								<legend class="fieldset-legend">{{ _q('lara-admin::users.column.firstname') }}</legend>
+							</div>
+							<div class="col-span-12 md:col-span-8">
+								<input type="text" name="firstname" id="firstname" class="input w-full" value="{{ old('firstname') }}" required/>
+							</div>
+						</div>
+					</fieldset>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+					<fieldset class="fieldset w-full my-2">
+						<div class="grid grid-cols-12 gap-4">
+							<div class="col-span-12 md:col-span-4">
+								<legend class="fieldset-legend">{{ _q('lara-admin::users.column.middlename') }}</legend>
+							</div>
+							<div class="col-span-12 md:col-span-8">
+								<input type="text" name="middlename" id="middlename" class="input w-full" value="{{ old('middlename') }}" />
+							</div>
+						</div>
+					</fieldset>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+					<fieldset class="fieldset w-full my-2">
+						<div class="grid grid-cols-12 gap-4">
+							<div class="col-span-12 md:col-span-4">
+								<legend class="fieldset-legend">{{ _q('lara-admin::users.column.lastname') }}</legend>
+							</div>
+							<div class="col-span-12 md:col-span-8">
+								<input type="text" name="lastname" id="lastname" class="input w-full" value="{{ old('lastname') }}" required/>
+							</div>
+						</div>
+					</fieldset>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+					<fieldset class="fieldset w-full my-2 relative">
+						<div class="grid grid-cols-12 gap-4 ga">
+							<div class="col-span-12 md:col-span-4">
+								<legend class="fieldset-legend">{{ _q('lara-admin::users.column.password') }}</legend>
+							</div>
+							<div class="col-span-12 md:col-span-8">
+								<input id="password" name="password" type="password" class="input w-full pe-8" autocomplete="new-password" required>
+								<a href="javscript:void(0)" class="js-toggle-password1 toggle-password absolute top-4 right-3 text-gray-600">
+									<x-heroicon-o-eye class="toggle-eye w-4 h-4"/>
+									<x-heroicon-o-eye-slash class="toggle-eye-slash w-4 h-4"/>
+								</a>
+							</div>
+						</div>
+					</fieldset>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
+					<fieldset class="fieldset w-full my-2 relative">
+						<div class="grid grid-cols-12 gap-4">
+							<div class="col-span-12 md:col-span-4">
+								<legend class="fieldset-legend">{{ _q('lara-admin::users.column.password_confirmation') }}</legend>
+							</div>
+							<div class="col-span-12 md:col-span-8">
+								<input id="password_confirmation" name="password_confirmation" type="password" class="input w-full" autocomplete="new-password_confirmation" required>
+								<a href="javscript:void(0)" class="js-toggle-password2 toggle-password absolute top-4 right-3 text-gray-600">
+									<x-heroicon-o-eye class="toggle-eye w-4 h-4"/>
+									<x-heroicon-o-eye-slash class="toggle-eye-slash w-4 h-4"/>
+								</a>
+							</div>
+						</div>
+					</fieldset>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+					<button type="submit" class="btn btn-primary shadow-primary btn-lg w-full my-3">
+						{{ _q('lara-common::auth.button.register') }}
+					</button>
+
+					<div class="border-b-1 border-slate-200 h-0 my-2"></div>
+
+					<a href="{{ route('login') }}" class="block text-sm my-2">
+						{{ _q('lara-common::auth.button.back_to_login') }}
+					</a>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
 @endsection

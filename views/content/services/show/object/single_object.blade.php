@@ -1,30 +1,42 @@
-<div class="mt-24 pt-lg-8 pb-16">
+<div class="flex mt-6">
+	<h1 class="h1 grow-1">{{ $data->object->title }}</h1>
 	@if($data->entityListUrl)
 		<a href="{{ $data->entityListUrl }}"
-		   class="btn btn-outline-primary ms-16 px-14 py-10 float-end">
-			<i class="far fa-lg fa-angle-left"></i>
+		   class="btn btn-square btn-outline btn-primary ms-4">
+			<x-heroicon-o-chevron-left class="w-5 h-5"/>
 		</a>
 	@endif
-	<h1 class="pb-16">{{ $data->object->title }}</h1>
 </div>
 
-<div class="row">
-	<div class="col-md-6">
+<div class="grid grid-cols-12 gap-12">
+	<div class="col-span-12 md:col-span-6">
 
 		{!! $data->object->lead !!}
+
+		<style>
+			.rich-content-body ul {
+				display: flex;
+				justify-content: space-between;
+			}
+			.rich-content-body ul li {
+				font-weight: bold;
+			}
+		</style>
 
 		<div class="rich-content-body">
 			{!! $data->object->body !!}
 		</div>
 
 	</div>
-	<div class="col-md-6">
+
+	<div class="col-span-12 md:col-span-6">
 		@if($data->object->hasFeatured())
-			<div class="bg-secondary rounded-3">
-				@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 960, 'ratio' => '4x3', 'class' => 'object-cover' ])
-			</div>
+			<figure class="bg-secondary rounded-lg">
+				@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 960, 'ratio' => '4/3', 'class' => 'object-cover' ])
+			</figure>
 		@endif
 	</div>
+
 </div>
 
 

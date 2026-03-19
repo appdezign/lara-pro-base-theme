@@ -1,18 +1,14 @@
-@if(!empty($widgetObjects))
+@if($widgetObjects)
 
-	<h2 class="h1 text-center pb-8">News &amp; Insights</h2>
+	<h2 class="mb-12 text-center">
+		News &amp; Insights
+	</h2>
 
-	<div class="position-relative mx-md-8 px-md-48">
+	<div class="relative md:px-8">
 
 		<!-- Slider controls (Prev / next) -->
-		<button type="button" id="news-prev"
-		        class="btn btn-prev btn-icon btn-sm position-absolute top-50 start-0 translate-middle-y mt-n24 d-none d-md-inline-flex">
-			<i class="far fa-chevron-left fs-12"></i>
-		</button>
-		<button type="button" id="news-next"
-		        class="btn btn-next btn-icon btn-sm position-absolute top-50 end-0 translate-middle-y mt-n24 d-none d-md-inline-flex">
-			<i class="far fa-chevron-right fs-12"></i>
-		</button>
+		<div class="swiper-button-prev hidden md:flex rounded-full bg-white hover:bg-primary"></div>
+		<div class="swiper-button-next hidden md:flex rounded-full bg-white hover:bg-primary"></div>
 
 		<!-- Swiper slider -->
 		<div class="js-swiper swiper swiper-nav-onhover mx-n8" data-swiper-options='{
@@ -21,7 +17,7 @@
               "spaceBetween": 8,
               "speed": 800,
               "autoplay": {
-                "delay": 4000,
+                "delay": 6000,
                 "disableOnInteraction": false
               },
               "pagination": {
@@ -29,14 +25,14 @@
                 "clickable": true
               },
               "navigation": {
-                "prevEl": "#news-prev",
-                "nextEl": "#news-next"
+                "prevEl": ".swiper-button-prev",
+                "nextEl": ".swiper-button-next"
               },
               "breakpoints": {
                 "0": {
                   "slidesPerView": 1
                 },
-                "560": {
+                "768": {
                   "slidesPerView": 2
                 },
                 "992": {
@@ -48,36 +44,42 @@
 
 				@foreach($widgetObjects as $widgetObject)
 
-					<div class="swiper-slide h-auto py-16">
-						<article class="card p-md-16 p-8 border-0 shadow-sm card-hover-primary h-100 mx-8">
-							<div class="card-body pb-0">
-								<div class="d-flex align-items-center justify-content-between mb-16">
+					<div class="swiper-slide swiper-slide-eqh self-stretch py-4">
+						<article class="card p-8 md:p-4 bg-white border-0 shadow-sm card-hover-primary h-full mx-2">
+							<div class="card-body h-full">
+
+								<div class="flex items-center justify-between mb-4">
 									<a href="#"
-									   class="badge fs-14 text-nav bg-secondary text-decoration-none position-relative zindex-2">
+									   class="relative inline-block px-2 py-1 text-sm bg-indigo-100 rounded no-underline z-2">
 										@foreach($widgetObject->tags->where('taxonomy_id', 2) as $tag)
 											{{ $tag->title }}
 										@endforeach
 									</a>
-									<span class="fs-14 text-muted">
+									<span class="text-sm text-gray-500">
 									{{ Carbon\Carbon::parse($widgetObject->publish_from)->format('F d, Y') }}
 								</span>
 								</div>
 
-								<h4>
-									<a href="{{ route($widgetEntitySingleRoute, $widgetObject->slug) }}" class="stretched-link">
+								<h4 class="h4">
+									<a href="#">
 										{{ $widgetObject->title }}
 									</a>
 								</h4>
 
 								@if($widgetObject->hasThumb())
-									<div class="blog-featured-image mb-20">
+									<div class="mb-4">
 										<a href="{{ route($widgetEntitySingleRoute, $widgetObject->slug) }}">
-											@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 480, 'ratio' => '2x1', 'class' => 'object-cover' ])
+											<div class="aspect-2/1">
+												@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 480, 'ratio' => '2/1', 'class' => 'object-cover' ])
+											</div>
 										</a>
 									</div>
 								@endif
 
-								<p class="mb-0">{!! $widgetObject->lead !!}</p>
+								<p class="mb-0">
+									{!! $widgetObject->lead !!}
+								</p>
+
 							</div>
 
 						</article>
@@ -86,8 +88,10 @@
 			</div>
 
 			<!-- Pagination (bullets) -->
-			<div class="swiper-pagination position-relative pt-8 pt-sm-16 mt-24"></div>
+			<div class="swiper-pagination !relative pt-2 mt-2"></div>
 		</div>
 	</div>
 
 @endif
+
+

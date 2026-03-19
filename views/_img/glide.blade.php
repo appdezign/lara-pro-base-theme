@@ -32,7 +32,7 @@ $source = glideUrl($media->path, $imageWidth, $imageHeight, $imageFit, $imageFor
 	@if($containerClass)
 		<div class="img-container {{ $containerClass }}"
 		     style="width:{{ $displayWidth }}px; height:{{ $displayHeight }}px">
-			<div class="ratio ratio-{{ $aspectRatio }}">
+			<div class="aspect-{{ $aspectRatio }}">
 				<img data-src="{!! $source !!}"
 				     width="{{ $displayWidth }}"
 				     height="{{ $displayHeight }}"
@@ -42,7 +42,7 @@ $source = glideUrl($media->path, $imageWidth, $imageHeight, $imageFit, $imageFor
 			</div>
 		</div>
 	@else
-		<div class="ratio ratio-{{ $aspectRatio }}">
+		<div class="aspect-{{ $aspectRatio }}">
 			<img data-src="{!! $source !!}"
 			     width="{{ $displayWidth }}"
 			     height="{{ $displayHeight }}"

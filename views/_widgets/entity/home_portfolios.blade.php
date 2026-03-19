@@ -1,6 +1,6 @@
-@if(!empty($widgetObjects))
+@if($widgetObjects)
 
-	<div class="js-swiper swiper mx-n8" data-swiper-options='{
+	<div class="js-swiper swiper -mx-2" data-swiper-options='{
           "slidesPerView": 2,
           "speed": 800,
           "autoplay": {
@@ -31,20 +31,24 @@
           }
         }'>
 		<div class="swiper-wrapper">
-			@foreach($widgetObjects as $widgetObject)
 
-				<div class="swiper-slide py-16">
+			@foreach ($widgetObjects as $widgetObject)
+
+				<div class="swiper-slide py-4">
 					@if($widgetObject->hasThumb())
-						<a href="{{ $widgetObject->url }}" class="card card-body card-hover px-8 mx-8">
-							@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 480, 'ratio' => '2x1', 'class' => 'd-block mx-auto my-8' ])
+						<a href="{{ $widgetObject->url }}" class="card border-1 border-gray-300 py-4 px-2 mx-2">
+							@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 480, 'ratio' => '2/1', 'class' => 'd-block mx-auto my-8' ])
 						</a>
 					@endif
 				</div>
-
 			@endforeach
+
 		</div>
 
 		<!-- Pagination (bullets) -->
-		<div class="swiper-pagination position-relative pt-8 mt-24"></div>
+		<div class="swiper-pagination !relative mt-2"></div>
 	</div>
+
 @endif
+
+
