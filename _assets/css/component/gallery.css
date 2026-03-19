@@ -1,0 +1,95 @@
+.gallery {
+	--si-gallery-overlay-bg: rgba(11,15,25,.4);
+	--si-gallery-indicator-size: 2.5rem;
+	--si-gallery-image-indicator-color: #fff;
+	--si-gallery-video-indicator-bg: #fff;
+	--si-gallery-video-indicator-color: #33354d;
+	--si-gallery-video-indicator-font-size: 2rem;
+	--si-gallery-video-indicator-box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11,15,25,.06),0 0.125rem 0.4rem -0.0625rem rgba(11,15,25,.03);
+	--si-gallery-video-indicator-hover-bg: #6366f1;
+	--si-gallery-video-indicator-hover-color: #fff;
+	--si-gallery-video-indicator-hover-box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(99,102,241,.9)
+}
+
+.gallery-item {
+	display: block;
+	-webkit-mask-image:-webkit-radial-gradient(#fff,#000);
+	overflow: hidden;
+	position: relative;
+	text-decoration: none!important
+}
+
+.gallery-item:before,.gallery-item>img {
+	display: block;
+	width: 100%
+}
+
+.gallery-item:before {
+	background-color: var(--si-gallery-overlay-bg);
+	content: "";
+	height: 100%;
+	opacity: 0;
+	position: absolute;
+	transition: opacity .3s ease-in-out;
+	z-index: 1
+}
+
+.gallery-item-icon {
+	color: var(--si-gallery-image-indicator-color);
+	display: block;
+	left: 50%;
+	margin-left: calc(var(--si-gallery-indicator-size)*-.5);
+	margin-top: calc(var(--si-gallery-indicator-size)*-.5);
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: scale(.3);
+	height: var(--si-gallery-indicator-size);
+	width: var(--si-gallery-indicator-size);
+	z-index: 5
+}
+
+.gallery-item .gallery-item-caption {
+	color: #fff;
+	display: block;
+	left: 0;
+	padding: 1rem;
+	position: absolute;
+	top: 0;
+	transform: translateY(.5rem);
+	width: 100%;
+	z-index: 5
+}
+
+.gallery-item .gallery-item-caption,.gallery-item-icon {
+	opacity: 0;
+	transition: all .3s ease-in-out
+}
+
+.gallery-item.is-hovered .gallery-item-caption,
+.gallery-item.is-hovered:before,
+.gallery-item:hover .gallery-item-caption,
+.gallery-item:hover .gallery-item-icon,
+.gallery-item:hover:before {
+	opacity: 1;
+	transform: none
+}
+
+.gallery-item.video-item:after {
+	background-color: var(--si-gallery-video-indicator-bg);
+	border-radius: 50%;
+	box-shadow: var(--si-gallery-video-indicator-box-shadow);
+	color: var(--si-gallery-video-indicator-color);
+	content: "\ebbd";
+	font-size: var(--si-gallery-video-indicator-font-size);
+	opacity: 1;
+	padding-left: .25rem;
+	padding-top: .0625rem;
+	transform: none
+}
+
+.gallery-item.video-item:hover:after {
+	background-color: var(--si-gallery-video-indicator-hover-bg);
+	box-shadow: var(--si-gallery-video-indicator-hover-box-shadow);
+	color: var(--si-gallery-video-indicator-hover-color)
+}

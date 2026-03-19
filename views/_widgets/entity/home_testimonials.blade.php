@@ -1,62 +1,75 @@
-@if(!empty($widgetObjects))
+@if($widgetObjects)
 
-	<h2 class="h1 mb-md-48 mb-24 pb-xl-16 pb-lg-8 pb-md-0 pb-sm-8">
-		What Our Clients Say About Us
-	</h2>
-
-	<!-- Tabs -->
-	<div class="row gy-4 gx-md-4 gx-3" data-aos="fade-up">
-
-		<!-- Nav tabs -->
-		<div class="col-lg-4 col-sm-5 order-sm-1 order-2">
-			<ul class="nav nav-tabs flex-column" role="tablist">
+	<div class="grid grid-cols-12 gap-2">
+		<!-- Tab Navigation -->
+		<div class="col-span-12 md:col-span-5 lg:col-span-4">
+			<div class="flex flex-row md:flex-col justify-between md:justify-start gap-2" role="tablist">
 
 				@foreach($widgetObjects as $widgetObject)
-					<li class="nav-item mb-16">
-						<a href="#testimonial-{{ $widgetObject->id }}"
-						   class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-24 p-16 rounded-3 fw-normal @if($loop->index == 0) active @endif"
-						   data-bs-toggle="tab" role="tab">
-							@if($widgetObject->hasThumb())
-								@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 96, 'height' => 96, 'dwidth' => 56, 'dheight' => 56, 'ratio' => '1x1', 'class' => 'rounded-circle', 'cntclass' => 'me-md-16 me-sm-0 me-16 mb-md-0 mb-sm-8' ])
-							@endif
-							<div>
-								<span class="d-block mb-0 fs-lg fw-semibold">{{ $widgetObject->title }}</span>
-								{{ $widgetObject->role }}
+					<a
+							@class([
+								 'tab-button',
+								 'tab-button-vertical',
+								 'grow-1',
+								 'active' => $loop->iteration == 1,
+							 ])
+							data-tab="tab{{ $loop->iteration }}"
+							role="tab"
+							aria-selected="@if($loop->iteration == 1) true @else false @endif"
+							aria-controls="panel{{ $loop->iteration }}"
+					>
+
+						<div class="grid grid-cols-1 md:grid-cols-[3.5rem_auto] justify-stretch">
+							<div class="rounded-full overflow-hidden w-[3.5rem] mx-auto h-[3.5rem] mb-4 md:mb-0 text-center">
+								@if($widgetObject->hasThumb())
+									@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 96, 'height' => 96, 'dwidth' => 56, 'dheight' => 56, 'ratio' => 'square', 'class' => 'rounded-circle', 'cntclass' => 'me-md-16 me-sm-0 me-16 mb-md-0 mb-sm-8' ])
+								@endif
 							</div>
-						</a>
-					</li>
-				@endforeach
-
-			</ul>
-		</div>
-
-		<!-- Tabs content -->
-		<div class="col-sm-7 offset-lg-1 order-sm-2 order-1">
-			<div class="tab-content ps-lg-0 ps-md-24">
-
-				@foreach($widgetObjects as $widgetObject)
-					<div class="tab-pane fade @if($loop->index == 0) show active @endif"
-					     id="testimonial-{{ $widgetObject->id }}" role="tabpanel">
-
-						<h4 class="mb-16" style="max-width: 22.875rem;">
-							{{ $widgetObject->quoteshort }}
-						</h4>
-
-						<div class="fs-14 text-nowrap">
-							@for($i = 1; $i <= $widgetObject->stars; $i++)
-								<i class="fas fa-star text-warning"></i>
-							@endfor
-							@for($i = 1; $i <= 5 - $widgetObject->stars; $i++)
-								<i class="fas fa-star text-muted"></i>
-							@endfor
+							<div class="ps-0 md:ps-6  items-center">
+								<div class="text-sm">
+									<div class="font-bold">{{ $widgetObject->title }}</div>
+									<div class="hidden md:block">{{ $widgetObject->role }}</div>
+								</div>
+							</div>
 						</div>
-						<p class="mt-md-24 mt-16 pt-lg-16 pt-md-8 mb-0 fs-lg">
-							{!! $widgetObject->lead !!}
-						</p>
-					</div>
+					</a>
 				@endforeach
 
 			</div>
 		</div>
+
+		<!-- Tab Content -->
+		<div class="col-span-12 md:col-span-7 lg:col-start-6 h-full">
+
+			@foreach($widgetObjects as $widgetObject)
+				<div id="panel{{ $loop->iteration }}"
+				     @class([
+						 'tab-content',
+						 'h-full',
+						 'p-2',
+						 'active' => $loop->iteration == 1,
+					 ])
+				     role="tabpanel"
+				     aria-labelledby="tab{{ $loop->iteration }}"
+				>
+					<h4 class="mb-4" style="max-width: 22.875rem;">
+						{{ $widgetObject->quoteshort }}
+					</h4>
+					<div class="flex flex-row text-sm">
+						@for($i = 0; $i < $widgetObject->stars; $i++)
+							<x-heroicon-s-star class="w-5 h-5 text-warning"/>
+						@endfor
+						@for($i = $widgetObject->stars; $i < 5; $i++)
+							<x-heroicon-s-star class="w-5 h-5 text-gray-300"/>
+						@endfor
+					</div>
+					<p class="mt-4 md:mt-6 lg:pt-4 md:pt-2 mb-0">
+						{!! strip_tags($widgetObject->lead) !!}
+					</p>
+				</div>
+			@endforeach
+
+		</div>
 	</div>
 @endif
+

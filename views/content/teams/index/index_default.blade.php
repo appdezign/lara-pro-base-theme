@@ -1,19 +1,12 @@
 <?php if ($data->gridvars) require($data->gridvars); ?>
 <?php if ($data->override) require($data->override); ?>
 
-<?php
-$teamRatio = (property_exists($settngz, 'company_team_photo_ratio')) ? $settngz->company_team_photo_ratio : '1x1';
-list($ratioX, $ratioY) = explode('x', $teamRatio);
-$teamWidth = 960;
-$teamHeight = 960 * $ratioY / $ratioX;
-?>
-
 @include('larawidget', ['hook' => 'content_top'])
 
 <section class="{{ $grd->module }}">
 	<div class="{{ $grd->container }}">
 
-		<div class="row">
+		<div class="grid grid-cols-12">
 
 			{{-- Sidebar Left --}}
 			@includeWhen($grd->hasSidebarLeft, $grd->leftSidebar)
@@ -21,15 +14,13 @@ $teamHeight = 960 * $ratioY / $ratioX;
 			<div class="{{ $grd->contentCols }} main-content">
 
 				{{-- Page Title --}}
-				<div class="row mb-48">
+				<div class="grid grid-cols-12 mb-3">
 					<div class="{{ $grd->gridColumns }}">
-						<div class="page-title">
-							<h1 class="mb-48">{{ $data->page->title }}</h1>
-						</div>
+						<h1>{{ $data->page->title }}</h1>
 
 						@if($data->page->hasFeatured())
-							<figure class="mb-48">
-								@include('_img.glide', ['media' => $data->page->featured(), 'width' => 1280, 'height' => 640, 'ratio' => '2x1', 'class' => 'object-cover' ])
+							<figure class="mb-8">
+								@include('_img.glide', ['media' => $data->page->featured(), 'width' => 1280, 'height' => 512, 'ratio' => '5/2'])
 							</figure>
 						@endif
 
@@ -40,30 +31,32 @@ $teamHeight = 960 * $ratioY / $ratioX;
 
 				{{-- Object List --}}
 				@if($isGrid)
-					<div class="row">
+					<div class="grid grid-cols-12">
 						<div class="{{ $grd->gridColumns }}">
-							<div class="row @if($data->params->getGridCols() > 1) row-cols-lg-{{ $data->params->getGridCols() }} @else row-cols-lg-3 @endif row-cols-sm-2 row-cols-1 gy-md-24 gy-8">
+
+							<div class="grid sm:grid-cols-2 lg:grid-cols-{{ $data->params->getGridCols() }} gap-6">
 								@foreach($data->objects as $obj)
-									<div class="col pb-3">
-										@include('content.' . $entity->getResourceSlug() . '.index.object.grid_object')
-									</div>
+									@include('content.' . $entity->getResourceSlug() . '.index.object.grid_object')
 								@endforeach
 							</div>
+
 						</div>
 					</div>
 				@else
-					<div class="row">
+					<div class="grid grid-cols-12">
 						<div class="{{ $grd->gridColumns }}">
+
 							@foreach($data->objects as $obj)
 								@include('content.' . $entity->getResourceSlug() . '.index.object.list_object')
 							@endforeach
+
 						</div>
 					</div>
 				@endif
 
 				{{-- Pagination --}}
 				@if($data->params->getPaginate())
-					<div class="row mt-48">
+					<div class="grid grid-cols-12 mt-12">
 						<div class="{{ $grd->gridColumns }} text-center">
 							{{ $data->objects->links('_partials.misc.pagination') }}
 						</div>

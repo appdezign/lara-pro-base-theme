@@ -1,47 +1,43 @@
-<div class="mt-24 pt-lg-8 pb-16">
+<div class="flex mt-6">
+	<h1 class="h1 grow-1">{{ $data->object->title }}</h1>
 	@if($data->entityListUrl)
 		<a href="{{ $data->entityListUrl }}"
-		   class="btn btn-outline-primary ms-16 px-14 py-10 float-end">
-			<i class="far fa-lg fa-angle-left"></i>
+		   class="btn btn-square btn-outline btn-primary ms-4">
+			<x-heroicon-o-chevron-left class="w-5 h-5"/>
 		</a>
 	@endif
-	<h1 class="pb-16">{{ $data->object->title }}</h1>
+</div>
 
-	<div class="d-flex flex-md-row flex-column align-items-md-center justify-content-md-between mb-16">
-		<div class="d-flex align-items-center flex-wrap text-muted mb-md-0 mb-24">
-			<div class="fs-14 border-end pe-16 me-16 mb-8">
-				{{ Date::parse($data->object->publish_from)->format('j F Y') }}
-			</div>
-			<div class="fs-14 pe-16 me-16 mb-8">
-				@foreach($data->object->tags->where('taxonomy_id', 2) as $tag)
-					<span class="badge bg-faded-primary text-primary">{{ $tag->title }}</span>
-				@endforeach
-			</div>
-		</div>
-	</div>
+<div class="flex items-center mb-4">
+		<span class="text-sm text-gray-600 pe-4 me-4 border-e-1 border-gray-400">
+			{{ Date::parse($data->object->publish_from)->format('j F Y') }}
+		</span>
+	@foreach($data->object->tags->where('taxonomy_id', 2) as $tag)
+		<a href="#" class="px-2 py-1 text-sm text-primary bg-secondary no-underline">{{ $tag->title }}</a>
+	@endforeach
 </div>
 
 {{-- FEATURED VIDEO --}}
 @if($data->object->hasVideofiles())
 	@foreach($data->object->getVideofiles() as $videofile)
-		<div class="ratio ratio-16x9 mt-48 mb-48">
+		<div class="aspect-video my-12">
 			<video controls>
 				<source src="{{ $entity->getVideoUrl($videofile->vidfile_filename) }}" type="video/mp4">
 			</video>
 		</div>
 	@endforeach
 @elseif($data->object->hasVideos())
-	<div class="ratio ratio-16x9 mt-48 mb-48">
+	<div class="aspect-video my-12">
 		<iframe width="560" height="315"
-		        src="https://www.youtube.com/embed/{{ $data->object->video->youtubecode }}?rel=0"
+		        src="https://www.youtube.com/embed/{{ $data->object->getVideo()->youtubecode }}?rel=0"
 		        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	</div>
 @endif
 
 {{-- FEATURED IMAGE --}}
 @if($data->object->hasFeatured())
-	<figure class="mb-48">
-		@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 720, 'ratio' => '16x9', 'class' => 'object-cover' ])
+	<figure class="my-12">
+		@include('_img.glide', ['media' => $data->object->featured(), 'width' => 1280, 'height' => 720, 'ratio' => '16/9', 'class' => 'object-cover' ])
 	</figure>
 @endif
 

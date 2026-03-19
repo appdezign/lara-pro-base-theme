@@ -1,12 +1,16 @@
-import * as bootstrap from 'bootstrap';
 import AOS from 'aos';
-// import axios from 'axios';
+import 'aos/dist/aos.css';
+
+import axios from 'axios';
 import lazySizes from 'lazysizes';
 import {jarallax, jarallaxVideo} from 'jarallax';
+
 import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 import SmoothScroll from 'smooth-scroll';
 
 import lightGallery from 'lightgallery';
+import 'lightgallery/css/lightgallery-bundle.css';
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lgVideo from 'lightgallery/plugins/video';
 import lgZoom from 'lightgallery/plugins/zoom';
@@ -32,10 +36,10 @@ import lgFullscreen from 'lightgallery/plugins/fullscreen';
 		searchButton.addEventListener('click', function (e) {
 			const searchbar = document.querySelector('.js-searchbar');
 			const inputfield = document.querySelector('#searchfield');
-			if (searchbar.classList.contains('searchbar--open')) {
-				searchbar.classList.remove('searchbar--open');
+			if (searchbar.classList.contains('searchbar-open')) {
+				searchbar.classList.remove('searchbar-open');
 			} else {
-				searchbar.classList.add('searchbar--open');
+				searchbar.classList.add('searchbar-open');
 				inputfield.focus();
 			}
 		});
@@ -63,37 +67,6 @@ import lgFullscreen from 'lightgallery/plugins/fullscreen';
 
 })();
 
-/**
- * Theme Mode Switch
- * Switching between light/dark mode. The chosen mode is saved to browser's local storage
- */
-(function () {
-
-	let modeSwitch = document.querySelector('[data-bs-toggle="mode"]');
-
-	if (modeSwitch === null) return;
-
-	let checkbox = modeSwitch.querySelector('.form-check-input');
-
-	if (mode === 'dark') {
-		root.classList.add('dark-mode');
-		checkbox.checked = true;
-	} else {
-		root.classList.remove('dark-mode');
-		checkbox.checked = false;
-	}
-
-	modeSwitch.addEventListener('click', (e) => {
-		if (checkbox.checked) {
-			root.classList.add('dark-mode');
-			window.localStorage.setItem('mode', 'dark');
-		} else {
-			root.classList.remove('dark-mode');
-			window.localStorage.setItem('mode', 'light');
-		}
-	});
-
-})();
 
 /**
  * Sticky Navbar
@@ -101,7 +74,7 @@ import lgFullscreen from 'lightgallery/plugins/fullscreen';
  */
 (function () {
 
-	let navbar = document.querySelector('.navbar-sticky');
+	let navbar = document.querySelector('.js-navbar-sticky');
 
 	if (navbar == null) return;
 
@@ -271,26 +244,16 @@ import lgFullscreen from 'lightgallery/plugins/fullscreen';
 				thumbnailPlugin = thumbnails ? [lgThumbnail] : [],
 				plugins = [...defaultPlugins, ...videoPlugin, ...thumbnailPlugin]
 
+
 			lightGallery(gallery[i], {
 				selector: '.gallery-item',
 				plugins: plugins,
 				licenseKey: 'D4194FDD-48924833-A54AECA3-D6F8E646',
-				download: false,
-				autoplayVideoOnSlide: true,
-				zoomFromOrigin: false,
-				youtubePlayerParams: {
-					modestbranding: 1,
-					showinfo: 0,
-					rel: 0
-				},
-				vimeoPlayerParams: {
-					byline: 0,
-					portrait: 0,
-					color: '6366f1'
-				}
+				speed: 500,
 			});
 		}
 	}
+
 })();
 
 
@@ -503,300 +466,94 @@ import lgFullscreen from 'lightgallery/plugins/fullscreen';
 
 })();
 
+
 /**
- * Price switch
+ * Tabs
  */
+(function () {
+	document.addEventListener('DOMContentLoaded', function () {
+		// Mobile dropdown toggle
+		const mobileDropdownButton = document.querySelector('.mobile-menu-dropdown-toggle');
+		const mobileDropdownMenu = document.querySelector('.mobile-menu-dropdown-content');
 
-const priceSwitch = (() => {
-
-	let switcherWrapper = document.querySelectorAll('.price-switch-wrapper');
-
-	if (switcherWrapper.length <= 0) return;
-
-	for (let i = 0; i < switcherWrapper.length; i++) {
-		let switcher = switcherWrapper[i].querySelector('[data-bs-toggle="price"]');
-
-		switcher.addEventListener('change', (e) => {
-			let checkbox = e.currentTarget.querySelector('input[type="checkbox"]'),
-				monthlyPrice = e.currentTarget.closest('.price-switch-wrapper').querySelectorAll('[data-monthly-price]'),
-				annualPrice = e.currentTarget.closest('.price-switch-wrapper').querySelectorAll('[data-annual-price]');
-
-			for (let n = 0; n < monthlyPrice.length; n++) {
-				if (checkbox.checked == true) {
-					monthlyPrice[n].classList.add('d-none');
-				} else {
-					monthlyPrice[n].classList.remove('d-none');
-				}
-			}
-
-			for (let m = 0; m < monthlyPrice.length; m++) {
-				if (checkbox.checked == true) {
-					annualPrice[m].classList.remove('d-none');
-				} else {
-					annualPrice[m].classList.add('d-none');
-				}
-			}
-		});
-	}
-
+		if (mobileDropdownButton) {
+			mobileDropdownButton.addEventListener('click', function () {
+				mobileDropdownMenu.classList.toggle('hidden');
+			});
+		}
+	});
 })();
 
-const masonryGrid = (() => {
 
-	let grid = document.querySelectorAll('.masonry-grid'),
-		masonry;
+(function () {
 
-	if (grid === null) return;
+	document.addEventListener('DOMContentLoaded', function () {
+		const tabButtons = document.querySelectorAll('.tab-button');
+		const tabContents = document.querySelectorAll('.tab-content');
 
-	for (let i = 0; i < grid.length; i++) {
-		masonry = new Shuffle(grid[i], {
-			itemSelector: '.masonry-grid-item',
-			sizer: '.masonry-grid-item'
-		});
+		tabButtons.forEach(button => {
+			button.addEventListener('click', function () {
+				const targetTab = this.dataset.tab;
 
-		imagesLoaded(grid[i]).on('progress', () => {
-			masonry.layout();
-		});
+				// Remove active state from all buttons
+				tabButtons.forEach(btn => {
+					btn.classList.remove('active');
+					btn.setAttribute('aria-selected', 'false');
+				});
 
-		// Filtering
-		let filtersWrap = grid[i].closest('.masonry-filterable');
-		if (filtersWrap === null) return;
-		let filters = filtersWrap.querySelectorAll('.masonry-filters [data-group]');
-
-		for (let n = 0; n < filters.length; n++) {
-			filters[n].addEventListener('click', function (e) {
-				let current = filtersWrap.querySelector('.masonry-filters .active'),
-					target = this.dataset.group;
-				if (current !== null) {
-					current.classList.remove('active');
-				}
+				// Add active state to clicked button
 				this.classList.add('active');
-				masonry.filter(target);
-				e.preventDefault();
-			});
-		}
-	}
+				this.setAttribute('aria-selected', 'true');
 
-})();
+				// Hide all tab contents
+				tabContents.forEach(content => {
+					content.classList.remove('active');
+				});
 
-/**
- * Ajaxify MailChimp subscription form
- */
-
-const subscriptionForm = (() => {
-
-	const form = document.querySelectorAll('.subscription-form');
-
-	if (form === null) return;
-
-	for (let i = 0; i < form.length; i++) {
-
-		let button = form[i].querySelector('button[type="submit"]'),
-			buttonText = button.innerHTML,
-			input = form[i].querySelector('.form-control'),
-			antispam = form[i].querySelector('.subscription-form-antispam'),
-			status = form[i].querySelector('.subscription-status');
-
-		form[i].addEventListener('submit', function (e) {
-			if (e) e.preventDefault();
-			if (antispam.value !== '') return;
-			register(this, button, input, buttonText, status);
-		});
-	}
-
-	let register = (form, button, input, buttonText, status) => {
-		button.innerHTML = 'Sending...';
-
-		// Get url for MailChimp
-		let url = form.action.replace('/post?', '/post-json?');
-
-		// Add form data to object
-		let data = '&' + input.name + '=' + encodeURIComponent(input.value);
-
-		// Create and add post script to the DOM
-		let script = document.createElement('script');
-		script.src = url + '&c=callback' + data
-		document.body.appendChild(script);
-
-		// Callback function
-		let callback = 'callback';
-		window[callback] = (response) => {
-
-			// Remove post script from the DOM
-			delete window[callback];
-			document.body.removeChild(script);
-
-			// Change button text back to initial
-			button.innerHTML = buttonText;
-
-			// Display content and apply styling to response message conditionally
-			if (response.result == 'success') {
-				input.classList.remove('is-invalid');
-				input.classList.add('is-valid');
-				status.classList.remove('status-error');
-				status.classList.add('status-success');
-				status.innerHTML = response.msg;
-				setTimeout(() => {
-					input.classList.remove('is-valid');
-					status.innerHTML = '';
-					status.classList.remove('status-success');
-				}, 6000)
-			} else {
-				input.classList.remove('is-valid');
-				input.classList.add('is-invalid');
-				status.classList.remove('status-success');
-				status.classList.add('status-error');
-				status.innerHTML = response.msg.substring(4);
-				setTimeout(() => {
-					input.classList.remove('is-invalid');
-					status.innerHTML = '';
-					status.classList.remove('status-error');
-				}, 6000)
-			}
-		}
-	}
-})();
-
-
-/**
- * Play Lottie animations on hover
- * @requires https://github.com/LottieFiles/lottie-player
- */
-
-const hoverAnimation = (() => {
-
-	const playerContainers = document.querySelectorAll('.animation-on-hover');
-	playerContainers.forEach(container => {
-		container.addEventListener('mouseover', () => {
-			const players = container.querySelectorAll('lottie-player');
-			players.forEach(player => {
-				player.setDirection(1);
-				player.play();
-			});
-		});
-
-		container.addEventListener('mouseleave', () => {
-			const players = container.querySelectorAll('lottie-player');
-			players.forEach(player => {
-				player.setDirection(-1);
-				player.play();
+				// Show the target tab content
+				const targetContent = document.getElementById('panel' + targetTab.slice(-1));
+				if (targetContent) {
+					targetContent.classList.add('active');
+				}
 			});
 		});
 	});
 
 })();
 
-/**
- * Mouse move parallax effect
- * @requires https://github.com/wagerfield/parallax
- */
 
-const audioPlayer = (() => {
+(function () {
 
-	let player = document.querySelectorAll('.audio-player');
+	document.addEventListener('DOMContentLoaded', function () {
 
-	if (player.length === 0) return;
+		const togglePassword1 = document.querySelector('.js-toggle-password1');
+		const togglePassword2 = document.querySelector('.js-toggle-password2');
+		const passwordInput1 = document.querySelector('#password');
+		const passwordInput2 = document.querySelector('#password_confirmation');
 
-	for (let i = 0; i < player.length; i++) {
-		const playerContainer = player[i],
-			audio = playerContainer.querySelector('audio'),
-			playButton = playerContainer.querySelector('.ap-play-button'),
-			seekSlider = playerContainer.querySelector('.ap-seek-slider'),
-			volumeSlider = playerContainer.querySelector('.ap-volume-slider'),
-			durationTimeLabel = playerContainer.querySelector('.ap-duration'),
-			currentTimeLabel = playerContainer.querySelector('.ap-current-time');
-
-		let playState = 'play',
-			raf = null;
-
-		// Start / stop audio
-		playButton.addEventListener('click', (e) => {
-			if (playState === 'play') {
-				e.currentTarget.classList.add('ap-pause');
-				audio.play();
-				requestAnimationFrame(whilePlaying);
-				playState = 'pause';
-			} else {
-				e.currentTarget.classList.remove('ap-pause');
-				audio.pause();
-				cancelAnimationFrame(raf);
-				playState = 'play';
-			}
-		});
-
-		// Instantiate sliders: Seek slider + Volume slider
-		const showRangeProgress = (rangeInput) => {
-			if (rangeInput === seekSlider) playerContainer.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
-			else playerContainer.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
-		}
-
-		seekSlider.addEventListener('input', (e) => {
-			showRangeProgress(e.target);
-		});
-		volumeSlider.addEventListener('input', (e) => {
-			showRangeProgress(e.target);
-		});
-
-		const calculateTime = (secs) => {
-			const minutes = Math.floor(secs / 60);
-			const seconds = Math.floor(secs % 60);
-			const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-			return `${minutes}:${returnedSeconds}`;
-		}
-
-		const displayDuration = () => {
-			durationTimeLabel.textContent = calculateTime(audio.duration);
-		}
-
-		const setSliderMax = () => {
-			seekSlider.max = Math.floor(audio.duration);
-		}
-
-		const displayBufferedAmount = () => {
-			const bufferedAmount = Math.floor(audio.buffered.end(audio.buffered.length - 1));
-			playerContainer.style.setProperty('--buffered-width', `${(bufferedAmount / seekSlider.max) * 100}%`);
-		}
-
-		const whilePlaying = () => {
-			seekSlider.value = Math.floor(audio.currentTime);
-			currentTimeLabel.textContent = calculateTime(seekSlider.value);
-			playerContainer.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
-			raf = requestAnimationFrame(whilePlaying);
-		}
-
-		if (audio.readyState > 0) {
-			displayDuration();
-			setSliderMax();
-			displayBufferedAmount();
-		} else {
-			audio.addEventListener('loadedmetadata', () => {
-				displayDuration();
-				setSliderMax();
-				displayBufferedAmount();
+		if (togglePassword1) {
+			togglePassword1.addEventListener('click', function (e) {
+				if (togglePassword1.classList.contains('active')) {
+					togglePassword1.classList.remove('active');
+					passwordInput1.type = "password";
+				} else {
+					togglePassword1.classList.add('active');
+					passwordInput1.type = "text";
+				}
 			});
 		}
 
-		audio.addEventListener('progress', displayBufferedAmount);
-
-		seekSlider.addEventListener('input', () => {
-			currentTimeLabel.textContent = calculateTime(seekSlider.value);
-			if (!audio.paused) {
-				cancelAnimationFrame(raf);
-			}
-		});
-
-		seekSlider.addEventListener('change', () => {
-			audio.currentTime = seekSlider.value;
-			if (!audio.paused) {
-				requestAnimationFrame(whilePlaying);
-			}
-		});
-
-		volumeSlider.addEventListener('input', (e) => {
-			const value = e.target.value;
-			audio.volume = value / 100;
-		});
-	}
+		if (togglePassword2) {
+			togglePassword2.addEventListener('click', function (e) {
+				if (togglePassword2.classList.contains('active')) {
+					togglePassword2.classList.remove('active');
+					passwordInput2.type = "password";
+				} else {
+					togglePassword2.classList.add('active');
+					passwordInput2.type = "text";
+				}
+			});
+		}
+	});
 
 })();
-

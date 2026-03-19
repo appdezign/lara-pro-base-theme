@@ -1,76 +1,57 @@
 @if ($paginator->hasPages())
 
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center pt-lg-3 pt-1">
+	<div class="pagination join">
+		@if($paginator->onFirstPage())
+			<a class="join-item btn btn-disabled">
+				<x-heroicon-o-chevron-left class="w-4 h-4"/>
+			</a>
+		@else
+			<a href="{{ $paginator->previousPageUrl() }}" class="join-item btn">
+				<x-heroicon-o-chevron-left class="w-4 h-4"/>
+			</a>
+		@endif
 
-			{{-- Previous Page Link --}}
-			@if ($paginator->onFirstPage())
-				<li class="page-item disabled">
-					 <span class="page-link">
-						<i class="far fa-chevron-left fs-14 mx-n1"></i>
-					 </span>
-				</li>
-			@else
-				<li class="page-item">
-					<a href="{{ $paginator->previousPageUrl() }}" class="page-link">
-						<i class="far fa-chevron-left fs-14 mx-n1"></i>
-					</a>
-				</li>
+		{{-- Mobile --}}
+		<a class="join-item btn btn-disabled bg-white text-gray-600 border-1 border-gray-200 sm:hidden">
+			{{ $paginator->currentPage() }} / {{ $paginator->lastPage() }}
+		</a>
+
+		{{-- Pagination Elements (hidden on mobile) --}}
+		@foreach ($elements as $element)
+
+			{{-- "Three Dots" Separator --}}
+			@if (is_string($element))
+				<a class="join-item btn btn-disabled bg-white text-gray-600 border-1 border-gray-200 sm:hidden">
+					{{ $element }}
+				</a>
 			@endif
 
-			{{-- Mobile --}}
-			<li class="page-item disabled d-sm-none">
-				<span class="page-link text-body">
-					{{ $paginator->currentPage() }} / {{ $paginator->lastPage() }}
-				</span>
-			</li>
-
-			{{-- Pagination Elements (hidden on mobile) --}}
-			@foreach ($elements as $element)
-
-				{{-- "Three Dots" Separator --}}
-				@if (is_string($element))
-					<li class="page-item active d-none d-sm-block">
-						<span class="page-link">{{ $element }}</span>
-					</li>
-				@endif
-
-				{{-- Array Of Links --}}
-				@if (is_array($element))
-					@foreach ($element as $page => $url)
-						@if ($page == $paginator->currentPage())
-							<li class="page-item active d-none d-sm-block">
-								<span class="page-link">
-									{{ $page }}
-								</span>
-							</li>
-						@else
-							<li class="page-item d-none d-sm-block">
-								<a href="{{ $url }}" class="page-link">
-									{{ $page }}
-								</a>
-							</li>
-						@endif
-					@endforeach
-				@endif
-			@endforeach
-
-			{{-- Next Page Link --}}
-			@if ($paginator->hasMorePages())
-				<li class="page-item">
-					<a href="{{ $paginator->nextPageUrl() }}" class="page-link">
-						<i class="far fa-chevron-right fs-14 mx-n1"></i>
-					</a>
-				</li>
-			@else
-				<li class="page-item disabled">
-					<span class="page-link">
-						<i class="far fa-chevron-right fs-14 mx-n1"></i>
-					</span>
-				</li>
+			{{-- Array Of Links --}}
+			@if (is_array($element))
+				@foreach ($element as $page => $url)
+					@if ($page == $paginator->currentPage())
+						<a class="join-item btn btn-active hidden sm:flex">
+							{{ $page }}
+						</a>
+					@else
+						<a href="{{ $url }}" class="join-item btn hidden sm:flex">
+							{{ $page }}
+						</a>
+					@endif
+				@endforeach
 			@endif
+		@endforeach
 
-		</ul>
-	</nav>
+
+		@if ($paginator->hasMorePages())
+			<a href="{{ $paginator->nextPageUrl() }}" class="join-item btn">
+				<x-heroicon-o-chevron-right class="w-4 h-4"/>
+			</a>
+		@else
+			<a class="join-item btn btn-disabled">
+				<x-heroicon-o-chevron-right class="w-4 h-4"/>
+			</a>
+		@endif
+	</div>
 
 @endif

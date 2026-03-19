@@ -1,6 +1,5 @@
 @section('head-after')
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-	{!! Theme::css('vendor/flatpickr/flatpickr.min.css') !!}
 @endsection
 
 {{ html()->form('POST', null)
@@ -16,8 +15,8 @@
 	@csrf
 @endif
 
-<div class="row">
-	<div class="col-12 text-end">
+<div class="grid grid-cols-12">
+	<div class="col-span-12 text-end">
 		* = {{ _q('lara-front::default.form.required') }}
 	</div>
 </div>
@@ -30,107 +29,100 @@
 
 		@if($cvar->rule_state == 'enabled')
 
-			<div class="col-12 mt-24">
+			<div class="col-span-12">
 
-				{{ html()->label(_q('lara-app::'.$entity->getResourceSlug().'.column.' .$cvar->field_name) .':', $cvar->field_name)->class('form-label fs-base') }}
+				<fieldset class="fieldset w-full text-sm">
+					<legend class="fieldset-legend">
+						{{ html()->label(_q('lara-app::'.$entity->getResourceSlug().'.column.' .$cvar->field_name) .':', $cvar->field_name)->class('form-label fs-base') }}
+						@if($cvar->is_required)
+							<span class="field-required color-dark">*</span>
+						@endif
+					</legend>
 
-				@if($cvar->is_required)
-					<span class="field-required color-dark">*</span>
-				@endif
-
-				@if($cvar->field_type == 'string')
-					{{ html()->text($cvar->field_name, null)
-						->class('form-control')
-						->if($cvar->is_required, function ($el) {
-							return $el->required();
-						}) }}
-					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
-				@endif
-
-				@if($cvar->field_type == 'email')
-					{{ html()->email($cvar->field_name, null)
-						->class('form-control')
-						->if($cvar->is_required, function ($el) {
-							return $el->required();
-						}) }}
-					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_email_is_invalid') }}</div>
-				@endif
-
-				@if($cvar->field_type == 'textarea')
-					{{ html()->textarea($cvar->field_name, null)
-							->class('form-control')
-							->rows(4)
-							->if($cvar->is_required, function ($el) {
-								return $el->required();
-							}) }}
-					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
-				@endif
-
-				@if($cvar->field_type == 'integer')
-					{{ html()->input('number', $cvar->field_name, null)
-						->class('form-control')
-						->attributes(['step' => '1'])
-						->if($cvar->is_required, function ($el) {
-							return $el->required();
-						}) }}
-					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
-				@endif
-
-				@if($cvar->field_type == 'date')
-					<div id="dtp-{{ $cvar->field_name }}" class="date-flat-pickr">
+					@if($cvar->field_type == 'string')
 						{{ html()->text($cvar->field_name, null)
-							->class('form-control')
-							->data('input')
+							->class('input w-full validator')
 							->if($cvar->is_required, function ($el) {
 								return $el->required();
 							}) }}
-						<a class="flat-pickr-button" title="toggle" data-toggle>
-							<i class="fal fa-calendar-alt"></i>
-						</a>
-					</div>
-					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
-				@endif
+						<div class="validator-hint mt-0">{{ _q('lara-front::default.form.error_required') }}</div>
+					@endif
 
-				@if($cvar->field_type == 'toggle')
-					{{ html()->hidden($cvar->field_name, 0) }}
-					<div class="form-check">
+					@if($cvar->field_type == 'email')
+						{{ html()->email($cvar->field_name, null)
+							->class('input w-full validator')
+							->if($cvar->is_required, function ($el) {
+								return $el->required();
+							}) }}
+						<div class="validator-hint mt-0">{{ _q('lara-front::default.form.error_email_is_invalid') }}</div>
+					@endif
+
+					@if($cvar->field_type == 'textarea')
+						{{ html()->textarea($cvar->field_name, null)
+								->class('textarea w-full validator')
+								->rows(4)
+								->if($cvar->is_required, function ($el) {
+									return $el->required();
+								}) }}
+						<div class="validator-hint mt-0">{{ _q('lara-front::default.form.error_required') }}</div>
+					@endif
+
+					@if($cvar->field_type == 'integer')
+						{{ html()->input('number', $cvar->field_name, null)
+							->class('input w-full validator')
+							->attributes(['step' => '1'])
+							->if($cvar->is_required, function ($el) {
+								return $el->required();
+							}) }}
+						<div class="validator-hint mt-0">{{ _q('lara-front::default.form.error_required') }}</div>
+					@endif
+
+					@if($cvar->field_type == 'date')
+						<div id="dtp-{{ $cvar->field_name }}">
+							{{ html()->input('date', $cvar->field_name, null)
+								->class('input w-full validator')
+								->if($cvar->is_required, function ($el) {
+									return $el->required();
+								}) }}
+						</div>
+						<div class="validator-hint mt-0">{{ _q('lara-front::default.form.error_required') }}</div>
+					@endif
+
+					@if($cvar->field_type == 'toggle')
+						{{ html()->hidden($cvar->field_name, 0) }}
 						{{ html()->checkbox($cvar->field_name, null, 1)
-						->class('form-check-input')
-						->if($cvar->is_required, function ($el) {
-							return $el->required();
-						}) }}
-						<div class="invalid-feedback ms-8 pt-6">{{ _q('lara-front::default.form.error_required') }}</div>
-					</div>
-
-				@endif
-
-				@if($cvar->field_type == 'select')
-					{{ html()->select($cvar->field_name, $cvar->field_options, null)
-							->class('form-select form-select-sm')
-							->data('control', 'select2')->data('hide-search', 'true')
+							->class('toggle toggle-primary')
 							->if($cvar->is_required, function ($el) {
 								return $el->required();
 							}) }}
-					<div class="invalid-feedback">{{ _q('lara-front::default.form.error_required') }}</div>
-				@endif
+						<div class="validator-hint mt-0 ms-8 pt-6">{{ _q('lara-front::default.form.error_required') }}</div>
 
-				@if($cvar->field_type == 'radio')
-					<div class="d-flex">
-						@foreach($cvar->field_options as $fldkey => $fldval)
-							<label class="radio-inline">
+					@endif
+
+					@if($cvar->field_type == 'select')
+						{{ html()->select($cvar->field_name, $cvar->field_options, null)
+								->class('select w-full validator')
+								->if($cvar->is_required, function ($el) {
+									return $el->required();
+								}) }}
+						<div class="validator-hint mt-0">{{ _q('lara-front::default.form.error_required') }}</div>
+					@endif
+
+					@if($cvar->field_type == 'radio')
+						<div class="flex gap-1 -ms-3">
+							@foreach($cvar->field_options as $fldkey => $fldval)
 								{{ html()->radio($cvar->field_name, null, $fldkey)
 									->id($cvar->field_name.'_' . $loop->index)
-									->class('form-check-input')
+									->class('radio radio-primary ms-3')
 									->if($cvar->is_required, function ($el) {
 										return $el->required();
 									}) }}
 								{{ $fldval }}
-							</label>
-						@endforeach
-					</div>
-				@endif
+							@endforeach
+						</div>
+					@endif
 
-
+				</fieldset>
 			</div>
 
 		@else
@@ -146,7 +138,7 @@
 
 	@if(config('app.env') == 'production' && config('lara.google_recaptcha_site_key'))
 
-		<div class="col-12 mt-24 p-16 bg-secondary">
+		<div class="col-span-12 mt-6 p-4 bg-secondary">
 
 			<div class="g-recaptcha"
 			     data-sitekey="{{ config('lara.google_recaptcha_site_key') }}"
@@ -154,8 +146,8 @@
 			     data-expired-callback="expiredRecaptchaCallback"></div>
 
 			<!-- extra field for triggering the validator -->
-			<input class="form-control d-none" data-recaptcha="true" required="" data-error="">
-			<div class="invalid-feedback">
+			<input class="input hidden" data-recaptcha="true" required="" data-error="">
+			<div class="validator-hint mt-0">
 				{{ _q('lara-front::default.form.error_recaptcha_not_checked') }}
 			</div>
 
@@ -165,10 +157,10 @@
 
 	{{ html()->hidden('_ipaddress', Request::ip()) }}
 
-	<div class="col-12 mt-24">
+	<div class="col-span-12 mt-6 text-end">
 		<button id="{{ $entity->getResourceSlug() }}-submit-button"
 		        type="submit"
-		        class="btn btn-lg btn-info float-end">
+		        class="btn btn-lg btn-primary">
 			{{ _q('lara-app::'.$entity->getResourceSlug().'.button.submit') }}
 		</button>
 	</div>
@@ -182,22 +174,6 @@
 @section('scripts-after')
 
 	@parent
-
-	{!! Theme::js('vendor/flatpickr/flatpickr.min.js') !!}
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function () {
-			// datetimepickers for fields
-			@foreach ($entity->getCustomColumns() as $cvar)
-			@if ($cvar->field_type == 'date')
-			flatpickr("#dtp-{{  $cvar->field_name }}", {
-				dateFormat: "Y-m-d",
-				enableTime: false,
-				wrap: true,
-			});
-			@endif
-			@endforeach
-		});
-	</script>
 
 	{!! Theme::js('vendor/axios/axios.min.js') !!}
 

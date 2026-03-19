@@ -1,0 +1,32 @@
+@layer base {
+	h1, .h1 {
+		@apply text-5xl mb-8;
+	}
+	h2, .h2 {
+		@apply text-4xl mb-6;
+	}
+	h3, .h3 {
+		@apply text-3xl mb-5;
+	}
+	h4, .h4 {
+		@apply text-2xl mb-4;
+	}
+	h5, .h5 {
+		@apply text-xl mb-3;
+	}
+	h6, .h6 {
+		@apply text-lg mb-2;
+	}
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		@apply font-bold;
+		@apply text-slate-900;
+	}
+
+	[data-theme="dark"] {
+		h1, h2, h3, h4, h5, h6,
+		.h1, .h2, .h3, .h4, .h5, .h6 {
+			@apply text-white;
+		}
+	}
+}

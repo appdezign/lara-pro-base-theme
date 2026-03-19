@@ -1,14 +1,15 @@
 @if($larawidget)
 
 	@if($larawidget->hasFeatured())
-		<div class="navbar-brand text-dark p-0 me-0 mb-16 mb-lg-24">
-			@include('_img.glide', ['media' =>  $larawidget->featured(), 'width' => 960, 'height' => 960, 'ratio' => '1x1', 'class' => 'object-cover' ])
+		<div class="flex items-center gap-2 text-white text-xl font-bold mb-4 lg:mb-6">
+			@include('_img.glide', ['media' =>  $larawidget->featured(), 'width' => 96, 'height' => 96, 'dwidth' => 48, 'dheight' => 48, 'ratio' => 'square', 'class' => 'object-cover' ])
 			{{ $larawidget->title }}
 		</div>
 	@else
 		{{ $larawidget->title }}
 	@endif
 
-
-	{!! $larawidget->body !!}
+	<div class="opacity-80">
+		{!! $larawidget->body !!}
+	</div>
 @endif

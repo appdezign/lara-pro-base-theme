@@ -6,14 +6,14 @@
 <section class="{{ $grd->module }}">
 	<div class="{{ $grd->container }}">
 
-		<div class="row">
+		<div class="grid grid-cols-12">
 
 			{{-- Sidebar Left --}}
 			@includeWhen($grd->hasSidebarLeft, 'content._sidebars.left_default')
 
 			<div class="{{ $grd->contentCols }} main-content">
 
-				<div class="row">
+				<div class="grid grid-cols-12">
 					<div class="{{ $grd->gridColumns }}">
 
 						@if($data->object->template == 'standard' || $data->object->template == '')
