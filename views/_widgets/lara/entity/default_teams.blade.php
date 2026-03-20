@@ -9,7 +9,7 @@
 
 			{!! $larawidget->body !!}
 
-			<div class="row grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
 				@foreach($widgetObjects as $widgetObject)
 

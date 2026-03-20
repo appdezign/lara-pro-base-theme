@@ -1,17 +1,17 @@
 @if($larawidget)
-	<div class="row">
-		<div class="col-sm-6 offset-sm-3">
-			<div class="module-header text-center">
-				<h3 class="montserrat text-uppercase">{{ $larawidget->title }}</h3>
+	<div class="grid grid-cols-12">
+		<div class="col-span-12 sm:col-span-6 sm:col-start-4">
+			<div class="text-center">
+				<h3 class="text-uppercase">{{ $larawidget->title }}</h3>
 				<p class="lead divider-line">{!! $larawidget->body !!}</p>
 			</div>
 		</div>
 	</div>
 
 	@if($larawidget->hasFeatured())
-		<div class="row">
-			<div class="col-sm-10 offset-sm-1">
-				<div class="text-center mt-24 mb-24">
+		<div class="grid grid-cols-12">
+			<div class="col-span-12 sm:col-span-6 sm:col-start-4">
+				<div class="text-center my-6">
 					@include('_img.glide', ['media' => $larawidget->featured(), 'width' => 1280, 'height' => 720, 'ratio' => '16x9', 'class' => 'object-cover' ])
 				</div>
 			</div>

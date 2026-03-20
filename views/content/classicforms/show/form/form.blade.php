@@ -34,7 +34,7 @@
 
 <x-honeypot/>
 
-<div class="row">
+<div class="grid grid-cols-12">
 
 	@foreach($entity->getCustomColumns() as $cvar)
 

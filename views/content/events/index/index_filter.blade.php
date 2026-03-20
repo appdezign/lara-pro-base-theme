@@ -73,7 +73,7 @@
 
 				{{-- Pagination --}}
 				@if($data->params->getPaginate())
-					<div class="row mt-48">
+					<div class="grid grid-cols-12 mt-12">
 						<div class="{{ $grd->gridColumns }} text-center">
 							{{ $data->objects->links('_partials.misc.pagination') }}
 						</div>
