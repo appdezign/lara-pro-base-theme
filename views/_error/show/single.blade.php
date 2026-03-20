@@ -4,14 +4,14 @@
 <section class="{{ $grd->module }} pt-0">
 	<div class="{{ $grd->container }}">
 
-		<div class="row">
+		<div class="grid grid-cols-12">
 
 			{{-- Sidebar Left --}}
 			@includeWhen($grd->hasSidebarLeft, $grd->leftSidebar)
 
 			<div class="{{ $grd->contentCols }} main-content">
 
-				<div class="row">
+				<div class="grid grid-cols-12">
 					<div class="{{ $grd->gridColumns }} text-center">
 
 						<h1 class="lara-object-title">{{ $data->object->title }}</h1>
@@ -19,10 +19,11 @@
 						{{-- BODY TEXT --}}
 						{!! $data->object->body !!}
 
-						<div class="row mt-72 mb-72">
-							<div class="col-12 text-center">
+						<div class="grid grid-cols-12 my-16">
+							<div class="col-span-12 text-center">
 								<a href="/" class="btn btn-primary">
-									<i class="far fa-lg fa-angle-left me-12"></i> Home
+									<x-heroicon-o-chevron-left class="w-4 h-4" />
+									Home
 								</a>
 							</div>
 						</div>

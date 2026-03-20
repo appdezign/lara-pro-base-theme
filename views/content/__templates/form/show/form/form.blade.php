@@ -1,6 +1,5 @@
 @section('head-after')
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-	{!! Theme::css('vendor/flatpickr/flatpickr.min.css') !!}
 @endsection
 
 
@@ -190,22 +189,6 @@
 @section('scripts-after')
 
 	@parent
-
-	{!! Theme::js('vendor/flatpickr/flatpickr.min.js') !!}
-	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function () {
-			// datetimepickers for fields
-			@foreach ($entity->getCustomColumns() as $cvar)
-			@if ($cvar->fieldtype == 'date')
-			flatpickr("#dtp-{{  $cvar->fieldname }}", {
-				dateFormat: "Y-m-d",
-				enableTime: false,
-				wrap: true,
-			});
-			@endif
-			@endforeach
-		});
-	</script>
 
 	{!! Theme::js('vendor/axios/axios.min.js') !!}
 

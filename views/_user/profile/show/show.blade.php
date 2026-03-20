@@ -4,7 +4,7 @@
 <section class="{{ $grd->module }}">
 	<div class="{{ $grd->container }}">
 
-		<div class="row">
+		<div class="grid grid-cols-12">
 
 			{{-- Sidebar Left --}}
 			@includeWhen($grd->hasSidebarLeft, $grd->leftSidebar)
