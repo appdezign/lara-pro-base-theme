@@ -1,7 +1,12 @@
 @import 'tailwindcss';
 
 @source '../../../../storage/framework/views/*.php';
-@source '../../views/*.php';
+
+/* this theme */
+@source '../../views/**/*.php';
+@source '../../_assets/css/**/*.css';
+@source '../../_assets/js/**/*.js';
+
 
 @source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-1");
 @source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-2");
