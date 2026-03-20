@@ -1,43 +1,29 @@
-@if(!empty($widgetObjects))
+@if($widgetObjects)
 
-	<h2 class="h1 mb-md-48 mb-24 py-xl-16 pb-lg-8 pb-md-0 pb-sm-8 text-center">
-		Our Services
-	</h2>
+	<h2 class="mb-12 text-center">Our Services</h2>
 
-	<style>
-		.service-item {
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				padding-left: 0;
-				list-style: none;
-				margin: -2rem 0 0 -1rem;
-			}
-			ul li {
-				margin: 2rem 0 0 1rem;
-				font-weight: 600;
-			}
-		}
-	</style>
+	@foreach ($widgetObjects as $widgetObject)
+		<div class="grid grid-cols-12 gap-y-1 mb-12 pb-4 md:pb-6 xl:pb-12">
+			<div class="flex col-span-12 md:col-span-6 lg:col-span-5 order-2 md:order-1 ">
+				<div class="self-center md:pr-6 lg:pr-0">
+					<h4 class="mb-4 md:mb-6">{{ $widgetObject->title }}</h4>
+					<p class="mb-4 md:mb-6 text-lg">
+						{!! $widgetObject->lead !!}
+					</p>
+					<hr class="my-4 md:my-6 text-slate-300 border-slate-300">
 
-	@foreach($widgetObjects as $widgetObject)
-		<div class="service-item row gy-4 mb-48 pb-xl-48 pb-md-24 pb-16">
-			<div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex">
-				<div class="align-self-center pe-lg-0 pe-md-24">
+					<div class="home-service-widget">
+						{!! $widgetObject->body !!}
+					</div>
 
-					<h4 class="mb-md-24">{{ $widgetObject->title }}</h4>
-					<p class="mb-md-24 mb-16 fs-lg">{!! $widgetObject->lead !!}</p>
-					<hr class="my-md-24 my-16">
-
-					{!! $widgetObject->body !!}
-
-					<a href="{{ route($widgetEntitySingleRoute, $widgetObject->slug) }}" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-24">Learn more</a>
+					<a href="" class="btn btn-lg btn-outline btn-primary w-full sm:w-auto mt-6">Learn more</a>
 				</div>
 			</div>
-			<div class="col-md-6 offset-lg-1 order-md-2 order-1">
-				<div class="bg-secondary rounded-3" data-aos="fade-left">
+			<div class="col-span-12 md:col-span-6 lg:col-start-7  order-1 md:order-2">
+				<div class="bg-secondary rounded-3 mb-4 md:mb-0" data-aos="fade-left">
+
 					@if($widgetObject->hasThumb())
-						@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 720, 'ratio' => '4x3', 'class' => 'object-cover' ])
+						@include('_img.glide', ['media' => $widgetObject->thumb(), 'width' => 960, 'height' => 720, 'ratio' => '4/3', 'class' => 'object-cover' ])
 					@endif
 				</div>
 			</div>

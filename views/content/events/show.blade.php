@@ -6,15 +6,14 @@
 
 @endsection
 
-
 @section('scripts-after')
 
-	@if(is_numeric($data->object->location->latitude) && is_numeric($data->object->location->longitude))
-		@if($data->object->location->latitude != 0 && $data->object->location->longitude != 0)
+	@if(is_numeric($data->object->location->geo_latitude) && is_numeric($data->object->location->geo_longitude))
+		@if($data->object->location->geo_latitude != 0 && $data->object->location->geo_longitude != 0)
 			<script>
 
 				function initMap() {
-					var myLatLng = {lat: {{ $data->object->location->latitude }}, lng: {{ $data->object->location->longitude }}};
+					var myLatLng = {lat: {{ $data->object->location->geo_latitude }}, lng: {{ $data->object->location->geo_longitude }}};
 
 					var map = new google.maps.Map(document.getElementById('map-canvas'), {
 						zoom: 13,

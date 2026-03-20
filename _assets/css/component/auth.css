@@ -1,0 +1,45 @@
+
+
+.front-login-page {
+	background-color: rgb(50, 52, 121);
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: center;
+
+	.front-login-page-gradient-bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(50, 52, 121, 0.7);
+	}
+	.alert {
+		font-size: 0.875rem;
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			li {
+				font-size: 0.875rem;
+			}
+		}
+	}
+}
+
+.toggle-password {
+	.toggle-eye {
+		display: block;
+	}
+	.toggle-eye-slash {
+		display: none;
+	}
+	&.active {
+		.toggle-eye {
+			display: none;
+		}
+	}
+	&.active {
+		.toggle-eye-slash {
+			display: block;
+		}
+	}
+}

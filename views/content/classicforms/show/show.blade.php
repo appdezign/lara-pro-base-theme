@@ -4,20 +4,21 @@
 <section class="{{ $grd->module }}">
 	<div class="{{ $grd->container }}">
 
-		<div class="row">
+		<div class="grid grid-cols-12">
+
+			{{-- Sidebar Left --}}
+			@includeWhen($grd->hasSidebarLeft, $grd->leftSidebar)
 
 			<div class="{{ $grd->contentCols }} main-content">
 
 				{{-- Page Title --}}
-				<div class="row">
+				<div class="grid grid-cols-12">
 					<div class="{{ $grd->gridColumns }}">
-						<div class="page-title mb-48">
-							<h1 class="mb-2 mb-md-0">{{ $data->page->title }}</h1>
-						</div>
+						<h1 class="mb-2 md:mb-0">{{ $data->page->title }}</h1>
 					</div>
 				</div>
 
-				<div class="row">
+				<div class="grid grid-cols-12">
 					<div class="{{ $grd->gridColumns }}">
 
 						@include('content.' . $entity->getResourceSlug() . '.show.form.form')

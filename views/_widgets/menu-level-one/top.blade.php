@@ -1,12 +1,12 @@
 <?php $lang = LaravelLocalization::getCurrentLocale(); ?>
 
-<ul class="navbar-nav flex-row me-16">
+<ul class="menu menu-horizontal">
 	@foreach($menulevelone as $item)
 		@if($item->publish == 1)
 			<?php $navlink = ($item->type == 'url') ? $item->url : url($lang . '/' . $item->route); ?>
-			<li class="nav-item">
+			<li>
 				<a href="{{ $navlink }}"
-				   class="nav-link fs-14 px-8 py-4">
+				   class="menu-link hover:bg-transparent hover:text-primary">
 					{{ $item->title }}
 				</a>
 			</li>

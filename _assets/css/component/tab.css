@@ -1,0 +1,15 @@
+.tab-button {
+	&.tab-button-vertical {
+		@apply p-6 bg-indigo-100 text-gray-600 text-center md:text-left rounded-lg transition-colors;
+		&.active {
+			@apply text-white bg-indigo-400;
+		}
+	}
+}
+
+.tab-content {
+	@apply hidden;
+	&.active {
+		@apply block;
+	}
+}

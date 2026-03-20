@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+@source '../../../../storage/framework/views/*.php';
+@source '../../views/*.php';
+
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-1");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-2");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-3");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-4");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-5");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-6");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-7");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-8");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-9");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-10");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-11");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-span-12");
+
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-1");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-2");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-3");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-4");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-5");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-6");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-7");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-8");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-9");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-10");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-11");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}col-start-12");
+
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-1");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-2");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-3");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-4");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-5");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-6");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-7");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-8");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-9");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-10");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-11");
+@source inline("{sm:,md:,lg:,xl:,2xl:,}grid-cols-12");
+
+
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+	exclude:  tab;
+}
+@plugin "daisyui/theme" {
+	name: "light";
+	default: true;
+	--color-primary: rgb(99, 102, 241);
+	--color-secondary: rgb(239, 242, 252);
+	--color-info: rgb(76, 130, 247);
+	--color-success: rgb(34, 197, 94);
+	--color-warning: rgb(255, 186, 8);
+	--color-danger: rgb(239, 68, 68);
+
+	--color-primary-content: rgb(255, 255, 255);
+	--color-secondary-content: rgb(60, 70, 80);
+	--color-info-content: rgb(255, 255, 255);
+	--color-success-content: rgb(255, 255, 255);
+	--color-warning-content: rgb(255, 255, 255);
+	--color-danger-content: rgb(255, 255, 255);
+
+	--color-base-content: rgb(86, 89, 115);
+
+}
+
+@plugin "daisyui/theme" {
+	name: "dark";
+	default: false;
+	--color-base-100: rgb(15, 23, 42);
+}
+
+@theme {
+	--font-sans: Manrope, sans-serif;
+
+	--breakpoint-xs: 30rem;
+	--breakpoint-sm: 36rem;
+	--breakpoint-md: 48rem;
+	--breakpoint-lg: 62rem;
+	--breakpoint-xl: 75rem;
+	--breakpoint-2xl: 90rem;
+
+	--text-5xl: 2.5rem;
+	--text-4xl: 2rem;
+	--text-3xl: 1.75rem;
+	--text-2xl: 1.5rem;
+	--text-xl: 1.25rem;
+	--text-lg: 1.125rem;
+
+	--shadow-sm: 0 .0625rem .25rem rgba(11,15,25,.1);
+	--shadow-md: 0 .1875rem .5rem rgba(11,15,25,.1);
+
+}
+
+@import './component.css';
+@import './custom.css';
+
+
+

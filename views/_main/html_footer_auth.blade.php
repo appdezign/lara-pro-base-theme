@@ -1,2 +1,2 @@
-{{ Vite::useBuildDirectory('assets/themes/base') }}
-@vite(['laracms/themes/base/_assets/js/app.js'])
+{{ Vite::useBuildDirectory('assets/themes/' . config('theme.active')) }}
+@vite(['laracms/themes/' . config('theme.active') . '/_assets/js/app.js'])

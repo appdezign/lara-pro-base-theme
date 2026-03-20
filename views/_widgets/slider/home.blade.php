@@ -1,8 +1,7 @@
-@if(!empty($widgetsliders))
+@if($widgetsliders)
 
-	<section class="dark-mode bg-dark">
-		<div class="js-swiper swiper swiper-nav-onhover"
-		     data-swiper-options='{
+	<div class="js-swiper swiper swiper-nav-onhover"
+	     data-swiper-options='{
 				"effect": "fade",
 				"loop": true,
 				"speed": 800,
@@ -15,97 +14,52 @@
 					"clickable": true
 				},
 				"navigation": {
-					"prevEl": ".btn-prev",
-					"nextEl": ".btn-next"
+					"prevEl": ".swiper-button-prev",
+					"nextEl": ".swiper-button-next"
 				}
 			}'>
-			<div class="swiper-wrapper {{ $sliderclass }}">
+		<div class="swiper-wrapper lara-hero lara-hero-height" data-theme="dark">
 
-				@foreach($widgetsliders as $widgetslider)
+			@foreach($widgetsliders as $widgetslider)
+				<!-- Hero Item start -->
+				<div class="swiper-slide h-full"
+				     style="background-image: url('{!! glideUrl($widgetslider->featured()->path, 1920, 960) !!}');">
 
-					<!-- Hero Item start -->
-					@if($widgetslider->type == 'payoff')
+					<div class="hero h-full">
+						<div class="hero-overlay"></div>
+						<div class="hero-content text-center">
+							<div class="max-w-3xl">
+								<h2 class="heading mb-5 text-3xl md:text-4xl/12 lg:text-5xl/20 xl:text-6xl/20  font-bold from-start">
+									{{ $widgetslider->title }}
+								</h2>
 
-						<div class="swiper-slide swiper-slide-hero h-100"
-						     style="background-image:url({!! glideUrl($widgetslider->featured()->path, 1920, 960) !!})">
-							<div class="position-absolute top-0 start-0 w-100 h-100">
-								<div class="w-100 h-100 px-0 js-slider-content" style="display:none;">
-
-									<div class="payoff payoff-{{ $widgetslider->textposition }} payoff-{{ $widgetslider->overlaysize }}">
-										<div class="payoff-inner bg-{{ $widgetslider->overlaycolor }}-alfa-{{ $widgetslider->overlaytransp }}">
-											<div class="payoff-content">
-
-												<h4 class="h2 from-start mb-lg-24">{{ $widgetslider->title }}</h4>
-
-												<div class="from-end">
-													<div class="pb-8 mb-lg-24">
-														{!! $widgetslider->payoff  !!}
-													</div>
-												</div>
-												@if(!empty($widgetslider->url))
-													<div class="scale-up delay-1">
-														<a href="{{ $widgetslider->url }}"
-														   class="btn btn-primary shadow-primary btn-lg"
-														   title="{{ $widgetslider->urltitle }}">
-															{{ $widgetslider->urltext }}
-														</a>
-													</div>
-												@endif
-											</div>
-										</div>
-									</div>
-
+								<div class="mb-12 px-16 lg:px-24 from-end">
+									<p>
+										{{ strip_tags($widgetslider->payoff) }}
+									</p>
 								</div>
+
+								@if(!empty($widgetslider->url))
+									<div class="scale-up delay-1s">
+										<a href="{{ $widgetslider->url }}" class="btn btn-lg btn-primary">
+											{{ $widgetslider->urltitle }}
+										</a>
+									</div>
+								@endif
 							</div>
 						</div>
+					</div>
 
-					@elseif($widgetslider->type == 'caption')
+				</div>
+				<!-- Hero Item end -->
+			@endforeach
 
-						<div class="swiper-slide swiper-slide-hero h-100"
-						     style="background-image:url({!! glideUrl($widgetslider->featured()->path, 1920, 960) !!})">
+			<div class="swiper-button-prev rounded-full bg-white/10 hover:bg-primary"></div>
+			<div class="swiper-button-next rounded-full bg-white/10 hover:bg-primary"></div>
 
-							<div class="hero-caption-bg hero-caption-bg-{{ $widgetslider->captiontype }}">
-								<div class="hero-caption-bottom color-white">
-									<div class="container">
-										<div class="row">
-											<div class="col-12 text-center">
-												{{ $widgetslider->caption }}
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+			<div class="swiper-pagination"></div>
 
-						</div>
-
-					@else
-
-						<div class="swiper-slide swiper-slide-hero h-100"
-						     style="background-image:url({!! glideUrl($widgetslider->featured()->path, 1920, 960) !!})">
-						</div>
-
-					@endif
-					<!-- Hero Item end -->
-				@endforeach
-
-			</div>
-
-			<!-- Prev button -->
-			<button type="button" class="btn btn-prev btn-icon btn-sm me-2">
-				<i class="far fa-chevron-left fs-14"></i>
-			</button>
-
-			<!-- Next button -->
-			<button type="button" class="btn btn-next btn-icon btn-sm ms-2">
-				<i class="far fa-chevron-right fs-14"></i>
-			</button>
-
-			<!-- Pagination -->
-			<div class="dark-mode">
-				<div class="swiper-pagination"></div>
-			</div>
 		</div>
-
-	</section>
+	</div>
 
 @endif

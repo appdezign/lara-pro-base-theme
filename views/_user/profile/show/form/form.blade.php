@@ -3,7 +3,7 @@
 	$emailreq = ['data-error' => _q('lara-front::default.form.email_is_invalid'), 'required' => ''];
 @endphp
 
-<div class="text-right p-b-20">
+<div class="text-end pb-6">
 	* = {{ _q('lara-front::default.form.required') }}
 </div>
 
@@ -35,68 +35,56 @@
 @endif
 <div class="row">
 
-	<div class="col-12 mt-24">
-		<div class="row">
-			<div class="col-6 col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.name').':', 'name') }}
-			</div>
-			<div class="col-6 col-md-8">
-				{{ $data->object->name }}
-			</div>
-		</div>
-	</div>
+	<fieldset class="fieldset w-full my-2">
+		<legend class="fieldset-legend">
+			{{ _q('lara-admin::users.column.email') }}
+		</legend>
+		<input type="email" name="email" id="email" class="input w-full" value="{{ $data->object->email }}" disabled />
+	</fieldset>
 
-	<div class="col-12 mt-24">
-		<div class="row">
-			<div class="col-6 col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.email').':', 'email') }}
-			</div>
-			<div class="col-6 col-md-8">
-				{{ $data->object->email }}
-			</div>
-		</div>
-	</div>
+	<fieldset class="fieldset w-full my-2">
+		<legend class="fieldset-legend">
+			{{ _q('lara-admin::users.column.name') }}
+		</legend>
+		{{ html()->text('name', null)
+			->class('input w-full')
+			->required() }}
+	</fieldset>
 
-	<div class="col-12 mt-24">
-		<div class="row">
-			<div class="col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.firstname').':', 'firstname') }}
-			</div>
-			<div class="col-md-8">
-				{{ html()->text('firstname', null)->class('form-control') }}
-			</div>
-		</div>
-	</div>
-	<div class="col-12 mt-24">
-		<div class="row">
-			<div class="col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.middlename').':', 'middlename') }}
-			</div>
-			<div class="col-md-8">
-				{{ html()->text('middlename', null)->class('form-control') }}
-			</div>
-		</div>
-	</div>
-	<div class="col-12 mt-24">
-		<div class="row">
-			<div class="col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.lastname').':', 'lastname') }}
-			</div>
-			<div class="col-md-8">
-				{{ html()->text('lastname', null)->class('form-control') }}
-			</div>
-		</div>
-	</div>
-	<div class="col-12 mt-24">
-		<div class="row">
-			<div class="col-md-4">
-				{{ html()->label(_q('lara-' . $entity->getModule().'::'.$entity->getResourceSlug().'.column.new_password').':', '_password') }}
-			</div>
-			<div class="col-md-8">
-				{{ html()->password('_password')->class('form-control')->attributes(['autocomplete' => 'new-password']) }}
-			</div>
-		</div>
-	</div>
+	<fieldset class="fieldset w-full my-2">
+		<legend class="fieldset-legend">
+			{{ _q('lara-admin::users.column.firstname') }}
+		</legend>
+		{{ html()->text('firstname', null)
+			->class('input w-full')
+			->required() }}
+	</fieldset>
+
+	<fieldset class="fieldset w-full my-2">
+		<legend class="fieldset-legend">
+			{{ _q('lara-admin::users.column.middlename') }}
+		</legend>
+		{{ html()->text('middlename', null)
+			->class('input w-full')
+			->required() }}
+	</fieldset>
+
+	<fieldset class="fieldset w-full my-2">
+		<legend class="fieldset-legend">
+			{{ _q('lara-admin::users.column.lastname') }}
+		</legend>
+		{{ html()->text('lastname', null)
+			->class('input w-full')
+			->required() }}
+	</fieldset>
+
+	<fieldset class="fieldset w-full my-2">
+		<legend class="fieldset-legend">
+			{{ _q('lara-admin::users.column.new_password') }}
+		</legend>
+		{{ html()->password('_password')->class('input w-full')->attributes(['autocomplete' => 'new-password']) }}
+	</fieldset>
+
 </div>
 
 {{ html()->hidden('_ipaddress', Request::ip()) }}

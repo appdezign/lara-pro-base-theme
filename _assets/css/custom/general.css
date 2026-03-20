@@ -1,0 +1,35 @@
+.home-service-widget {
+	ul {
+		@apply list-none flex flex-wrap -mt-2 md:-mt-4 -ms-4 md:-ms-6 mb-0 md:pb-2 lg:pb-6 font-extrabold;
+		li {
+			@apply mt-2 md:mt-4 ms-4 md:ms-6
+		}
+	}
+}
+
+
+.bg-gradient-primary {
+	background: linear-gradient(90deg,#6366f1,#8b5cf6 50%,#d946ef)!important
+}
+
+.bg-gradient-primary-translucent {
+	background: linear-gradient(180deg,rgba(99,102,241,0),rgba(99,102,241,.6) 120%)!important
+}
+
+.card-hover-primary:hover {
+	background-color: rgb(99, 102, 241);
+	color: #fff !important;
+	h4, p, a {
+		color: #fff !important;
+	}
+	a.bg-indigo-100 {
+		background-color: rgba(224, 231, 255, 0.1);
+	}
+	span.text-gray-500 {
+		color: #fff !important;
+	}
+}
+
+
+
+

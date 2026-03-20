@@ -1,72 +1,42 @@
-<article class="card border-0 shadow-sm overflow-hidden mb-36">
-	<div class="row g-0">
+<article class="card border-0 shadow-md overflow-hidden mb-8">
+	<div class="grid grid-cols-12 gap-0">
 
-		@if($entity->hasImages() || $entity->hasVideos())
-
-			@if($obj->hasThumb())
-				<div class="col-md-4 position-relative bg-position-center bg-repeat-0 bg-size-cover"
-				     style="background-image: url({!! glideUrl($obj->thumb()->path, 640, 640) !!}); min-height: 15rem;">
-					<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
-					   class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
-				</div>
-			@else
-				<div class="col-md-4 position-relative bg-position-center bg-repeat-0 bg-size-cover"
-				     style="background-image: url('https://dummyimage.com/960x960/e8ecf0/d4d8dc?text=Lara+CMS'); min-height: 15rem;">
-					<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
-					   class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
-				</div>
-			@endif
-
-			<div class="col-md-8">
-				<div class="card-body">
-					<div class="d-flex align-items-center mb-16">
-						<span class="fs-14 text-muted pe-16 me-16 border-end">
-							{{ Date::parse($obj->publish_from)->format('j F Y') }}
-						</span>
-						@foreach($obj->tags->where('taxonomy_id', 2) as $tag)
-							<a href="#"
-							   class="badge fs-14 text-nav bg-secondary text-decoration-none">{{ $tag->title }}</a>
-						@endforeach
-					</div>
-
-					<h3 class="h4">
-						<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
-						   class="text-dark text-decoration-none">
-							{{ $obj->title }}
-						</a>
-					</h3>
-
-					<p>{!! $obj->lead !!}</p>
-
-				</div>
+		@if($obj->hasThumb())
+			<div class="col-span-12 md:col-span-4 relative bg-center bg-no-repeat bg-cover"
+			     style="background-image: url({!! glideUrl($obj->thumb()->path, 640, 640) !!}); min-height: 15rem;">
+				<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
+				   class="absolute top-0 start-0 w-full h-full" aria-label="Read more"></a>
 			</div>
-
 		@else
-
-			<div class="col-12">
-				<div class="card-body">
-					<div class="d-flex align-items-center mb-16">
-						<span class="fs-14 text-muted pe-16 me-16 border-end">
-							{{ Date::parse($obj->publish_from)->format('j F Y') }}
-						</span>
-						@foreach($obj->tags->where('taxonomy_id', 2) as $tag)
-							<a href="#"
-							   class="badge fs-14 text-nav bg-secondary text-decoration-none">{{ $tag->title }}</a>
-						@endforeach
-					</div>
-
-					<h3 class="h4">
-						<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}">
-							{{ $obj->title }}
-						</a>
-					</h3>
-
-					<p>{!! $obj->lead !!}</p>
-
-				</div>
+			<div class="col-span-12 md:col-span-4 relative bg-center bg-no-repeat bg-cover"
+			     style="background-image: url('https://dummyimage.com/960x960/e8ecf0/d4d8dc?text=Lara+CMS'); min-height: 15rem;">
+				<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
+				   class="absolute top-0 start-0 w-full h-full" aria-label="Read more"></a>
 			</div>
-
 		@endif
+
+		<div class="col-span-12 md:col-span-8">
+			<div class="card-body">
+				<div class="flex items-center mb-4">
+					<span class="text-sm text-gray-600 pe-4 me-4 border-e-1 border-gray-400">
+						{{ Date::parse($obj->publish_from)->format('j F Y') }}
+					</span>
+					@foreach($obj->tags->where('taxonomy_id', 2) as $tag)
+						<a href="#" class="px-2 py-1 text-sm text-gray-600 bg-secondary no-underline">{{ $tag->title }}</a>
+					@endforeach
+				</div>
+
+				<h3 class="h4">
+					<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
+					   class="text-gray-800 no-underline">
+						{{ $obj->title }}
+					</a>
+				</h3>
+
+				{!! $obj->lead !!}
+
+			</div>
+		</div>
 
 	</div>
 </article>

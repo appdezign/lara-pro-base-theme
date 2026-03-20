@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="front-login-page" style="background-image: url({!! Theme::url('images/login-bg.jpg') !!});">
+<body class="front-login-page h-full" style="background-image: url({!! Theme::url('images/login-bg.jpg') !!});">
 
 <div class="front-login-page-gradient-bg"></div>
 

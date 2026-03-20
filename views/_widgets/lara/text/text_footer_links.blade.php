@@ -1,7 +1,9 @@
 @if($larawidget)
 
-	<h2 class="mb-8 py-8 text-dark">{{ $larawidget->title }}</h2>
+	<h2 class="mb-8 text-xl font-bold">{{ $larawidget->title }}</h2>
 
-	{!! $larawidget->body !!}
+	<div class="opacity-80">
+		{!! $larawidget->body !!}
+	</div>
 
 @endif

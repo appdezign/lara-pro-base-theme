@@ -45,45 +45,9 @@
 				<isDefault>true</isDefault>
 			</item>
 			<item>
-				<itemKey>hero_slider_50</itemKey>
-				<friendlyName>Hero Slider 50</friendlyName>
-				<partialFile>hero_slider_50</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>hero_slider_60</itemKey>
-				<friendlyName>Hero Slider 60</friendlyName>
-				<partialFile>hero_slider_60</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>hero_slider_70</itemKey>
-				<friendlyName>Hero Slider 70</friendlyName>
-				<partialFile>hero_slider_70</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>hero_slider_80</itemKey>
-				<friendlyName>Hero Slider 80</friendlyName>
-				<partialFile>hero_slider_80</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>hero_slider_90</itemKey>
-				<friendlyName>Hero Slider 90</friendlyName>
-				<partialFile>hero_slider_90</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>hero_slider_100</itemKey>
-				<friendlyName>Hero Slider 100</friendlyName>
-				<partialFile>hero_slider_100</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>hero_parallax</itemKey>
-				<friendlyName>Parallax</friendlyName>
-				<partialFile>hero_parallax</partialFile>
+				<itemKey>hero_slider</itemKey>
+				<friendlyName>Hero Slider</friendlyName>
+				<partialFile>hero_slider</partialFile>
 				<isDefault>false</isDefault>
 			</item>
 		</items>
@@ -97,24 +61,6 @@
 				<itemKey>page_title_parallax</itemKey>
 				<friendlyName>Parallax</friendlyName>
 				<partialFile>page_title_parallax</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>page_title_video</itemKey>
-				<friendlyName>Video</friendlyName>
-				<partialFile>page_title_video</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>page_title_image</itemKey>
-				<friendlyName>Image</friendlyName>
-				<partialFile>page_title_image</partialFile>
-				<isDefault>false</isDefault>
-			</item>
-			<item>
-				<itemKey>page_title_color</itemKey>
-				<friendlyName>Color</friendlyName>
-				<partialFile>page_title_color</partialFile>
 				<isDefault>false</isDefault>
 			</item>
 			<item>
@@ -188,17 +134,17 @@
 		<required>false</required>
 		<items>
 			<item>
+				<!-- DEFAULT  -->
 				<itemKey>share</itemKey>
 				<friendlyName>Share</friendlyName>
 				<partialFile>share</partialFile>
-				<isDefault>false</isDefault>
+				<isDefault>true</isDefault>
 			</item>
 			<item>
-				<!-- DEFAULT  -->
 				<itemKey>hidden</itemKey>
 				<friendlyName>- Hidden -</friendlyName>
 				<partialFile>hidden</partialFile>
-				<isDefault>true</isDefault>
+				<isDefault>false</isDefault>
 			</item>
 		</items>
 	</partial>

@@ -1,0 +1,9 @@
+.searchbar {
+	@apply absolute top-[68px] left-0 right-0 w-full opacity-0 h-0 overflow-hidden z-[99999];
+	transition: all 0.1s ease-out;
+
+	&.searchbar-open {
+		@apply opacity-100 h-[8.75rem];
+	}
+}
+

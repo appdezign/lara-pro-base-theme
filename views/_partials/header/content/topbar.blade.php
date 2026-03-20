@@ -1,30 +1,20 @@
-<div class="d-flex justify-content-between align-items-center">
+<div class="flex justify-between items-center">
 
 	<!-- Logo -->
-	<a href="/{{ $language }}/" class="navbar-brand py-24">
-		{!! Theme::img('images/lara10-logo.png', 'Lara CMS', '', ['width' => '47']) !!}
-		Lara 8
+	<a href="/" class="flex items-center">
+		{!! Theme::img('images/company-logo.png', 'Lara CMS', 'mr-2', ['width' => '47']) !!}
+		<span class="text-xl font-medium">Lara 10</span>
 	</a>
 
-	<div class="ms-auto me-16">
-		<a href="javascript:void(0)" class="js-search-btn nav-link">
-			<i class="far fa-search"></i>
+	<div class="flex">
+		<a href="javascript:void(0)" class="js-search-btn px-3 pt-[1.125rem] pb-[0.875rem]">
+			<x-heroicon-o-magnifying-glass class="w-6 h-6 text-gray-500"/>
 		</a>
+
+		<!-- Topmenu -->
+		@widget('MenuLevelOneWidget', ['mnu' => 'top'])
+
 	</div>
 
-	<!-- Topmenu -->
-	@widget('MenuLevelOneWidget', ['mnu' => 'top'])
-
-	@if(config('lara.auth.has_front_auth'))
-		<hx:include src="/loginwidget/menu?returnto={{ url()->current() }}"></hx:include>
-	@endif
-
-	{{ html()->form('POST', route('logout'))
-		->id('logout-form')
-		->attributes(['accept-charset' => 'UTF-8'])
-		->open() }}
-	<hx:include src="/csrf/input"></hx:include>
-	{{ html()->hidden('redirect', 'special.home.show') }}
-	{{ html()->form()->close() }}
 
 </div>

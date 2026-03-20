@@ -1,0 +1,27 @@
+@import './component/layout.css';
+
+@import './component/auth.css';
+@import './component/typography.css';
+@import './component/general.css';
+@import './component/grid.css';
+@import './component/form.css';
+@import './component/button.css';
+@import './component/swiper.css';
+@import './component/jarallax.css';
+@import './component/tab.css';
+@import './component/gallery.css';
+
+@import './component/footer.css';
+@import './component/header.css';
+@import './component/searchbar.css';
+@import './component/navbar.css';
+@import './component/hero.css';
+@import './component/pagination.css';
+@import './component/event.css';
+
+@import './component/lazysizes.css';
+@import './component/cookieconsent.css';
+@import './component/cookieconsent-theme.css';
+
+
+

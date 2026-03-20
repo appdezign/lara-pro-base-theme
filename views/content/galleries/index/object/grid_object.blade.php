@@ -1,20 +1,21 @@
-<article class="card border-0 shadow-sm h-100">
-	<div class="position-relative">
+<article class="card border-0 shadow-md h-full">
+
+	<div class="relative">
 		@if($obj->hasThumb())
-			@include('_img.glide', ['media' => $obj->thumb(), 'width' => 1280, 'height' => 960, 'ratio' => '4x3', 'class' => 'card-img-top' ])
+			@include('_img.glide', ['media' => $obj->thumb(), 'width' => 1280, 'height' => 960, 'ratio' => '4/3', 'class' => 'rounded-t-sm' ])
 		@else
-			@include('_img.placeholder', ['phw' => 1280, 'phh' => 960, 'phar' => '4x3', 'phbg' => 'e8ecf0', 'phcol' => 'd4d8dc'])
+			@include('_img.placeholder', ['phw' => 800, 'phh' => 600, 'phar' => '4/3', 'phbg' => 'e8ecf0', 'phcol' => 'd4d8dc'])
 		@endif
 		<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}"
-		   class="position-absolute top-0 start-0 w-100 h-100"
+		   class="absolute top-0 start-0 w-full h-full"
 		   aria-label="Read more"></a>
 	</div>
-	<div class="card-body text-center pb-24">
-		<h3 class="fs-18 fw-semibold pt-4 mb-8">
-			<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}">
+
+	<div class="card-body text-center">
+		<h3 class="h5 mb-0">
+			<a href="{{ route($activeroute->getSingleRoute(), $obj->routeVars) }}" class="text-gray-800 hover:text-primary">
 				{{ $obj->title }}
 			</a>
 		</h3>
 	</div>
-
 </article>

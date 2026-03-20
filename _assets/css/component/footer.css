@@ -1,0 +1,11 @@
+.lara-footer {
+
+	ul {
+		li {
+			a {
+				@apply block link link-hover pt-1 pb-2;
+
+			}
+		}
+	}
+}

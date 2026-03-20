@@ -11,18 +11,18 @@
 
 			<div class="{{ $grd->contentCols }} main-content">
 
-				<div class="row">
-					<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+				<div class="grid grid-cols-12">
+					<div class="col-span-12 md:col-span-10 mdcol-start-2 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4">
 
-						<h1 class="lara-object-title">{{ $data->page->title }}</h1>
+						<h1 class="mb-8">{{ $data->page->title }}</h1>
 
 						{!! $data->page->body !!}
 
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+				<div class="grid grid-cols-12">
+					<div class="col-span-12 md:col-span-10 mdcol-start-2 lg:col-span-8 lg:col-start-3 xl:col-span-6 xl:col-start-4">
 						@include('_user.profile.show.form.form')
 					</div>
 				</div>

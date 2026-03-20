@@ -2,17 +2,16 @@
 
 @section('content')
 
-	<div class="d-flex h-100 justify-content-center align-items-center">
-		<div class="card shadow-sm" style="width: 360px; max-width: 100%;">
-
-			<div class="card-header d-flex justify-content-start ">
-				{!! Theme::img('images/lara10-logo.png', 'Lara CMS', 'me-16', ['width' => '48']) !!}
-				<h1 class="fs-18 mt-12">
-					{{ ucfirst(_q('lara-common::auth.passwordforgot.password_reset_title')) }}
-				</h1>
-			</div>
+	<div class="flex h-full justify-center items-center">
+		<div class="card bg-white shadow-sm" style="width: 360px; max-width: 100%;">
 
 			<div class="card-body">
+
+				<h1 class="h2 card-title mb-2">
+					{{ ucfirst(_q('lara-front::auth.headers.password_reset')) }}
+				</h1>
+
+				<div class="border-b-1 border-slate-200 h-0 my-2"></div>
 
 				@if ($errors->any())
 					<div class="alert alert-danger">
@@ -22,6 +21,8 @@
 							@endforeach
 						</ul>
 					</div>
+				@else
+					@include('flash::message')
 				@endif
 
 				@if (session('status'))
@@ -32,36 +33,39 @@
 
 				@if($email)
 
-					<form class="form-horizontal" role="form" method="POST"
-					      action="{{ route('password.request') }}">
+					<form role="form" method="POST" action="{{ route('password.request') }}">
 
 						{{ csrf_field() }}
 
 						<input type="hidden" name="token" value="{{ $token }}">
 
-						<div class="fv-row mb-24">
-							<label for="password">{{ _q('lara-common::auth.field.email') }}</label>
-							<input id="email" name="email" type="email" value="{{ $email }}" class="form-control" disabled>
+						<fieldset class="fieldset w-full">
+							<legend class="fieldset-legend">{{ _q('lara-admin::users.column.email') }}</legend>
+							<input type="email" name="email" id="email" class="input w-full" value="{{ $email }}" disabled/>
 							<input id="email" type="hidden" name="email" value="{{ $email }}">
-						</div>
+						</fieldset>
 
-						<div class="fv-row mb-24">
-							<label for="password">{{ _q('lara-common::auth.field.password') }}</label>
-							<input id="password" name="password" type="password" class="form-control" required>
-						</div>
+						<fieldset class="fieldset w-full relative">
+							<legend class="fieldset-legend">{{ _q('lara-admin::users.column.new_password') }}</legend>
+							<input id="password" name="password" type="password" class="input w-full pe-8" required>
+							<a href="javscript:void(0)" class="js-toggle-password1 toggle-password absolute top-4 right-3 text-gray-600">
+								<x-heroicon-o-eye class="toggle-eye w-4 h-4"/>
+								<x-heroicon-o-eye-slash class="toggle-eye-slash w-4 h-4"/>
+							</a>
+						</fieldset>
 
-						<div class="fv-row mb-24">
-							<label for="password-confirm">{{ _q('lara-common::auth.field.confirm_password') }}</label>
-							<input id="password-confirm" name="password_confirmation" type="password" class="form-control"  required>
-						</div>
+						<fieldset class="fieldset w-full relative">
+							<legend class="fieldset-legend">{{ _q('lara-admin::users.column.new_password_confirmation') }}</legend>
+							<input id="password_confirmation" name="password_confirmation" type="password" class="input w-full" required>
+							<a href="javscript:void(0)" class="js-toggle-password2 toggle-password absolute top-4 right-3 text-gray-600">
+								<x-heroicon-o-eye class="toggle-eye w-4 h-4"/>
+								<x-heroicon-o-eye-slash class="toggle-eye-slash w-4 h-4"/>
+							</a>
+						</fieldset>
 
-						<div class="d-grid">
-							<button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-								<span class="indicator-label">
-									{{ _q('lara-common::auth.button.reset_password') }}
-								</span>
-							</button>
-						</div>
+						<button type="submit" class="btn btn-primary shadow-primary btn-lg w-full my-3">
+							{{ _q('lara-common::auth.button.reset_password') }}
+						</button>
 
 					</form>
 				@else
@@ -75,3 +79,4 @@
 	</div>
 
 @endsection
+
