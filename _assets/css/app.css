@@ -72,6 +72,8 @@
 
 	--color-base-content: rgb(86, 89, 115);
 
+	--card-fs: .9375rem;
+
 }
 
 @plugin "daisyui/theme" {
@@ -81,7 +83,7 @@
 }
 
 @theme {
-	--font-sans: Manrope, sans-serif;
+	--font-sans: Inter, sans-serif;
 
 	--breakpoint-xs: 30rem;
 	--breakpoint-sm: 36rem;
