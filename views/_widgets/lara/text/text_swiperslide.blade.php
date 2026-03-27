@@ -8,7 +8,7 @@
 				</figure>
 			@endif
 			<div class="card-body items-center text-center pb-12">
-				<h2 class="heading card-title">{{ $larawidget->title }}</h2>
+				<h2 class="heading text-xl card-title">{{ $larawidget->title }}</h2>
 				{!! $larawidget->body !!}
 			</div>
 		</div>
