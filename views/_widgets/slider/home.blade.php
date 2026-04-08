@@ -26,7 +26,7 @@
 				     style="background-image: url('{!! glideUrl($widgetslider->featured()->path, 1920, 960) !!}');">
 
 					<div class="hero h-full">
-						<div class="hero-overlay"></div>
+						<div class="lara-overlay bg-{{ $widgetslider->overlaycolor }}-alfa-{{ $widgetslider->overlaytransp }}"></div>
 						<div class="hero-content text-center">
 							<div class="max-w-3xl">
 								<h2 class="heading mb-5 text-3xl md:text-4xl/12 lg:text-5xl/20 xl:text-6xl/20  font-bold from-start">
