@@ -16,6 +16,7 @@
 @import './component/searchbar.css';
 @import './component/navbar.css';
 @import './component/hero.css';
+@import './component/overlay.css';
 @import './component/pagination.css';
 @import './component/event.css';
 
