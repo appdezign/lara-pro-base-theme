@@ -61,14 +61,14 @@
 
 						@foreach($resrc->objects as $result)
 
-							<div class="grid grid-cols-12 gap-8 pt-4 pb-4" style="border-bottom:solid 1px #eee;">
-								<div class="col-span-12 sm:col-span-3">
+							<div class="grid grid-cols-12 responsive-gap-8 pt-4 pb-4" style="border-bottom:solid 1px #eee;">
+								<div class="col-span-12 md:col-span-3">
 									@if($result->hasFeatured())
 										<div class="aspect-4/3">
-											<img data-src="{!! glideUrl($result->featured()->path, 480, 360) !!}"
+											<img data-src="{!! glideUrl($result->featured()->path, 800, 600) !!}"
 											     alt="{{ $result->featured()->alt }}"
 											     title="{{ $result->featured()->title }}"
-											     width="480" height="360" class="lazyload"/>
+											     width="800" height="600" class="lazyload"/>
 										</div>
 									@else
 										<div class="flex h-full justify-center items-center bg-secondary">
@@ -76,7 +76,7 @@
 										</div>
 									@endif
 								</div>
-								<div class="col-span-12 sm:col-span-9">
+								<div class="col-span-12 md:col-span-9">
 
 									<h3 class="h4">
 										<a href="{{ route($result->routename, ['slug' => $result->slug]) }}">

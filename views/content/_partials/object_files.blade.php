@@ -1,7 +1,8 @@
-<p class="my-4 font-bold">{{ ucfirst(_q('lara-front::default.headers.related_files')) }}:</p>
+@if($data->object->files && $data->object->files->entity_files)
 
-<ul class="mb-8">
-	@if($data->object->files)
+	<p class="my-4 font-bold">{{ ucfirst(_q('lara-front::default.headers.related_files')) }}:</p>
+
+	<ul class="mb-8">
 		@foreach($data->object->files->entity_files as $objfile)
 			<li>
 				<a href="{{ $entity->getFileUrl( $objfile['doc_filename']) }}" target="_blank" class="block bg-secondary">
@@ -19,6 +20,6 @@
 				</a>
 			</li>
 		@endforeach
-	@endif
-</ul>
+	</ul>
 
+@endif

@@ -1,4 +1,4 @@
-@if(!empty($data->relatedObjects))
+@if($data->relatedObjects)
 
 	<div class="my-12 text-center">
 		<div class="border-b-1 border-b-gray-200"></div>
