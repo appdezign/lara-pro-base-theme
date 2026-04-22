@@ -1,14 +1,14 @@
 .gallery {
-	--si-gallery-overlay-bg: rgba(11,15,25,.4);
+	--si-gallery-overlay-bg: rgb(11 15 25 / 0.4);
 	--si-gallery-indicator-size: 2.5rem;
 	--si-gallery-image-indicator-color: #fff;
 	--si-gallery-video-indicator-bg: #fff;
 	--si-gallery-video-indicator-color: #33354d;
 	--si-gallery-video-indicator-font-size: 2rem;
-	--si-gallery-video-indicator-box-shadow: 0 0.275rem 0.75rem -0.0625rem rgba(11,15,25,.06),0 0.125rem 0.4rem -0.0625rem rgba(11,15,25,.03);
+	--si-gallery-video-indicator-box-shadow: 0 0.275rem 0.75rem -0.0625rem rgb(11 15 25 / 0.06),0 0.125rem 0.4rem -0.0625rem rgb(11 15 25 / 0.03);
 	--si-gallery-video-indicator-hover-bg: #6366f1;
 	--si-gallery-video-indicator-hover-color: #fff;
-	--si-gallery-video-indicator-hover-box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(99,102,241,.9)
+	--si-gallery-video-indicator-hover-box-shadow: 0 0.5rem 1.125rem -0.5rem rgb(99 102 241 / 0.9)
 }
 
 .gallery-item {

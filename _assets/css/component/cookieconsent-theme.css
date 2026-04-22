@@ -17,7 +17,7 @@
 	--cc-cookie-category-block-bg-hover: #dbe5f9;
 	--cc-section-border: #f1f3f5;
 	--cc-cookie-table-border: #e1e7f3;
-	--cc-overlay-bg: rgba(30, 40, 55, .75);
+	--cc-overlay-bg: rgb(30 40 55 / .75);
 	--cc-webkit-scrollbar-bg: #ebeff9;
 	--cc-webkit-scrollbar-bg-hover: #6366f1;
 }

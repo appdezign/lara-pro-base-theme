@@ -3,8 +3,8 @@
 .textarea:focus,.textarea:focus-within {
 	outline: none !important;
 	outline-offset: 0;
-	border-color: rgba(99,102,241,.6);
-	box-shadow: 0 .0625rem 0.25rem rgba(99,102,241,.12);
+	border-color: rgb(99 102 241 / 0.6);
+	box-shadow: 0 .0625rem 0.25rem rgb(99 102 241 / 0.12);
 }
 
 
