@@ -36,7 +36,7 @@
 		->id('logout-form')
 		->attributes(['accept-charset' => 'UTF-8'])
 		->open() }}
-	<hx:include src="/csrf/input"></hx:include>
+	@csrf
 	{{ html()->hidden('redirect', 'special.home.show') }}
 	{{ html()->form()->close() }}
 @endif
