@@ -165,7 +165,7 @@
 {{ html()->form()->close() }}
 
 <!-- Ajax response -->
-<div id="{{ $entity->getResourceSlug() }}-response" class="ajax-response d-none text-center"></div>
+<div id="{{ $entity->getResourceSlug() }}-response" class="ajax-response hidden text-center"></div>
 
 @section('scripts-after')
 
@@ -223,8 +223,8 @@
 							form.classList.add('fade');
 							// show response
 							setTimeout(() => {
-								form.classList.add('d-none');
-								ajaxResponse.classList.remove('d-none');
+								form.classList.add('hidden');
+								ajaxResponse.classList.remove('hidden');
 							}, 400);
 						} else {
 							ajaxResponse.style.color = "#C8004B";
