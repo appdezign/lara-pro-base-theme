@@ -10,11 +10,7 @@
 		->novalidate()
 		->open() }}
 
-@if(config('lara.httpcache_on_forms'))
-	<hx:include src="/csrf/input"></hx:include>
-@else
-	@csrf
-@endif
+@csrf
 
 <x-honeypot/>
 
