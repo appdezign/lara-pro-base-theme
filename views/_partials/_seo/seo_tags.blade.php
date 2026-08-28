@@ -1,4 +1,5 @@
 {{-- SEO head tags — <x-filarank::tags :model="$post" /> --}}
+
 @if ($data->seo->config['render']['title_tag'])
 	<title>{{ $data->seo->fullTitle }}</title>
 @endif
@@ -26,7 +27,7 @@
 		<meta property="og:url" content="{{ $data->seo->url }}">
 	@endif
 	@if (filled($data->seo->image))
-		<meta property="og:image" content="{{ $data->seo->image }}">
+		<meta property="og:image" content="{!! $data->seo->image !!}">
 	@endif
 @endif
 
@@ -37,7 +38,7 @@
 		<meta name="twitter:description" content="{{ $data->seo->description }}">
 	@endif
 	@if (filled($data->seo->image))
-		<meta name="twitter:image" content="{{ $data->seo->image }}">
+		<meta name="twitter:image" content="{!! $data->seo->image !!}">
 	@endif
 	@if (filled($data->seo->config['site']['twitter_handle']))
 		<meta name="twitter:site" content="{{ $data->seo->config['site']['twitter_handle'] }}">
