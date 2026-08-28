@@ -1,16 +1,11 @@
 <meta charset="utf-8">
-
-@include('_partials._seo.seo_title')
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {!! Theme::js('vendor/hinclude/hinclude.js') !!}
 
 @include('_partials._seo.language_versions')
 
-@include('_partials._seo.seo_meta_tags')
-
-@include('_partials._seo.og_meta_tags')
+@include('_partials._seo.seo_tags')
 
 @include('_partials._google.ga4')
 
