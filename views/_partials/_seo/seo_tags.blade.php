@@ -1,5 +1,3 @@
-{{-- SEO head tags — <x-filarank::tags :model="$post" /> --}}
-
 @if ($data->seo->config['render']['title_tag'])
 	<title>{{ $data->seo->fullTitle }}</title>
 @endif
