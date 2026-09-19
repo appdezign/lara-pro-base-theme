@@ -13,16 +13,16 @@
 
 				@if($data->singleEntity)
 
-					{{ html()->form('GET', route('special.search.modresult', ['module' => $data->singleEntity->getEntityKey()]))
+					{{ html()->form('GET', route('special.search.resourceresult', ['resource' => $data->singleEntity->getResourceSlug()]))
 						->attributes(['accept-charset' => 'UTF-8'])
 						->open() }}
 
-					<div class="grid grid-cols-12 form-group">
-						<div class="col-sm-10">
-							{{ html()->text('keywords', $data->keywords)->class('form-control') }}
+					<div class="grid grid-cols-12 gap-4">
+						<div class="col-span-12 sm:col-span-10">
+							{{ html()->text('keywords', $data->keywords)->class('input w-full') }}
 						</div>
-						<div class="col-sm-2">
-							{{ html()->button('Go', 'submit')->class('btn btn-primary') }}
+						<div class="col-span-12 sm:col-span-2">
+							{{ html()->button('Go', 'submit')->class('btn btn-primary w-full') }}
 						</div>
 					</div>
 
