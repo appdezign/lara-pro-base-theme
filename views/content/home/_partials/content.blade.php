@@ -1,3 +1,12 @@
+<?php
+	$about = null;
+	if(array_key_exists('about', $data->eroutes->page)) {
+		if(Route::has($data->eroutes->page['about'])) {
+			$about = $data->eroutes->page['about'];
+		}
+	}
+?>
+
 @if($data->object)
 
 	<div class="grid grid-cols-12 gap-4">
@@ -15,9 +24,9 @@
 
 					{!! $data->object->body !!}
 
-					@if(array_key_exists('about', $data->eroutes->page))
+					@if($about)
 						<div class="cta mt-8">
-						<a href="{{ route($data->eroutes->page['about']) }}"
+						<a href="{{ route($about) }}"
 						   class="btn btn-primary">More about us</a>
 						</div>
 					@endif
@@ -31,9 +40,9 @@
 
 					{!! $data->object->body !!}
 
-					@if(array_key_exists('about', $data->eroutes->page))
+					@if($about)
 						<div class="cta mt-8">
-							<a href="{{ route($data->eroutes->page['about']) }}"
+							<a href="{{ route($about) }}"
 							   class="btn btn-primary">More about us</a>
 						</div>
 					@endif

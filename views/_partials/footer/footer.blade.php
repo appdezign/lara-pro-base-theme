@@ -29,7 +29,7 @@
 	<div class="container">
 		<div class="flex flex-col md:flex-row justify-between py-6">
 			<div class="copyright opacity-80">
-				<p>&copy; {{ date('Y') }}, {{ $settngz->company_name }}</p>
+				<p>&copy; {{ date('Y') }}, {{ $globalsettings->company_name }}</p>
 			</div>
 			<div class="poweredby opacity-80">
 				<p>Powered by Lara CMS Pro v10</p>

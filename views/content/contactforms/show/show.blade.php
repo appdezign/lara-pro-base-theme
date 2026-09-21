@@ -45,7 +45,7 @@
 
 	@parent
 
-	@if($settngz->company_latitude && $settngz->company_longitude)
+	@if($globalsettings->company_latitude && $globalsettings->company_longitude)
 
 		<script>
 
@@ -53,9 +53,9 @@
 
 				// new test
 
-				var myLat = {{ $settngz->company_latitude }};
-				var myLong = {{ $settngz->company_longitude }};
-				var myZoom = {{ $settngz->google_maps_zoom }};
+				var myLat = {{ $globalsettings->company_latitude }};
+				var myLong = {{ $globalsettings->company_longitude }};
+				var myZoom = {{ $globalsettings->google_maps_zoom }};
 
 				var myLocation = {lat: myLat, lng: myLong};
 				var map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -64,10 +64,10 @@
 				});
 
 				var myInfo = '<div class="gmapInfoContent">' +
-					'<h5>{{ $settngz->company_name }}</h5>' +
-					'<p>{{ $settngz->company_street }} {{ $settngz->company_street_nr }}<br>' +
-					'{{ $settngz->company_pcode }} {{ $settngz->company_city }}<br>' +
-					'<a href="{{ $settngz->company_url }}">{{ $settngz->company_url }}</a></p>' +
+					'<h5>{{ $globalsettings->company_name }}</h5>' +
+					'<p>{{ $globalsettings->company_street }} {{ $globalsettings->company_street_nr }}<br>' +
+					'{{ $globalsettings->company_pcode }} {{ $globalsettings->company_city }}<br>' +
+					'<a href="{{ $globalsettings->company_url }}">{{ $globalsettings->company_url }}</a></p>' +
 					'</div>';
 
 				var infowindow = new google.maps.InfoWindow({
@@ -77,7 +77,7 @@
 				var marker = new google.maps.Marker({
 					position: myLocation,
 					map: map,
-					title: '{{ $settngz->company_name }}'
+					title: '{{ $globalsettings->company_name }}'
 				});
 				marker.addListener('click', function () {
 					infowindow.open(map, marker);
