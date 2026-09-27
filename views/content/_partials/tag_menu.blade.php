@@ -22,7 +22,7 @@
 
             <div class="mb-1" style="min-height:25px;">
                 @if($data->params->getFilterByTaxonomy())
-                    <a href="{{ route($activeroute->getPrefix().'.'.$entity->getResourceSlug().'.'.$activeroute->getMenuId().'.index') }}" style="display:block;">
+                    <a href="{{ route($activeroute->getMenuRoute()) }}" style="display:block;">
                         {{ _q('lara-app::default.tag.show_all') }}
                         {{ _q('lara-app::'.$entity->getResourceSlug().'.entity.entity_plural') }}
                     </a>

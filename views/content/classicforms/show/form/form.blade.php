@@ -13,7 +13,7 @@
 @endif
 
 
-{{ html()->form('POST', route('form.'.$entity->getResourceSlug() . '.' . $activeroute->getMenuId() . '.process'))
+{{ html()->form('POST', route($activeroute->getActiveRoute()))
         ->id($entity->getResourceSlug() . '-form')
         ->attributes(['accept-charset' => 'UTF-8'])
         ->class('lara-system-form needs-validation')
