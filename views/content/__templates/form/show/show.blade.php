@@ -2,28 +2,28 @@
 <?php if ($data->override) require($data->override); ?>
 
 <section class="{{ $grd->module }}">
-	<div class="{{ $grd->container }}">
+    <div class="{{ $grd->container }}">
 
-		<div class="grid grid-cols-12">
+        <div class="grid grid-cols-12">
 
-			{{-- Sidebar Left --}}
-			@includeWhen($grd->hasSidebarLeft, 'content._sidebars.left_default')
+            {{-- Sidebar Left --}}
+            @includeWhen($grd->hasSidebarLeft, 'content._sidebars.left_default')
 
-			<div class="{{ $grd->contentCols }} main-content">
+            <div class="{{ $grd->contentCols }} main-content">
 
-				<div class="grid grid-cols-12">
-					<div class="{{ $grd->gridColumns }}">
-						<h1>{{ $data->page->title }}</h1>
-						@include('content.' . $entity->getResourceSlug() . '.show.form.form')
-					</div>
-				</div>
+                <div class="grid grid-cols-12">
+                    <div class="{{ $grd->gridColumns }}">
+                        <h1>{{ $data->page->title }}</h1>
+                        @include('content.' . $entity->getResourceSlug() . '.show.form.form')
+                    </div>
+                </div>
 
-			</div>
+            </div>
 
-			{{-- Sidebar Right --}}
-			@includeWhen($grd->hasSidebarRight, 'content._sidebars.right_default')
+            {{-- Sidebar Right --}}
+            @includeWhen($grd->hasSidebarRight, 'content._sidebars.right_default')
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 </section>

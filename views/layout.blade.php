@@ -3,13 +3,13 @@
 
 <head>
 
-	<meta name="google" content="notranslate"/>
+    <meta name="google" content="notranslate"/>
 
-	@yield('head-before')
+    @yield('head-before')
 
-	@include('_main.html_header')
+    @include('_main.html_header')
 
-	@yield('head-after')
+    @yield('head-after')
 
 </head>
 
@@ -18,18 +18,18 @@
 
 <main class="page-wrapper">
 
-	@include('_partials.header.preview_bar')
-	@include('_partials.header.'.$data->layout->header)
+    @include('_partials.header.preview_bar')
+    @include('_partials.header.'.$data->layout->header)
 
-	@includeWhen($data->layout->hero, '_partials.hero.'.$data->layout->hero)
-	@includeWhen($data->layout->pagetitle, '_partials.pagetitle.'.$data->layout->pagetitle)
-	@includeWhen(isset($data->page), '_partials.pagehero.pagehero')
-	@include('_partials.misc.breadcrumb')
+    @includeWhen($data->layout->hero, '_partials.hero.'.$data->layout->hero)
+    @includeWhen($data->layout->pagetitle, '_partials.pagetitle.'.$data->layout->pagetitle)
+    @includeWhen(isset($data->page), '_partials.pagehero.pagehero')
+    @include('_partials.misc.breadcrumb')
 
-	@yield('content')
+    @yield('content')
 
-	@includeWhen($data->layout->share, '_partials.sharing.'.$data->layout->share)
-	@includeWhen($data->layout->cta, '_partials.cta.'.$data->layout->cta)
+    @includeWhen($data->layout->share, '_partials.sharing.'.$data->layout->share)
+    @includeWhen($data->layout->cta, '_partials.cta.'.$data->layout->cta)
 
 </main>
 
