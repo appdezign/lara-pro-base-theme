@@ -3,13 +3,13 @@
 
 <head>
 
-	<meta name="google" content="notranslate"/>
+    <meta name="google" content="notranslate"/>
 
-	@yield('head-before')
+    @yield('head-before')
 
-	@include('_main.html_header')
+    @include('_main.html_header')
 
-	@yield('head-after')
+    @yield('head-after')
 
 </head>
 
@@ -17,9 +17,9 @@
 
 <main class="page-wrapper">
 
-	@include('_partials.header.'.$data->layout->header)
+    @include('_partials.header.'.$data->layout->header)
 
-	@yield('content')
+    @yield('content')
 
 </main>
 

@@ -2,7 +2,7 @@
 
 @section('content')
 
-	@include('content.'.$entity->getResourceSlug().'.show.single')
+    @include('content.'.$entity->getResourceSlug().'.show.single')
 
 @endsection
 

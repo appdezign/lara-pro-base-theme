@@ -2,11 +2,11 @@
 <html>
 <head>
 
-	@yield('head-before')
+    @yield('head-before')
 
-	@include('_main.html_header_auth')
+    @include('_main.html_header_auth')
 
-	@yield('head-after')
+    @yield('head-after')
 
 </head>
 
@@ -15,7 +15,7 @@
 <div class="front-login-page-gradient-bg"></div>
 
 <main class="page-wrapper">
-	@yield('content')
+    @yield('content')
 </main>
 
 @yield('scripts-before')

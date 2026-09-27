@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Uptime Testpage</title>
+    <meta charset="UTF-8">
+    <title>Uptime Testpage</title>
 
-	<style>
+    <style>
 
-		body {
-			font-family: Helvetica, Arial, sans-serif;
-		}
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
 
-		h3 {
-			font-size: 20px;
-			font-weight: 400;
-		}
-		.wrapper {
-			margin: 100px auto 0 auto;
-			max-width: 1140px;
-			text-align: center;
+        h3 {
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .wrapper {
+            margin: 100px auto 0 auto;
+            max-width: 1140px;
+            text-align: center;
 
-		}
-	</style>
+        }
+    </style>
 
 </head>
 <body>
 
 <div class="wrapper">
-	<h3>The domain<br>{{ $data->domain }}<br>is up</h3>
+    <h3>The domain<br>{{ $data->domain }}<br>is up</h3>
 </div>
 
 </body>

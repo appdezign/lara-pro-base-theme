@@ -1,83 +1,83 @@
 @php
-	$req = ['data-error' => _q('lara-front::default.form.required'), 'required' => ''];
-	$emailreq = ['data-error' => _q('lara-front::default.form.email_is_invalid'), 'required' => ''];
+    $req = ['data-error' => _q('lara-front::default.form.required'), 'required' => ''];
+    $emailreq = ['data-error' => _q('lara-front::default.form.email_is_invalid'), 'required' => ''];
 @endphp
 
 <div class="text-end pb-6">
-	* = {{ _q('lara-front::default.form.required') }}
+    * = {{ _q('lara-front::default.form.required') }}
 </div>
 
 @if ($errors->any())
-	<div class="alert alert-danger">
-		<ul>
-			@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
-			@endforeach
-		</ul>
-	</div>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
 
 
 {{ html()->modelForm($data->object,
-			'PATCH',
-			route('special.user.saveprofile'))
-			->id('lara-default-edit-form')
-			->attributes(['accept-charset' => 'UTF-8'])
-			->class('needs-validation')
-			->novalidate()
-			->open() }}
+            'PATCH',
+            route('special.user.saveprofile'))
+            ->id('lara-default-edit-form')
+            ->attributes(['accept-charset' => 'UTF-8'])
+            ->class('needs-validation')
+            ->novalidate()
+            ->open() }}
 
 @csrf
 
 <fieldset class="fieldset w-full my-2">
-	<legend class="fieldset-legend">
-		{{ _q('lara-admin::users.column.email') }}
-	</legend>
-	<input type="email" name="email" id="email" class="input w-full" value="{{ $data->object->email }}" disabled/>
+    <legend class="fieldset-legend">
+        {{ _q('lara-admin::users.column.email') }}
+    </legend>
+    <input type="email" name="email" id="email" class="input w-full" value="{{ $data->object->email }}" disabled/>
 </fieldset>
 
 <fieldset class="fieldset w-full my-2">
-	<legend class="fieldset-legend">
-		{{ _q('lara-admin::users.column.name') }}
-	</legend>
-	{{ html()->text('name', null)
-		->class('input w-full')
-		->required() }}
+    <legend class="fieldset-legend">
+        {{ _q('lara-admin::users.column.name') }}
+    </legend>
+    {{ html()->text('name', null)
+        ->class('input w-full')
+        ->required() }}
 </fieldset>
 
 <fieldset class="fieldset w-full my-2">
-	<legend class="fieldset-legend">
-		{{ _q('lara-admin::users.column.firstname') }}
-	</legend>
-	{{ html()->text('firstname', null)
-		->class('input w-full')
-		->required() }}
+    <legend class="fieldset-legend">
+        {{ _q('lara-admin::users.column.firstname') }}
+    </legend>
+    {{ html()->text('firstname', null)
+        ->class('input w-full')
+        ->required() }}
 </fieldset>
 
 <fieldset class="fieldset w-full my-2">
-	<legend class="fieldset-legend">
-		{{ _q('lara-admin::users.column.middlename') }}
-	</legend>
-	{{ html()->text('middlename', null)
-		->class('input w-full')
-		->required() }}
+    <legend class="fieldset-legend">
+        {{ _q('lara-admin::users.column.middlename') }}
+    </legend>
+    {{ html()->text('middlename', null)
+        ->class('input w-full')
+        ->required() }}
 </fieldset>
 
 <fieldset class="fieldset w-full my-2">
-	<legend class="fieldset-legend">
-		{{ _q('lara-admin::users.column.lastname') }}
-	</legend>
-	{{ html()->text('lastname', null)
-		->class('input w-full')
-		->required() }}
+    <legend class="fieldset-legend">
+        {{ _q('lara-admin::users.column.lastname') }}
+    </legend>
+    {{ html()->text('lastname', null)
+        ->class('input w-full')
+        ->required() }}
 </fieldset>
 
 <fieldset class="fieldset w-full my-2">
-	<legend class="fieldset-legend">
-		{{ _q('lara-admin::users.column.new_password') }}
-	</legend>
-	{{ html()->password('_password')->class('input w-full')->attributes(['autocomplete' => 'new-password']) }}
+    <legend class="fieldset-legend">
+        {{ _q('lara-admin::users.column.new_password') }}
+    </legend>
+    {{ html()->password('_password')->class('input w-full')->attributes(['autocomplete' => 'new-password']) }}
 </fieldset>
 
 {{ html()->hidden('_ipaddress', Request::ip()) }}

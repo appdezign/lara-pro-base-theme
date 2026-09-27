@@ -1,11 +1,11 @@
 <div class="col-span-12 {{ $data->grid->leftCols }}">
 
-	<aside>
+    <aside>
 
-		<div>
-			@include('content._partials.tag_menu')
-		</div>
+        <div>
+            @include('content._partials.tag_menu')
+        </div>
 
-	</aside>
+    </aside>
 
 </div>
