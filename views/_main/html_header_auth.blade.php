@@ -1,6 +1,5 @@
 <meta charset="utf-8">
-
-<title>Lara {{ $laraversion->major }}</title>
+<title>Lara {{ $globalsettings->lara_version_major }}</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

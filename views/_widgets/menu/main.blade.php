@@ -1,5 +1,5 @@
 @if($tree)
-	@foreach($tree as $node)
-		@include('_widgets.menu.menu_render', $node)
-	@endforeach
+    @foreach($tree as $node)
+        @include('_widgets.menu.menu_render', $node)
+    @endforeach
 @endif

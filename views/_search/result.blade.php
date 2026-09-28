@@ -2,7 +2,7 @@
 
 @section('content')
 
-	@include('_search.result.result')
+    @include('_search.result.result')
 
 @endsection
 

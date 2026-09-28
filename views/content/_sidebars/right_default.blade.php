@@ -1,7 +1,7 @@
-	<div class="{{ $data->grid->rightCols }}">
-		<aside>
+    <div class="{{ $data->grid->rightCols }}">
+        <aside>
 
-			@include('larawidget', ['hook' => 'sidebar_right'])
+            @include('larawidget', ['hook' => 'sidebar_right'])
 
-		</aside>
-	</div>
+        </aside>
+    </div>

@@ -2,6 +2,6 @@
 
 @section('content')
 
-	@include('_search.show.show')
+    @include('_search.show.show')
 
 @endsection

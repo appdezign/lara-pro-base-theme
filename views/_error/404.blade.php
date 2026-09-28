@@ -2,7 +2,7 @@
 
 @section('content')
 
-	@include('_error.show.single')
+    @include('_error.show.single')
 
 @endsection
 
