@@ -41,8 +41,8 @@
 
                                 @if(!empty($widgetslider->url))
                                     <div class="scale-up delay-1s">
-                                        <a href="{{ $widgetslider->url }}" class="btn btn-lg btn-primary">
-                                            {{ $widgetslider->urltitle }}
+                                        <a href="{{ $widgetslider->url }}" class="btn btn-lg btn-primary" title="{{ $widgetslider->urltitle }}">
+                                            {{ $widgetslider->urltext }}
                                         </a>
                                     </div>
                                 @endif
