@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-@source '../../../../storage/framework/views/*.php';
-
 /* this theme */
 @source '../../views/**/*.php';
 @source '../../_assets/css/**/*.css';
