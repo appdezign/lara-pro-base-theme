@@ -9,7 +9,7 @@
 
 		.menu {
 			@apply text-base font-semibold;
-			&.menu.menu-horizontal {
+			&.menu-horizontal {
 				@apply p-0;
 				.menu-link {
 					@apply block px-3 py-4 hover:bg-transparent hover:text-primary;
@@ -50,6 +50,41 @@
 		}
 	}
 
+}
+
+/* level 2 and 3 */
+.drawer {
+	.navbar {
+		.menu {
+			&.menu-horizontal {
+				.dropdown.dropdown-hover {
+					.dropdown.dropdown-hover {
+						a.menu-dropdown-toggle {
+							padding-inline: calc(var(--spacing) * 4) !important;
+							padding-block: calc(var(--spacing) * 2) !important;
+							font-size: 0.875rem;
+							font-weight: 600;
+							color: var(--color-base-content);
+							border: none;
+							justify-content: space-between;
+							svg {
+								transform: rotate(-90deg);
+							}
+							&:hover {
+								color: var(--color-primary);
+							}
+						}
+						/* flyout level 3 */
+						.menu.dropdown-content {
+							position: absolute;
+							left: 100%;
+							top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .navbar-stuck {
