@@ -1,5 +1,36 @@
-.lara-hero-height {
-	height: calc(100vh - 76px) !important;
+:root {
+	--header-height: 76px;
+}
+
+.hero-h100 {
+	height: calc(100vh - var(--header-height)) !important;
+}
+.hero-h90 {
+	height: calc(90vh - var(--header-height)) !important;
+}
+.hero-h80 {
+	height: calc(80vh - var(--header-height)) !important;
+}
+.hero-h70 {
+	height: calc(70vh - var(--header-height)) !important;
+}
+.hero-h60 {
+	height: calc(60vh - var(--header-height)) !important;
+}
+.hero-h50 {
+	height: calc(50vh - var(--header-height)) !important;
+}
+.hero-h40 {
+	height: calc(40vh - var(--header-height)) !important;
+}
+.hero-h30 {
+	height: calc(30vh - var(--header-height)) !important;
+}
+.hero-h20 {
+	height: calc(20vh - var(--header-height)) !important;
+}
+.hero-h10 {
+	height: calc(10vh - var(--header-height)) !important;
 }
 
 .lara-hero {
@@ -88,4 +119,8 @@
 	.fade-in {
 		opacity: 1;
 	}
+}
+
+.hero-caption-bg {
+	background: linear-gradient(0deg,rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
 }

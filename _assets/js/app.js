@@ -473,14 +473,16 @@ import lgFullscreen from 'lightgallery/plugins/fullscreen';
 (function () {
 	document.addEventListener('DOMContentLoaded', function () {
 		// Mobile dropdown toggle
-		const mobileDropdownButton = document.querySelector('.mobile-menu-dropdown-toggle');
-		const mobileDropdownMenu = document.querySelector('.mobile-menu-dropdown-content');
+		document.querySelectorAll('.mobile-menu-dropdown-toggle').forEach(button => {
+			const dropdownMenu = button.nextElementSibling;
 
-		if (mobileDropdownButton) {
-			mobileDropdownButton.addEventListener('click', function () {
-				mobileDropdownMenu.classList.toggle('hidden');
-			});
-		}
+			if (dropdownMenu && dropdownMenu.classList.contains('mobile-menu-dropdown-content')) {
+				button.addEventListener('click', function (event) {
+					event.preventDefault();
+					dropdownMenu.classList.toggle('hidden');
+				});
+			}
+		});
 	});
 })();
 

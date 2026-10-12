@@ -42,7 +42,8 @@
                             <ul>
                                 @foreach($data->children as $child)
                                     <li>
-                                        <a href="{{ route($activeroute->getPrefix() .'.' . $entity->getResourceSlug() . '.'. $child->route . '.index') }}">{{ $child->title }}</a>
+                                        @php($childRoute = $activeroute->getTagRoute($child->route))
+                                        <a @if($childRoute) href="{{ route($childRoute) }}" @endif>{{ $child->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

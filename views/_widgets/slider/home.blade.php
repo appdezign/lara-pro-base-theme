@@ -18,7 +18,7 @@
                     "nextEl": ".swiper-button-next"
                 }
             }'>
-        <div class="swiper-wrapper lara-hero lara-hero-height" data-theme="dark">
+        <div class="swiper-wrapper lara-hero {{ $sliderclass }}" data-theme="dark">
 
             @foreach($widgetsliders as $widgetslider)
                 <!-- Hero Item start -->
@@ -26,28 +26,40 @@
                      style="background-image: url('{!! glideUrl($widgetslider->featured()->path, 1920, 960) !!}');">
 
                     <div class="hero h-full">
-                        <div class="lara-overlay bg-{{ $widgetslider->overlaycolor }}-alfa-{{ $widgetslider->overlaytransp }}"></div>
-                        <div class="hero-content text-center">
-                            <div class="max-w-3xl">
-                                <h2 class="heading mb-5 text-3xl md:text-4xl/12 lg:text-5xl/20 xl:text-6xl/20  font-bold from-start">
-                                    {{ $widgetslider->title }}
-                                </h2>
 
-                                <div class="mb-12 px-16 lg:px-24 from-end">
-                                    <p>
-                                        {{ strip_tags($widgetslider->payoff) }}
-                                    </p>
-                                </div>
+                        @if($widgetslider->type == 'payoff')
 
-                                @if(!empty($widgetslider->url))
-                                    <div class="scale-up delay-1s">
-                                        <a href="{{ $widgetslider->url }}" class="btn btn-lg btn-primary" title="{{ $widgetslider->urltitle }}">
-                                            {{ $widgetslider->urltext }}
-                                        </a>
+                            <div class="lara-overlay bg-{{ $widgetslider->overlaycolor }}-alfa-{{ $widgetslider->overlaytransp }}"></div>
+                            <div class="hero-content text-center">
+                                <div class="max-w-3xl">
+                                    <h2 class="heading mb-5 text-3xl md:text-4xl/12 lg:text-5xl/20 xl:text-6xl/20  font-bold from-start">
+                                        {{ $widgetslider->title }}
+                                    </h2>
+
+                                    <div class="mb-12 px-16 lg:px-24 from-end">
+                                        <p>
+                                            {{ strip_tags($widgetslider->payoff) }}
+                                        </p>
                                     </div>
-                                @endif
+
+                                    @if(!empty($widgetslider->url))
+                                        <div class="scale-up delay-1s">
+                                            <a href="{{ $widgetslider->url }}" class="btn btn-lg btn-primary" title="{{ $widgetslider->urltitle }}">
+                                                {{ $widgetslider->urltext }}
+                                            </a>
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
+                        @elseif($widgetslider->type == 'caption')
+
+                            <div class="hero-caption-bg absolute bottom-0 w-full h-[200]">
+                                <div class="hero-caption absolute bottom-0 w-full py-4 text-2xl font-light text-center">
+                                    {!! $widgetslider->caption !!}
+                                </div>
+                            </div>
+
+                        @endif
                     </div>
 
                 </div>

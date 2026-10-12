@@ -45,9 +45,63 @@
 				<isDefault>true</isDefault>
 			</item>
 			<item>
-				<itemKey>hero_slider</itemKey>
-				<friendlyName>Hero Slider</friendlyName>
-				<partialFile>hero_slider</partialFile>
+				<itemKey>hero_slider_10</itemKey>
+				<friendlyName>Hero Slider 10</friendlyName>
+				<partialFile>hero_slider_10</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_20</itemKey>
+				<friendlyName>Hero Slider 20</friendlyName>
+				<partialFile>hero_slider_20</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_30</itemKey>
+				<friendlyName>Hero Slider 30</friendlyName>
+				<partialFile>hero_slider_30</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_40</itemKey>
+				<friendlyName>Hero Slider 40</friendlyName>
+				<partialFile>hero_slider_40</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_50</itemKey>
+				<friendlyName>Hero Slider 50</friendlyName>
+				<partialFile>hero_slider_50</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_60</itemKey>
+				<friendlyName>Hero Slider 60</friendlyName>
+				<partialFile>hero_slider_60</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_70</itemKey>
+				<friendlyName>Hero Slider 70</friendlyName>
+				<partialFile>hero_slider_70</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_80</itemKey>
+				<friendlyName>Hero Slider 80</friendlyName>
+				<partialFile>hero_slider_80</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_90</itemKey>
+				<friendlyName>Hero Slider 90</friendlyName>
+				<partialFile>hero_slider_90</partialFile>
+				<isDefault>false</isDefault>
+			</item>
+			<item>
+				<itemKey>hero_slider_100</itemKey>
+				<friendlyName>Hero Slider 100</friendlyName>
+				<partialFile>hero_slider_100</partialFile>
 				<isDefault>false</isDefault>
 			</item>
 		</items>
