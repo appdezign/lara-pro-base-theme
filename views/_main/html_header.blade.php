@@ -7,8 +7,6 @@
 
 @include('_partials._seo.seo_tags')
 
-@include('_partials._google.ga4')
-
 <!-- Favicon and Touch Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="{{ Theme::url('favicon/apple-touch-icon.png') }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ Theme::url('favicon/favicon-32x32.png') }}">
@@ -23,3 +21,5 @@
 
 {{ Vite::useBuildDirectory('assets/themes/' . config('theme.active')) }}
 @vite(['laracms/themes/' . config('theme.active') . '/_assets/css/app.css'])
+
+<x-consent::head />
