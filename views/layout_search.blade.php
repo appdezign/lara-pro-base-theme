@@ -29,8 +29,6 @@
 @include('_main.html_footer')
 @yield('scripts-after')
 
-@include('_scripts.cookieconsent')
-
 </body>
 </html>
 
