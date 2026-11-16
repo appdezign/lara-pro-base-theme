@@ -21,7 +21,7 @@
 
                 <div class="card bg-white shadow-lg rounded-xl py-4 sm:p-6 md:p-8">
                     <div class="card-body relative z-2 p-6">
-                        <h2 class="mb-4">Get in touch</h2>
+                        <h2 class="mb-4">{{ ucfirst(_q('lara-front::default.headers.contact_form')) }}</h2>
                         @include('content.' . $entity->getResourceSlug() . '.show.form.form')
                     </div>
                 </div>

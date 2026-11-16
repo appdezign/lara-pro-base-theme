@@ -3,16 +3,20 @@
     $htag = ($node->depth < 6) ? $node->depth + 2 : 6;
     $htagopen = '<h' . $htag .' class="card-title">';
     $htagclose = '</h' . $htag .' class="card-title">';
+    // the root tag that core creates per taxonomy (no slug, title "root"); top-level tags of a tree without a root are shown
+    $isRootTag = $node->depth == 0 && (empty($node->slug) || $node->title === 'root');
 @endphp
 
+{{-- only tags with objects in themselves or below; the root tag has no heading or card --}}
+@if($node->childobjectcount > 0)
 <li class="{{ $nodeclass }}">
 
-    @if(empty($data->menutag) || $node->id == $data->menutag->id)
+    @if(! $isRootTag && (empty($data->menutag) || $node->id == $data->menutag->id))
 
         <div class="card shadow-md mb-8">
             <div class="card-body">
                 {!! $htagopen !!}{{ $node->title }}{!! $htagclose !!}
-                @if($node->objects->count() > 0)
+                @if($node->objects?->count() > 0)
                     <div class="card mb-12">
                         @foreach($node->objects as $obj)
                             @include('content.' . $entity->getResourceSlug() . '.index.object.'.$data->params->getVType().'_object')
@@ -37,4 +41,4 @@
         </ul>
     @endif
 </li>
-
+@endif
