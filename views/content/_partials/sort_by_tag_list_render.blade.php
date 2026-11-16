@@ -3,15 +3,13 @@
     $htag = ($node->depth < 6) ? $node->depth + 2 : 6;
     $htagopen = '<h' . $htag .' class="card-title">';
     $htagclose = '</h' . $htag .' class="card-title">';
-    // the root tag that core creates per taxonomy (no slug, title "root"); top-level tags of a tree without a root are shown
-    $isRootTag = $node->depth == 0 && (empty($node->slug) || $node->title === 'root');
 @endphp
 
-{{-- only tags with objects in themselves or below; the root tag has no heading or card --}}
-@if($node->childobjectcount > 0)
+{{-- only published tags with objects in themselves or below (v10 has no root tag: the top-level tags are real tags) --}}
+@if($node->publish == 1 && $node->childobjectcount > 0)
 <li class="{{ $nodeclass }}">
 
-    @if(! $isRootTag && (empty($data->menutag) || $node->id == $data->menutag->id))
+    @if(empty($data->menutag) || $node->id == $data->menutag->id)
 
         <div class="card shadow-md mb-8">
             <div class="card-body">
