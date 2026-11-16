@@ -1,6 +1,12 @@
 :root {
 	--prim-col: 60 80 140;
 	--dark-col: 0 0 0;
+	--light-col: 255 255 255;
+	/* brand colours of the overlays offered in the admin (CTA: brand, slider: brand1-3); a client theme sets its own */
+	--brand-col: var(--prim-col);
+	--brand1-col: var(--brand-col);
+	--brand2-col: var(--brand-col);
+	--brand3-col: var(--brand-col);
 }
 
 .lara-overlay {
@@ -128,9 +134,297 @@
 	background-color: rgb(var(--dark-col) / 0.95);
 }
 
+/* white transparent background */
+.bg-white-alfa-5 {
+	background-color: rgb(var(--light-col) / 0.05);
+}
+.bg-white-alfa-10 {
+	background-color: rgb(var(--light-col) / 0.10);
+}
+.bg-white-alfa-15 {
+	background-color: rgb(var(--light-col) / 0.15);
+}
+.bg-white-alfa-20 {
+	background-color: rgb(var(--light-col) / 0.20);
+}
+.bg-white-alfa-25 {
+	background-color: rgb(var(--light-col) / 0.25);
+}
+.bg-white-alfa-30 {
+	background-color: rgb(var(--light-col) / 0.30);
+}
+.bg-white-alfa-35 {
+	background-color: rgb(var(--light-col) / 0.35);
+}
+.bg-white-alfa-40 {
+	background-color: rgb(var(--light-col) / 0.40);
+}
+.bg-white-alfa-45 {
+	background-color: rgb(var(--light-col) / 0.45);
+}
+.bg-white-alfa-50 {
+	background-color: rgb(var(--light-col) / 0.50);
+}
+.bg-white-alfa-55 {
+	background-color: rgb(var(--light-col) / 0.55);
+}
+.bg-white-alfa-60 {
+	background-color: rgb(var(--light-col) / 0.60);
+}
+.bg-white-alfa-65 {
+	background-color: rgb(var(--light-col) / 0.65);
+}
+.bg-white-alfa-70 {
+	background-color: rgb(var(--light-col) / 0.70);
+}
+.bg-white-alfa-75 {
+	background-color: rgb(var(--light-col) / 0.75);
+}
+.bg-white-alfa-80 {
+	background-color: rgb(var(--light-col) / 0.80);
+}
+.bg-white-alfa-85 {
+	background-color: rgb(var(--light-col) / 0.85);
+}
+.bg-white-alfa-90 {
+	background-color: rgb(var(--light-col) / 0.90);
+}
+.bg-white-alfa-95 {
+	background-color: rgb(var(--light-col) / 0.95);
+}
 
+/* brand transparent background */
+.bg-brand-alfa-5 {
+	background-color: rgb(var(--brand-col) / 0.05);
+}
+.bg-brand-alfa-10 {
+	background-color: rgb(var(--brand-col) / 0.10);
+}
+.bg-brand-alfa-15 {
+	background-color: rgb(var(--brand-col) / 0.15);
+}
+.bg-brand-alfa-20 {
+	background-color: rgb(var(--brand-col) / 0.20);
+}
+.bg-brand-alfa-25 {
+	background-color: rgb(var(--brand-col) / 0.25);
+}
+.bg-brand-alfa-30 {
+	background-color: rgb(var(--brand-col) / 0.30);
+}
+.bg-brand-alfa-35 {
+	background-color: rgb(var(--brand-col) / 0.35);
+}
+.bg-brand-alfa-40 {
+	background-color: rgb(var(--brand-col) / 0.40);
+}
+.bg-brand-alfa-45 {
+	background-color: rgb(var(--brand-col) / 0.45);
+}
+.bg-brand-alfa-50 {
+	background-color: rgb(var(--brand-col) / 0.50);
+}
+.bg-brand-alfa-55 {
+	background-color: rgb(var(--brand-col) / 0.55);
+}
+.bg-brand-alfa-60 {
+	background-color: rgb(var(--brand-col) / 0.60);
+}
+.bg-brand-alfa-65 {
+	background-color: rgb(var(--brand-col) / 0.65);
+}
+.bg-brand-alfa-70 {
+	background-color: rgb(var(--brand-col) / 0.70);
+}
+.bg-brand-alfa-75 {
+	background-color: rgb(var(--brand-col) / 0.75);
+}
+.bg-brand-alfa-80 {
+	background-color: rgb(var(--brand-col) / 0.80);
+}
+.bg-brand-alfa-85 {
+	background-color: rgb(var(--brand-col) / 0.85);
+}
+.bg-brand-alfa-90 {
+	background-color: rgb(var(--brand-col) / 0.90);
+}
+.bg-brand-alfa-95 {
+	background-color: rgb(var(--brand-col) / 0.95);
+}
 
+/* brand 1 transparent background */
+.bg-brand1-alfa-5 {
+	background-color: rgb(var(--brand1-col) / 0.05);
+}
+.bg-brand1-alfa-10 {
+	background-color: rgb(var(--brand1-col) / 0.10);
+}
+.bg-brand1-alfa-15 {
+	background-color: rgb(var(--brand1-col) / 0.15);
+}
+.bg-brand1-alfa-20 {
+	background-color: rgb(var(--brand1-col) / 0.20);
+}
+.bg-brand1-alfa-25 {
+	background-color: rgb(var(--brand1-col) / 0.25);
+}
+.bg-brand1-alfa-30 {
+	background-color: rgb(var(--brand1-col) / 0.30);
+}
+.bg-brand1-alfa-35 {
+	background-color: rgb(var(--brand1-col) / 0.35);
+}
+.bg-brand1-alfa-40 {
+	background-color: rgb(var(--brand1-col) / 0.40);
+}
+.bg-brand1-alfa-45 {
+	background-color: rgb(var(--brand1-col) / 0.45);
+}
+.bg-brand1-alfa-50 {
+	background-color: rgb(var(--brand1-col) / 0.50);
+}
+.bg-brand1-alfa-55 {
+	background-color: rgb(var(--brand1-col) / 0.55);
+}
+.bg-brand1-alfa-60 {
+	background-color: rgb(var(--brand1-col) / 0.60);
+}
+.bg-brand1-alfa-65 {
+	background-color: rgb(var(--brand1-col) / 0.65);
+}
+.bg-brand1-alfa-70 {
+	background-color: rgb(var(--brand1-col) / 0.70);
+}
+.bg-brand1-alfa-75 {
+	background-color: rgb(var(--brand1-col) / 0.75);
+}
+.bg-brand1-alfa-80 {
+	background-color: rgb(var(--brand1-col) / 0.80);
+}
+.bg-brand1-alfa-85 {
+	background-color: rgb(var(--brand1-col) / 0.85);
+}
+.bg-brand1-alfa-90 {
+	background-color: rgb(var(--brand1-col) / 0.90);
+}
+.bg-brand1-alfa-95 {
+	background-color: rgb(var(--brand1-col) / 0.95);
+}
 
+/* brand 2 transparent background */
+.bg-brand2-alfa-5 {
+	background-color: rgb(var(--brand2-col) / 0.05);
+}
+.bg-brand2-alfa-10 {
+	background-color: rgb(var(--brand2-col) / 0.10);
+}
+.bg-brand2-alfa-15 {
+	background-color: rgb(var(--brand2-col) / 0.15);
+}
+.bg-brand2-alfa-20 {
+	background-color: rgb(var(--brand2-col) / 0.20);
+}
+.bg-brand2-alfa-25 {
+	background-color: rgb(var(--brand2-col) / 0.25);
+}
+.bg-brand2-alfa-30 {
+	background-color: rgb(var(--brand2-col) / 0.30);
+}
+.bg-brand2-alfa-35 {
+	background-color: rgb(var(--brand2-col) / 0.35);
+}
+.bg-brand2-alfa-40 {
+	background-color: rgb(var(--brand2-col) / 0.40);
+}
+.bg-brand2-alfa-45 {
+	background-color: rgb(var(--brand2-col) / 0.45);
+}
+.bg-brand2-alfa-50 {
+	background-color: rgb(var(--brand2-col) / 0.50);
+}
+.bg-brand2-alfa-55 {
+	background-color: rgb(var(--brand2-col) / 0.55);
+}
+.bg-brand2-alfa-60 {
+	background-color: rgb(var(--brand2-col) / 0.60);
+}
+.bg-brand2-alfa-65 {
+	background-color: rgb(var(--brand2-col) / 0.65);
+}
+.bg-brand2-alfa-70 {
+	background-color: rgb(var(--brand2-col) / 0.70);
+}
+.bg-brand2-alfa-75 {
+	background-color: rgb(var(--brand2-col) / 0.75);
+}
+.bg-brand2-alfa-80 {
+	background-color: rgb(var(--brand2-col) / 0.80);
+}
+.bg-brand2-alfa-85 {
+	background-color: rgb(var(--brand2-col) / 0.85);
+}
+.bg-brand2-alfa-90 {
+	background-color: rgb(var(--brand2-col) / 0.90);
+}
+.bg-brand2-alfa-95 {
+	background-color: rgb(var(--brand2-col) / 0.95);
+}
 
-
-
+/* brand 3 transparent background */
+.bg-brand3-alfa-5 {
+	background-color: rgb(var(--brand3-col) / 0.05);
+}
+.bg-brand3-alfa-10 {
+	background-color: rgb(var(--brand3-col) / 0.10);
+}
+.bg-brand3-alfa-15 {
+	background-color: rgb(var(--brand3-col) / 0.15);
+}
+.bg-brand3-alfa-20 {
+	background-color: rgb(var(--brand3-col) / 0.20);
+}
+.bg-brand3-alfa-25 {
+	background-color: rgb(var(--brand3-col) / 0.25);
+}
+.bg-brand3-alfa-30 {
+	background-color: rgb(var(--brand3-col) / 0.30);
+}
+.bg-brand3-alfa-35 {
+	background-color: rgb(var(--brand3-col) / 0.35);
+}
+.bg-brand3-alfa-40 {
+	background-color: rgb(var(--brand3-col) / 0.40);
+}
+.bg-brand3-alfa-45 {
+	background-color: rgb(var(--brand3-col) / 0.45);
+}
+.bg-brand3-alfa-50 {
+	background-color: rgb(var(--brand3-col) / 0.50);
+}
+.bg-brand3-alfa-55 {
+	background-color: rgb(var(--brand3-col) / 0.55);
+}
+.bg-brand3-alfa-60 {
+	background-color: rgb(var(--brand3-col) / 0.60);
+}
+.bg-brand3-alfa-65 {
+	background-color: rgb(var(--brand3-col) / 0.65);
+}
+.bg-brand3-alfa-70 {
+	background-color: rgb(var(--brand3-col) / 0.70);
+}
+.bg-brand3-alfa-75 {
+	background-color: rgb(var(--brand3-col) / 0.75);
+}
+.bg-brand3-alfa-80 {
+	background-color: rgb(var(--brand3-col) / 0.80);
+}
+.bg-brand3-alfa-85 {
+	background-color: rgb(var(--brand3-col) / 0.85);
+}
+.bg-brand3-alfa-90 {
+	background-color: rgb(var(--brand3-col) / 0.90);
+}
+.bg-brand3-alfa-95 {
+	background-color: rgb(var(--brand3-col) / 0.95);
+}
