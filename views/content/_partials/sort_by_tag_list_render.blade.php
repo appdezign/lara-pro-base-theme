@@ -2,7 +2,7 @@
     $nodeclass = $node->isLeaf() ? 'isLeaf' : 'hasChildren';
     $htag = ($node->depth < 6) ? $node->depth + 2 : 6;
     $htagopen = '<h' . $htag .' class="card-title">';
-    $htagclose = '</h' . $htag .' class="card-title">';
+    $htagclose = '</h' . $htag .'>';
 @endphp
 
 {{-- only published tags with objects in themselves or below (v10 has no root tag: the top-level tags are real tags) --}}
