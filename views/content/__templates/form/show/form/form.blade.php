@@ -175,6 +175,9 @@
             class="btn btn-lg btn-info float-end">
         {{ _q('lara-app::'.$entity->getResourceSlug().'.button.submit') }}
     </button>
+    <template id="{{ $entity->getResourceSlug() }}-submit-spinner">
+        <x-bi-arrow-clockwise class="h-5 w-5 animate-spin"/>
+    </template>
 </div>
 
 {{ html()->form()->close() }}
@@ -216,7 +219,7 @@
                     @if(config('app.env') == 'production' && config('lara.google_recaptcha_site_key'))
                     bodyFormData.append('rcresponse', grecaptcha.getResponse());
                     @endif
-                        submit.innerHTML = '<i class="fas fa-spinner fa-spin"></i>'
+                        submit.innerHTML = document.getElementById('{{ $entity->getResourceSlug() }}-submit-spinner').innerHTML
 
                     axios({
                         method: "post",
