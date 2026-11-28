@@ -60,6 +60,8 @@
                         </div>
 
                         @foreach($resrc->objects as $result)
+                            {{-- a page has no detail route: core gives it its menu url (searchurl) --}}
+                            @php($resultUrl = $result->searchurl ?? route($result->routename, ['slug' => $result->slug]))
 
                             <div class="grid grid-cols-12 responsive-gap-8 pt-4 pb-4" style="border-bottom:solid 1px #eee;">
                                 <div class="col-span-12 md:col-span-3">
@@ -79,7 +81,7 @@
                                 <div class="col-span-12 md:col-span-9">
 
                                     <h3 class="h4">
-                                        <a href="{{ route($result->routename, ['slug' => $result->slug]) }}">
+                                        <a href="{{ $resultUrl }}">
                                             {{ $result->title }}
                                         </a>
                                     </h3>
@@ -89,7 +91,7 @@
                                     @elseif(!empty($result->lead))
                                         <p>{!! substr(strip_tags($result->lead),0,150) !!} ...</p>
                                     @endif
-                                    <a href="{{ route($result->routename, ['slug' => $result->slug]) }}" class="text-primary">
+                                    <a href="{{ $resultUrl }}" class="text-primary">
                                         lees meer
                                     </a>
 
